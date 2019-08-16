@@ -1,8 +1,5 @@
 ﻿using System;
 using LoggerClassLibrary;
-using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
-using System.IO;
 
 namespace CoreTasks
 {
@@ -11,8 +8,7 @@ namespace CoreTasks
 
         static void Main(string[] args)
         {
-            var startUp = new StartUp();
-            var log = new Logger(startUp.DictSettings);
+            var log = Logger.CreateInstance();
 
             //----Tests----
             log.Error(new OutOfMemoryException());

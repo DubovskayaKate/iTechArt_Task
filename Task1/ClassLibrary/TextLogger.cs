@@ -1,37 +1,35 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LoggerClassLibrary
 {
     class TextLogger : ILogger
     {
-        private string filePath;
+        private readonly string _filePath;
 
         public TextLogger(string path = @"information.log")
         {
-            this.filePath = path;
+            this._filePath = path;
         }
 
         public void Error(Exception ex)
         {
-            File.AppendAllText(filePath, $"Error message: {ex.Message}\n");
+            File.AppendAllText(_filePath, $"Error message: {ex.Message}\n");
         }
 
         public void Error(string message)
         {
-            File.AppendAllText(filePath, $"Error: {message}\n");
+            File.AppendAllText(_filePath, $"Error: {message}\n");
         }
 
         public void Info(string message)
         {
-            File.AppendAllText(filePath, $"Info: {message}\n");
+            File.AppendAllText(_filePath, $"Info: {message}\n");
         }
 
         public void Warning(string message)
         {
-            File.AppendAllText(filePath, $"Warning: {message}\n");
+            File.AppendAllText(_filePath, $"Warning: {message}\n");
         }
     }
 }

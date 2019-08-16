@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using System.IO;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
-namespace CoreTasks
+namespace LoggerClassLibrary
 {
     class StartUp
     {
@@ -23,7 +22,8 @@ namespace CoreTasks
 
             IConfigurationRoot configuration = builder.Build();
 
-            if (configuration.GetSection("Logging").Value == null)
+
+            if (configuration.GetSection("Logging").GetChildren().Count() == 0)
             {
                 DictSettings["Info"].Add("ConsoleLogger" );
                 DictSettings["Warning"].Add("ConsoleLogger");
