@@ -2,7 +2,7 @@
 
 namespace LoggerClassLibrary
 {
-    interface ILogger
+    public interface ILogger
     {
         void Error(string message);
         void Error(Exception ex);

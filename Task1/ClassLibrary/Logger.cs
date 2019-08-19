@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace LoggerClassLibrary
 {
@@ -28,8 +30,14 @@ namespace LoggerClassLibrary
         private Logger()
         {
             var startUp = new StartUp();
-            destinationNameToObjectDictionary.Add("ConsoleLogger", new ConsoleLogger());
-            destinationNameToObjectDictionary.Add("TextLogger", new TextLogger());
+
+            var typeILogger = typeof(ILogger);
+            Assembly assembly = typeof(ILogger).Module.Assembly;
+            destinationNameToObjectDictionary = assembly.GetTypes()
+                .Where(type => typeILogger.IsAssignableFrom(type) && type != typeILogger && type != typeof(Logger))
+                .Select(type => new { Name = type.ToString(), Object = (ILogger)Activator.CreateInstance(type) })
+                .ToDictionary(k => k.Name.Substring(k.Name.LastIndexOf('.') + 1), i => i.Object); 
+            
             logLevelToDestinationsDictionary = startUp._logLevelToDestinationsDictionary;
         }
 

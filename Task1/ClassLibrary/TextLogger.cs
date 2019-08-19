@@ -6,11 +6,15 @@ namespace LoggerClassLibrary
 {
     class TextLogger : ILogger
     {
-        private readonly string _filePath;
+        private readonly string _filePath = "information.log";
 
         public TextLogger(string path = "information.log")
         {
             this._filePath = path;
+        }
+        public TextLogger()
+        {
+
         }
 
         public void Error(Exception ex)

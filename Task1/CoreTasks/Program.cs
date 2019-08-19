@@ -8,7 +8,7 @@ namespace CoreTasks
         static void Main(string[] args)
         {
             var log = Logger.CreateInstance();
-            
+
             //----Tests----
             log.Error(new OutOfMemoryException());
             log.Info("Information1");
