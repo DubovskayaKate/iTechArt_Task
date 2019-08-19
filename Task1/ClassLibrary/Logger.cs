@@ -3,13 +3,19 @@ using System.Collections.Generic;
 
 namespace LoggerClassLibrary
 {
+    public enum LogLevel
+    {
+        Info,
+        Warning,
+        Error
+    }
     public class Logger: ILogger
     {
         Dictionary<string, ILogger> destinationNameToObjectDictionary = new Dictionary<string, ILogger>();
-        Dictionary<string, List<string>> logLevelToDestinationsDictionary;
-
+        Dictionary<LogLevel, List<string>> logLevelToDestinationsDictionary;
+        
         private static Logger _instanceLogger;
-
+        
         public static Logger CreateInstance()
         {
             if (_instanceLogger == null)
@@ -24,23 +30,12 @@ namespace LoggerClassLibrary
             var startUp = new StartUp();
             destinationNameToObjectDictionary.Add("ConsoleLogger", new ConsoleLogger());
             destinationNameToObjectDictionary.Add("TextLogger", new TextLogger());
-            logLevelToDestinationsDictionary = startUp.DictSettings;
+            logLevelToDestinationsDictionary = startUp._logLevelToDestinationsDictionary;
         }
 
         public void Error(string message)
         {
-            foreach (string destinationName in logLevelToDestinationsDictionary["Error"])
-            {
-                try
-                {
-                    var objLogger = destinationNameToObjectDictionary[destinationName];
-                    objLogger.Error(message);
-                }
-                catch (KeyNotFoundException)
-                {
-                    Console.WriteLine($"{destinationName} is Not Implemented");
-                } 
-            }
+            LogInformation(message, LogLevel.Error);
         }
 
         public void Error(Exception ex)
@@ -50,28 +45,33 @@ namespace LoggerClassLibrary
 
         public void Info(string message)
         {
-            foreach (string destinationName in logLevelToDestinationsDictionary["Info"])
-            {
-                try
-                { 
-                    var objLogger = destinationNameToObjectDictionary[destinationName];
-                    objLogger.Info(message);
-                }
-                catch (KeyNotFoundException)
-                {
-                    Console.WriteLine($"{destinationName} is Not Implemented");
-                }
-            }
+            LogInformation(message, LogLevel.Info);
         }
 
         public void Warning(string message)
         {
-            foreach (string destinationName in logLevelToDestinationsDictionary["Warning"])
+            LogInformation(message, LogLevel.Warning);
+        }
+
+        private void LogInformation(string message, LogLevel logLevel)
+        {
+            foreach (string destinationName in logLevelToDestinationsDictionary[logLevel])
             {
                 try
-                { 
-                    var objLogger = destinationNameToObjectDictionary[destinationName];
-                    objLogger.Warning(message);
+                {
+                    ILogger objLogger = destinationNameToObjectDictionary[destinationName];
+                    switch (logLevel)
+                    {
+                        case LogLevel.Error:
+                            objLogger.Error(message);
+                            break;
+                        case LogLevel.Info:
+                            objLogger.Info(message);
+                            break;
+                        case LogLevel.Warning:
+                            objLogger.Warning(message);
+                            break;
+                    }
                 }
                 catch (KeyNotFoundException)
                 {
