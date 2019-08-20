@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using System.IO;
-using Microsoft.Extensions.Configuration.FileExtensions;
-using Microsoft.Extensions.Configuration.Json;
 using Microsoft.EntityFrameworkCore;
 using MoneyManagerClassLibrary;
 
@@ -22,7 +19,7 @@ namespace MoneyManager
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
             var options = optionsBuilder
-                .UseSqlServer(connectionString)
+                .UseSqlServer(connectionString, x => x.MigrationsAssembly("MoneyManager"))
                 .Options;
             
 
