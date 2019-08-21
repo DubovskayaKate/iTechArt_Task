@@ -9,8 +9,8 @@ namespace MoneyManager
         public ApplicationContext CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<ApplicationContext>();
-            var connectionString = "Server=WSC-160-71\\SQLEXPRESS;Database=MoneyManager;Trusted_Connection=True;";
-            builder.UseSqlite(connectionString);
+            var connectionString = "Data Source=WSC-160-71\\SQLEXPRESS;Initial Catalog=MoneyManager;Trusted_Connection=True;";
+            builder.UseSqlServer(connectionString);
             return new ApplicationContext(builder.Options);
         }
     }
