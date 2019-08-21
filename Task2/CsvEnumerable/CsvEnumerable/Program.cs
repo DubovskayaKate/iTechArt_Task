@@ -11,25 +11,18 @@ namespace CsvEnumerable
     {
         static void Main(string[] args)
         {
-            using (var sr = new StreamReader("info.csv"))
+            var csvEnum = new CsvEnumerable<TestDataRecord>();
+
+            // Tests
+            foreach (var record in csvEnum)
             {
-                var reader = new CsvReader(sr);
+                Console.WriteLine($"Name {record.Name}; Surname {record.Surname}");
+            }
+            Console.WriteLine("--------");
 
-                IEnumerable<TestDataRecord> records = reader.GetRecords<TestDataRecord>();
-
-                var csvEnum = new CsvEnumerable<TestDataRecord>(records.ToList());
-                
-                // Tests
-                foreach (var record in csvEnum)
-                {
-                    Console.WriteLine($"Name {record.Name}; Surname {record.Surname}");
-                }
-                Console.WriteLine("--------");
-
-                foreach (var record in csvEnum)
-                {
-                    Console.WriteLine($"Name {record.Name}; Surname {record.Surname}");
-                }
+            foreach (var record in csvEnum)
+            {
+                Console.WriteLine($"Name {record.Name}; Surname {record.Surname}");
             }
 
             Console.ReadKey(true);

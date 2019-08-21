@@ -1,23 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using CsvHelper;
+
 
 namespace CsvClassLibrary
 {
     public class CsvEnumerable<T> : IEnumerable<T>, IEnumerator<T>
     {
-        private int _position;
-        private List<T> _collection;
+        private bool _isFirstItem;
+        private CsvReader _csvReader = null;
+        private StreamReader _stream = null;
+        private readonly string Path = "info.csv";
 
-        public CsvEnumerable(List<T> list)
+        public CsvEnumerable()
         {
-            _position = -1;
-            _collection = list;
+            _isFirstItem = true;
         }
 
-        public T Current => _collection.ElementAt(_position);
+        public T Current => _csvReader.GetRecord<T>();
 
-        object IEnumerator.Current => _collection.ElementAt(_position);
+        object IEnumerator.Current => _csvReader.GetRecord<T>();
 
         public void Dispose()
         {
@@ -31,18 +35,21 @@ namespace CsvClassLibrary
 
         public bool MoveNext()
         {
-            if (_position < _collection.Count - 1)
+            if (_isFirstItem)
             {
-                _position++;
-                return true;
+                this._stream = new StreamReader(Path);
+                this._csvReader = new CsvReader(_stream);
+                this._isFirstItem = false;
             }
-
-            return false;
+            return _csvReader.Read();
         }
 
         public void Reset()
         {
-            _position = -1;
+            _csvReader.Dispose();
+            _stream.Dispose();
+            _isFirstItem = true;
+
         }
 
         IEnumerator IEnumerable.GetEnumerator()
