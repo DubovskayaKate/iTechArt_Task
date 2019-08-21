@@ -8,10 +8,6 @@ namespace LoggerClassLibrary
     {
         private readonly string _filePath = "information.log";
 
-        public TextLogger(string path = "information.log")
-        {
-            this._filePath = path;
-        }
         public TextLogger()
         {
 

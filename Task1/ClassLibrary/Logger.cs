@@ -5,12 +5,7 @@ using System.Reflection;
 
 namespace LoggerClassLibrary
 {
-    public enum LogLevel
-    {
-        Info,
-        Warning,
-        Error
-    }
+
     public class Logger: ILogger
     {
         Dictionary<string, ILogger> destinationNameToObjectDictionary = new Dictionary<string, ILogger>();
@@ -36,7 +31,7 @@ namespace LoggerClassLibrary
             destinationNameToObjectDictionary = assembly.GetTypes()
                 .Where(type => typeILogger.IsAssignableFrom(type) && type != typeILogger && type != typeof(Logger))
                 .Select(type => new { Name = type.ToString(), Object = (ILogger)Activator.CreateInstance(type) })
-                .ToDictionary(k => k.Name.Substring(k.Name.LastIndexOf('.') + 1), i => i.Object); 
+                .ToDictionary(anonymousObj => anonymousObj.Name.Substring(anonymousObj.Name.LastIndexOf('.') + 1), anonymousObj => anonymousObj.Object); 
             
             logLevelToDestinationsDictionary = startUp._logLevelToDestinationsDictionary;
         }

@@ -8,12 +8,7 @@ namespace LoggerClassLibrary
 {
     class StartUp
     {
-        public readonly Dictionary<LogLevel, List<string>> _logLevelToDestinationsDictionary = new Dictionary<LogLevel, List<string>>()
-            {
-                { LogLevel.Info, new List<string>()},
-                { LogLevel.Warning, new List<string>()},
-                { LogLevel.Error, new List<string>()},
-            };
+        public Dictionary<LogLevel, List<string>> LogLevelToDestinationsDictionary { get; private set; }
 
         private const string DefaultLogger = "ConsoleLogger";
         private const string SettingsFileName = "appsettings.json";
@@ -27,25 +22,32 @@ namespace LoggerClassLibrary
 
             IConfigurationRoot configuration = builder.Build();
 
+            LogLevelToDestinationsDictionary =
+                new Dictionary<LogLevel, List<string>>()
+                {
+                    {LogLevel.Info, new List<string>()},
+                    {LogLevel.Warning, new List<string>()},
+                    {LogLevel.Error, new List<string>()},
+                };
 
             if (configuration.GetSection(LoggingString).GetChildren().Count() == 0)
             {
-                _logLevelToDestinationsDictionary[LogLevel.Info].Add(DefaultLogger );
-                _logLevelToDestinationsDictionary[LogLevel.Warning].Add(DefaultLogger);
-                _logLevelToDestinationsDictionary[LogLevel.Error].Add(DefaultLogger);
+                LogLevelToDestinationsDictionary[LogLevel.Info].Add(DefaultLogger );
+                LogLevelToDestinationsDictionary[LogLevel.Warning].Add(DefaultLogger);
+                LogLevelToDestinationsDictionary[LogLevel.Error].Add(DefaultLogger);
             }
 
 
             /*configuration.GetSection(LoggingString).GetChildren().Select(child =>
                 child.GetSection("LogLevel").GetChildren().Select(level =>
-                    _logLevelToDestinationsDictionary[(LogLevel) Enum.Parse(typeof(LogLevel), level.Value)]
+                    LogLevelToDestinationsDictionary[(LogLevel) Enum.Parse(typeof(LogLevel), level.Value)]
                         .Add(child.Key)));
                         */
             foreach (var child in configuration.GetSection(LoggingString).GetChildren())
             {
                 foreach (var level in child.GetSection("LogLevel").GetChildren())
                 {
-                    _logLevelToDestinationsDictionary[(LogLevel)Enum.Parse(typeof(LogLevel), level.Value)].Add(child.Key);
+                    LogLevelToDestinationsDictionary[(LogLevel)Enum.Parse(typeof(LogLevel), level.Value)].Add(child.Key);
                 }
             }
         }
