@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using System.Linq;
@@ -22,17 +23,18 @@ namespace MoneyManager
             var options = optionsBuilder
                 .UseSqlServer(connectionString, x => x.MigrationsAssembly("MoneyManager"))
                 .Options;
-            
 
-            using (ApplicationContext db = new ApplicationContext(options))
+            var db = new ApplicationContext(options);
+
+            var generator = new DataGenerator();
+
+            if (db.Users.Any()|| db.Categories.Any())
             {
-                db.Users.Add(new User {Balance = 23, Name = "Kate1", Email = "q@gmail.com", Assets = new List<Asset>()});
-                db.SaveChanges();
-                var objUser = db.Users.Where(user => user.UserId == 2).First();
-                var asset = new Asset{Balance = 30, Name = "cash", User = objUser, };
-                objUser.Assets.Add(asset);
+                generator.GenarateData(ref db);
                 db.SaveChanges();
             }
+
+            
 
             Console.WriteLine("Ready");
             Console.ReadKey(true);

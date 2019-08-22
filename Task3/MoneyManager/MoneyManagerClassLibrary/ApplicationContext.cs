@@ -17,10 +17,12 @@ namespace MoneyManager
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Asset>().ToTable("Assets");
             modelBuilder.Entity<Transaction>().ToTable("Transactions");
+            modelBuilder.Entity<Category>().ToTable("Categories");
         }
         
         public DbSet<User> Users { get; set; }
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
