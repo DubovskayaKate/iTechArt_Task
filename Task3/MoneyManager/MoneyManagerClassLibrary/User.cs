@@ -16,7 +16,13 @@ namespace MoneyManagerClassLibrary
         public int Balance { get; set; }
 
         public List<Asset> Assets { get; set; }
-        
-        
+
+        public override string ToString()
+        {
+            return $"| {UserId.ToString().PadLeft(6 , ' ')} " +
+                   $"| {Name.PadLeft(10 , ' ')} " +
+                   $"| {Email.PadLeft(14, ' ' )}" +
+                   $"| {Balance.ToString().PadLeft(6 , ' ')} |";
+        }
     }
 }
