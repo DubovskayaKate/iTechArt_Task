@@ -1,11 +1,13 @@
-﻿namespace MoneyManager.DataAccess.Repositories
+﻿using System.Collections.Generic;
+using MoneyManager.DataAccess.Models;
+
+namespace MoneyManager.DataAccess.Repositories
 {
-    public class UserRepository
+    public class UserRepository<T> : BaseRepository<T> where T: User
     {
-        private IApplicationContext applicationContext { get; }
-        public UserRepository(IApplicationContext context)
+        public UserRepository(ApplicationContext context): base(context)
         {
-            applicationContext = context;
+            
         }
     }
 }
