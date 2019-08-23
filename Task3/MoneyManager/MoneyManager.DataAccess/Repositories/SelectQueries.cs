@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using MoneyManager;
+using MoneyManager.DataAccess.Models;
 
-namespace MoneyManagerClassLibrary
+namespace MoneyManager.DataAccess.Repositories
 {
     public class SelectQueries
     {

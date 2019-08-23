@@ -5,10 +5,11 @@ using System.Text;
 using MoneyManager;
 using System.IO;
 using System.Linq;
+using MoneyManager.DataAccess.Models;
 using Newtonsoft.Json;
 using Remotion.Linq.Clauses.ResultOperators;
 
-namespace MoneyManagerClassLibrary
+namespace MoneyManager.DataAccess.Repositories
 {
     public class DataGenerator
     {
@@ -16,17 +17,24 @@ namespace MoneyManagerClassLibrary
         private const string AssetPath = "Assets.txt";
         private const string CategoryExpensesPath = "CategoryExpenses.json";
         private const string CategoryIncomePath = "CategoryIncome.json";
+        private IApplicationContext applicationContext { get; }
 
-        public void GenarateData(ref ApplicationContext context)
+        public DataGenerator(IApplicationContext context)
+        {
+            applicationContext = context;
+        }
+
+        public void GenerateData()
         {
             var users = GenerateUsers();
             var assets = GenerateAssets(ref users);
             var categories = GenerateCategories();
             var transactions = GenerateTransactions(ref categories, ref assets);
-            context.Users.AddRangeAsync(users);
-            context.Assets.AddRangeAsync(assets);
-            context.Categories.AddRangeAsync(categories);
-            context.Transactions.AddRange(transactions);
+            applicationContext.Users.AddRangeAsync(users);
+            applicationContext.Assets.AddRangeAsync(assets);
+            applicationContext.Categories.AddRangeAsync(categories);
+            applicationContext.Transactions.AddRange(transactions);
+            applicationContext.SaveChanges();
         }
 
         public List<User> GenerateUsers()

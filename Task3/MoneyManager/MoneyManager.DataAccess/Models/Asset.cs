@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MoneyManagerClassLibrary
+namespace MoneyManager.DataAccess.Models
 {
     public class Asset
     {

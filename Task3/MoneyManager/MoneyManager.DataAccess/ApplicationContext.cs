@@ -1,11 +1,9 @@
 ﻿using  Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Migrations;
-using MoneyManagerClassLibrary;
+using MoneyManager.DataAccess.Models;
 
-namespace MoneyManager
+namespace MoneyManager.DataAccess
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : DbContext, IApplicationContext
     {
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)

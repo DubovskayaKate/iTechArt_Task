@@ -20,12 +20,8 @@ namespace SettingsClassLibrary
             Configuration = builder.Build();
             ConnectionString = Configuration.GetConnectionString("DefaultConnection");
         }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddLogging();
-            services.AddSingleton<IConfigurationRoot>(Configuration);
-            //services.AddSingleton<IMyService, MyService>();
         }
 
     }

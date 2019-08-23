@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using MoneyManagerClassLibrary;
+using Microsoft.Extensions.DependencyInjection;
+using MoneyManager.DataAccess;
+using MoneyManager.DataAccess.Repositories;
+using SettingsClassLibrary;
 
 namespace MoneyManager
 {
@@ -13,24 +14,31 @@ namespace MoneyManager
     {
         static void Main(string[] args)
         {
-            var builder = new ConfigurationBuilder();
-            builder.SetBasePath(Directory.GetCurrentDirectory());
-            builder.AddJsonFile("appsettings.json");
-            var config = builder.Build();
-            string connectionString = config.GetConnectionString("DefaultConnection");
+            var startup = new Startup();
+
+            var services = new ServiceCollection();
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
             var options = optionsBuilder
-                .UseSqlServer(connectionString, x => x.MigrationsAssembly("MoneyManager"))
+                .UseSqlServer(startup.ConnectionString, x => x.MigrationsAssembly("MoneyManager"))
                 .Options;
+
+
+            services.AddSingleton<IApplicationContext>(new ApplicationContext(options));
+            services.AddSingleton<DataGenerator>();
+
+            IServiceProvider serviceProvider = services.BuildServiceProvider();
+
+
+            var t = serviceProvider.GetService<IApplicationContext>();
+            var generator = serviceProvider.GetService<DataGenerator>();
+
 
             var db = new ApplicationContext(options);
 
-            var generator = new DataGenerator();
-
-            if (db.Users.Any()|| db.Categories.Any())
+            if (!db.Users.Any()|| !db.Categories.Any())
             {
-                generator.GenarateData(ref db);
+                generator.GenerateData();
                 db.SaveChanges();
             }
 
