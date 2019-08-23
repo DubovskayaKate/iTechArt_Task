@@ -9,9 +9,9 @@ namespace MoneyManager.DataAccess.Repositories
     {
         private readonly ApplicationContext _dbContext;
 
-        public BaseRepository(ApplicationContext dbContext)
+        public BaseRepository(IApplicationContext dbContext)
         {
-            _dbContext = dbContext;
+            _dbContext = dbContext as ApplicationContext;
         }
 
         public virtual TEntity GetById(int id)

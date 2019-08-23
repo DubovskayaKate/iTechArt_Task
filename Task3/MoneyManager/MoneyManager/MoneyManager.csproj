@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MoneyManager.Business\MoneyManager.Business.csproj" />
     <ProjectReference Include="..\MoneyManager.DataAccess\MoneyManager.DataAccess.csproj" />
     <ProjectReference Include="..\SettingsClassLibrary\SettingsClassLibrary.csproj" />
     <ProjectReference Include="..\ViewClassLibrary\ViewClassLibrary.csproj" />

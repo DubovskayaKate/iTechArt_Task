@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\MoneyManager.DataAccess\MoneyManager.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

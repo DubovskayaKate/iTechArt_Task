@@ -10,5 +10,6 @@ namespace MoneyManager.DataAccess
         DbSet<Transaction> Transactions { get; set; }
         DbSet<Category> Categories { get; set; }
         int SaveChanges();
+
     }
 }
