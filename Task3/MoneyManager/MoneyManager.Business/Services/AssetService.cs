@@ -24,5 +24,6 @@ namespace MoneyManager.Business.Services
             return _assetRepository.List(expression).Select(asset => new AssetWithBalance
                 {Balance = asset.Balance, Name = asset.Name, Id = asset.AssetId}).OrderBy(asset => asset.Name).ToList();
         }
+
     }
 }

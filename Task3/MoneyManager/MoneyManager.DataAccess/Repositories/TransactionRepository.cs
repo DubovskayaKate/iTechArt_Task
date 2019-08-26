@@ -22,5 +22,10 @@ namespace MoneyManager.DataAccess.Repositories
                     .ThenInclude(asset => asset.User).ToList();
 
         }
+
+        public List<Transaction> GetTransactionsWithCategoryInfo()
+        {
+            return _dbContext.Transactions.Include(transaction => transaction.Category).ToList();
+        }
     }
 }

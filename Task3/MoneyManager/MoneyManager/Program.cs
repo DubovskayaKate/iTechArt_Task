@@ -29,8 +29,10 @@ namespace MoneyManager
 
             services.AddSingleton<IApplicationContext>(new ApplicationContext(options));
             services.AddSingleton<DataGenerator>();
-            services.AddSingleton<UserRepository<User>>();
+            services.AddSingleton<UserRepository>();
             services.AddSingleton<UserService>();
+            services.AddSingleton<TransactionRepository>();
+            services.AddSingleton<TransactionService>();
 
             ConfigurationProvider = (IServiceProvider)services.BuildServiceProvider();
 
@@ -45,6 +47,8 @@ namespace MoneyManager
 
             var userService = ConfigurationProvider.GetService<UserService>();
 
+            var transactionService = ConfigurationProvider.GetService<TransactionService>();
+
             var list = userService.GetAll();
 
             foreach (var user in list)
@@ -52,30 +56,11 @@ namespace MoneyManager
                 Console.WriteLine(user);
             }
 
-            var temp = userService.GetUsersSortedList();
+            //var temp = transactionService.GetUserTransactionsInfo(80);
+            var temp2 = transactionService.GetStatisticsForSelectedPeriod(80, DateTime.Parse("2000 - 03 - 22 20:00:31"),
+                DateTime.Parse("2017 - 03 - 22 20:00:31"));
 
-            foreach (var user in temp)
-            {
-                Console.WriteLine(user);
-            }
-
-            var temp1 = userService.GetUsersBalances();
-
-            foreach (var user in temp1)
-            {
-                Console.WriteLine(user);
-            }
-
-            var findedUser = userService.GetUserById(86);
-            findedUser.Name = "Kolya";
-            userService.Update(findedUser);
-
-            list = userService.GetAll();
-
-            foreach (var user in list)
-            {
-                Console.WriteLine(user);
-            }
+            
 
 
 

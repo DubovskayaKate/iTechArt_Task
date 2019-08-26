@@ -12,9 +12,9 @@ namespace MoneyManager.Business.Services
 {
     public class UserService : BaseService<User>
     {
-        private readonly UserRepository<User> _userRepository; 
+        private readonly UserRepository _userRepository; 
 
-        public UserService(UserRepository<User> userRepository) : base(userRepository)
+        public UserService(UserRepository userRepository) : base(userRepository)
         {
             _userRepository = userRepository;
         }
