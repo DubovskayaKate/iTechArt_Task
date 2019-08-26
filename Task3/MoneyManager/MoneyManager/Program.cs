@@ -51,14 +51,18 @@ namespace MoneyManager
 
             var list = userService.GetAll();
 
-            foreach (var user in list)
+            foreach (var user1 in list)
             {
-                Console.WriteLine(user);
+                Console.WriteLine(user1);
             }
 
+            var user = userService.GetUserById(83);
+            user.Name = "Yana";
+            userService.Update(user);
+
             //var temp = transactionService.GetUserTransactionsInfo(80);
-            var temp2 = transactionService.GetStatisticsForSelectedPeriod(80, DateTime.Parse("2000 - 03 - 22 20:00:31"),
-                DateTime.Parse("2017 - 03 - 22 20:00:31"));
+            /*var temp2 = transactionService.GetStatisticsForSelectedPeriod(80, DateTime.Parse("2000 - 03 - 22 20:00:31"),
+                DateTime.Parse("2017 - 03 - 22 20:00:31"));*/
 
             
 

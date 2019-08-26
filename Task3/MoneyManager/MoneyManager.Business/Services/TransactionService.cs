@@ -75,5 +75,12 @@ namespace MoneyManager.Business.Services
             return list;
         }
 
+        public List<Transaction> GetUserTransactionsDuringSelectedPeriod(int userId, DateTime beginDateTime,
+            DateTime endDateTime)
+        {
+            return _transactionRepository.GetTransactionsWithUserAssetCategoryInfo().Where(transaction =>
+                transaction.Asset.User.UserId == userId && transaction.Date > beginDateTime &&
+                transaction.Date < endDateTime).ToList();
+        }
     }
 }
