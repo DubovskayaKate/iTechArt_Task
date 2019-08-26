@@ -45,9 +45,23 @@ namespace MoneyManager
 
             var userService = ConfigurationProvider.GetService<UserService>();
 
-            var list = userService.GetAllUser();
+            var list = userService.GetAll();
 
             foreach (var user in list)
+            {
+                Console.WriteLine(user);
+            }
+
+            var temp = userService.GetUsersSortedList();
+
+            foreach (var user in temp)
+            {
+                Console.WriteLine(user);
+            }
+
+            var temp1 = userService.GetUsersBalances();
+
+            foreach (var user in temp1)
             {
                 Console.WriteLine(user);
             }
@@ -56,7 +70,7 @@ namespace MoneyManager
             findedUser.Name = "Kolya";
             userService.Update(findedUser);
 
-            list = userService.GetAllUser();
+            list = userService.GetAll();
 
             foreach (var user in list)
             {

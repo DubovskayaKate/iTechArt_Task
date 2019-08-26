@@ -7,7 +7,7 @@ namespace MoneyManager.DataAccess.Repositories
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        private readonly ApplicationContext _dbContext;
+        protected readonly ApplicationContext _dbContext;
 
         public BaseRepository(IApplicationContext dbContext)
         {
