@@ -12,5 +12,8 @@ namespace MoneyManager.DataAccess.Repositories
         void Insert(T entity);
         void Delete(T entity);
         void Update(T entity);
+        void Insert(List<T> entity);
+        void Delete(List<T> entity);
+        void Update(List<T> entity);
     }
 }

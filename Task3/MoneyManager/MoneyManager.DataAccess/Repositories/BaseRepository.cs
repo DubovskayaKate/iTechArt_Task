@@ -37,15 +37,36 @@ namespace MoneyManager.DataAccess.Repositories
             _dbContext.SaveChanges();
         }
 
+        public void Insert(List<TEntity> entities)
+        {
+            _dbContext.Set<TEntity>().AddRange(entities);
+            _dbContext.SaveChanges();
+        }
+
         public void Update(TEntity entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }
 
+        public void Update(List<TEntity> entities)
+        {
+            foreach (var entity in entities)
+            {
+                _dbContext.Entry(entity).State = EntityState.Modified;
+            }
+            _dbContext.SaveChanges();
+        }
+
         public void Delete(TEntity entity)
         {
             _dbContext.Set<TEntity>().Remove(entity);
+            _dbContext.SaveChanges();
+        }
+
+        public void Delete(List<TEntity> entities)
+        {
+            _dbContext.Set<TEntity>().RemoveRange(entities);
             _dbContext.SaveChanges();
         }
     }

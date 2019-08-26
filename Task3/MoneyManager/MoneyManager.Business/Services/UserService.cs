@@ -9,44 +9,22 @@ using MoneyManager.DataAccess.Repositories;
 
 namespace MoneyManager.Business.Services
 {
-    public class UserService
+    public class UserService : BaseService<User>
     {
-        private readonly UserRepository<User> userRepository; 
+        private readonly UserRepository<User> _userRepository; 
 
-        public UserService(UserRepository<User> user)
+        public UserService(UserRepository<User> userRepository) : base(userRepository)
         {
-            userRepository = user;
-        }
-        public List<User> GetAllUser()
-        {
-            return userRepository.List().ToList();
-        }
-
-        public User GetUserById(int id)
-        {
-            return userRepository.GetById(id);
+            _userRepository = userRepository;
         }
 
         public List<User> GetUserByEmail(string email)
         {
-            //return userRepository.List(new Expression<Func<User, bool>> (user => user.Email == email) );
+            Expression < Func<User, bool> >  expression = user => user.Email == email;
+            return _userRepository.List(expression).ToList();
             throw new NotImplementedException();
         }
-
-        public void Update(User user)
-        {
-            userRepository.Update(user);
-        }
-
-        public void Delete(User user)
-        {
-            userRepository.Delete(user);
-        }
-
-        public void Insert(User user)
-        {
-            userRepository.Update(user);
-        }
+        
 
 
 
