@@ -14,7 +14,7 @@ namespace MoneyManager.DataAccess.Repositories
 
         public List<Category> GetCategories()
         {
-            return _dbContext.Categories.Include(category => category.ParentCategory).ToList();
+            return DbContext.Categories.Include(category => category.ParentCategory).ToList();
         }
     }
 }

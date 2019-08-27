@@ -11,10 +11,5 @@ namespace MoneyManager.DataAccess.Repositories
         {
 
         }
-
-        /*public List<Asset> GetAssetsWithUserInfo()
-        {
-            return _dbContext.Assets.Include(asset => asset.User).ToList();
-        }*/
     }
 }

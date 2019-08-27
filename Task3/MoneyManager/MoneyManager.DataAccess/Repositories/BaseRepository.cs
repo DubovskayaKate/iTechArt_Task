@@ -7,67 +7,67 @@ namespace MoneyManager.DataAccess.Repositories
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        protected readonly ApplicationContext _dbContext;
+        protected readonly ApplicationContext DbContext;
 
         public BaseRepository(IApplicationContext dbContext)
         {
-            _dbContext = dbContext as ApplicationContext;
+            DbContext = dbContext as ApplicationContext;
         }
 
         public virtual TEntity GetById(int id)
         {
-            return _dbContext.Set<TEntity>().Find(id);
+            return DbContext.Set<TEntity>().Find(id);
         }
 
         public virtual IEnumerable<TEntity> List()
         {
-            return _dbContext.Set<TEntity>().AsEnumerable();
+            return DbContext.Set<TEntity>().AsEnumerable();
         }
 
         public virtual IEnumerable<TEntity> List(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate)
         {
-            return _dbContext.Set<TEntity>()
+            return DbContext.Set<TEntity>()
                 .Where(predicate)
                 .AsEnumerable();
         }
 
         public void Insert(TEntity entity)
         {
-            _dbContext.Set<TEntity>().AddAsync(entity);
-            _dbContext.SaveChanges();
+            DbContext.Set<TEntity>().AddAsync(entity);
+            DbContext.SaveChanges();
         }
 
         public void Insert(List<TEntity> entities)
         {
-            _dbContext.Set<TEntity>().AddRangeAsync(entities);
-            _dbContext.SaveChanges();
+            DbContext.Set<TEntity>().AddRangeAsync(entities);
+            DbContext.SaveChanges();
         }
 
         public void Update(TEntity entity)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
-            _dbContext.SaveChanges();
+            DbContext.Entry(entity).State = EntityState.Modified;
+            DbContext.SaveChanges();
         }
 
         public void Update(List<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                _dbContext.Entry(entity).State = EntityState.Modified;
+                DbContext.Entry(entity).State = EntityState.Modified;
             }
-            _dbContext.SaveChanges();
+            DbContext.SaveChanges();
         }
 
         public void Delete(TEntity entity)
         {
-            _dbContext.Set<TEntity>().Remove(entity);
-            _dbContext.SaveChanges();
+            DbContext.Set<TEntity>().Remove(entity);
+            DbContext.SaveChanges();
         }
 
         public void Delete(List<TEntity> entities)
         {
-            _dbContext.Set<TEntity>().RemoveRange(entities);
-            _dbContext.SaveChanges();
+            DbContext.Set<TEntity>().RemoveRange(entities);
+            DbContext.SaveChanges();
         }
 
     }

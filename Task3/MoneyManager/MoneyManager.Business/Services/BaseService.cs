@@ -8,7 +8,7 @@ namespace MoneyManager.Business.Services
     {
         private readonly BaseRepository<TEntity> _repository;
 
-        public BaseService(BaseRepository<TEntity> repository)
+        protected BaseService(BaseRepository<TEntity> repository)
         {
             _repository = repository;
         }

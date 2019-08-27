@@ -15,7 +15,7 @@ namespace MoneyManager.DataAccess.Repositories
 
         public List<Transaction> GetTransactionsWithUserAssetCategoryInfo()
         {
-            return _dbContext.Transactions
+            return DbContext.Transactions
                 .Include(transaction => transaction.Category)
                     .ThenInclude(category => category.ParentCategory)
                 .Include(transaction => transaction.Asset)
@@ -25,7 +25,7 @@ namespace MoneyManager.DataAccess.Repositories
 
         public List<Transaction> GetTransactionsWithCategoryInfo()
         {
-            return _dbContext.Transactions.Include(transaction => transaction.Category).ToList();
+            return DbContext.Transactions.Include(transaction => transaction.Category).ToList();
         }
     }
 }

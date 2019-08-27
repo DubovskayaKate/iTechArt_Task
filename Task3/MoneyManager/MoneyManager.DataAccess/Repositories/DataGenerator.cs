@@ -17,11 +17,11 @@ namespace MoneyManager.DataAccess.Repositories
         private const string AssetPath = "Assets.txt";
         private const string CategoryExpensesPath = "CategoryExpenses.json";
         private const string CategoryIncomePath = "CategoryIncome.json";
-        private IApplicationContext applicationContext { get; }
+        private IApplicationContext ApplicationContext { get; }
 
         public DataGenerator(IApplicationContext context)
         {
-            applicationContext = context;
+            ApplicationContext = context;
         }
 
         public void GenerateData()
@@ -30,11 +30,11 @@ namespace MoneyManager.DataAccess.Repositories
             var assets = GenerateAssets(ref users);
             var categories = GenerateCategories();
             var transactions = GenerateTransactions(ref categories, ref assets);
-            applicationContext.Users.AddRangeAsync(users);
-            applicationContext.Assets.AddRangeAsync(assets);
-            applicationContext.Categories.AddRangeAsync(categories);
-            applicationContext.Transactions.AddRange(transactions);
-            applicationContext.SaveChanges();
+            ApplicationContext.Users.AddRangeAsync(users);
+            ApplicationContext.Assets.AddRangeAsync(assets);
+            ApplicationContext.Categories.AddRangeAsync(categories);
+            ApplicationContext.Transactions.AddRange(transactions);
+            ApplicationContext.SaveChanges();
         }
 
         public List<User> GenerateUsers()

@@ -22,39 +22,7 @@ namespace MoneyManager.DataAccess
 
         public override int SaveChanges()
         {
-            /*var k = ChangeTracker.AutoDetectChangesEnabled;
-
-            var allmodification = ChangeTracker.Entries<Transaction>().Where(entity => entity.State != EntityState.Unchanged);
-
-            foreach (var entity in allmodification)
-            {
-                Console.WriteLine($"Entity: {entity.Entity.GetType().Name}, State: { entity.State.ToString()}");
-                var type = entity.Entity.GetType();
-                var properities = entity.Entity.GetType().GetProperties();
-                var properity = properities.Where(pr => pr.Name == "Asset").First();
-
-                var asset = (Asset)properity.GetValue(entity.Entity);
-                properity.SetValue(entity.Entity, asset);
-
-                /*ChangeTracker.TrackGraph(entity.Entity, e => {
-                    if (e.Entry.IsKeySet)
-                    {
-                        e.Entry.State = EntityState.Unchanged;
-                    }
-                    else
-                    {
-                        e.Entry.State = EntityState.Modified;
-                    }
-                });
-
-            }
-
-            var temp = ChangeTracker.Entries().Where(entity => entity.State != EntityState.Unchanged);
-            foreach (var entityEntry in temp)
-            {
-                Console.WriteLine($"Entity: {entityEntry.Entity.GetType().Name},State: { entityEntry.State.ToString()}");
-
-            }*/
+            
             return base.SaveChanges();
         }
 

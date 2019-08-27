@@ -12,7 +12,6 @@ namespace MoneyManager.DataAccess.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoryId { get; set; }
         public bool IsExpenses { get; set; }
-        //[ForeignKey("ParentCategoryForeignKey")]
         public Category ParentCategory { get; set; }
         public string Name { get; set; }
 

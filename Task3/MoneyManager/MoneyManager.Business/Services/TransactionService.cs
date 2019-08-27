@@ -35,8 +35,8 @@ namespace MoneyManager.Business.Services
                 .ThenBy(transaction => transaction.Category.Name).Select(transaction => new TransactionInfo
                 {
                     AssetName = transaction.Asset.Name,
-                    CategotyName = transaction.Category.Name,
-                    CategoryParentName = transaction.Category.ParentCategory != null? transaction.Category.ParentCategory.Name : null,
+                    CategoryName = transaction.Category.Name,
+                    CategoryParentName = (transaction.Category.ParentCategory)?.Name ,
                     TransactionAmount = transaction.Amount,
                     TransactionComment = transaction.Comment,
                     TransactionDate = transaction.Date

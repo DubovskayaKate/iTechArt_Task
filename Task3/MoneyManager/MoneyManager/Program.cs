@@ -26,7 +26,6 @@ namespace MoneyManager
                 .UseSqlServer(startup.ConnectionString, x => x.MigrationsAssembly("MoneyManager"))
                 .Options;
 
-
             services.AddSingleton<IApplicationContext>(new ApplicationContext(options));
             services.AddSingleton<DataGenerator>();
             services.AddSingleton<UserRepository>();
@@ -51,29 +50,6 @@ namespace MoneyManager
             var userService = ConfigurationProvider.GetService<UserService>();
             var transactionService = ConfigurationProvider.GetService<TransactionService>();
 
-            /*var mixedService = ConfigurationProvider.GetService<MixedService>();
-            var y = mixedService.GetCategoriesDuringPeriod(83, "Taxi", DateTime.Parse("2000 - 03 - 22 20:00:31"),
-                DateTime.Parse("2017 - 03 - 22 20:00:31"));
-
-            foreach (var categoryInfo in y)
-            {
-                Console.WriteLine(categoryInfo);
-            }
-
-            var list = userService.GetAll();
-
-            foreach (var user1 in list)
-            {
-                Console.WriteLine(user1);
-            }
-            */
-            transactionService.GetTransactionsWithUserAssetCategoryInfo();
-            var transaction = transactionService.GetUserById(3475);
-            transaction.Amount = 35;
-            transactionService.Update(transaction);
-            //var temp = transactionService.GetUserTransactionsInfo(80);
-            /*var temp2 = transactionService.GetStatisticsForSelectedPeriod(80, DateTime.Parse("2000 - 03 - 22 20:00:31"),
-                DateTime.Parse("2017 - 03 - 22 20:00:31"));*/
 
             Console.WriteLine("Ready");
             Console.ReadKey(true);
