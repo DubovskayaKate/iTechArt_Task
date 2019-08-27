@@ -19,6 +19,7 @@ namespace MoneyManager.Business.Services
             _userRepository = userRepository;
         }
 
+        //Query returns the user by email
         public List<User> GetUserByEmail(string email)
         {
             Expression < Func<User, bool> >  expression = user => user.Email == email;
@@ -26,12 +27,16 @@ namespace MoneyManager.Business.Services
             throw new NotImplementedException();
         }
 
+        //Query returns the user list sorted by the user’s name.
+        //Each record of the output model includes User.Id, User.Name and User.Email
         public List<UserWithoutBalance> GetUsersSortedList()
         {
             return _userRepository.List().Select(user =>
             new UserWithoutBalance() { UserId = user.UserId, Name = user.Name, Email = user.Email }).OrderBy(user => user.Name).ToList();
         }
 
+        //Query returns the current balance for the users.
+        //Each record of the output model includes User.Id, User.Email, User.Name, and Balance.
         public List<UserWithBalance> GetUsersBalances()
         {
             return _userRepository.List().Select(user => new UserWithBalance

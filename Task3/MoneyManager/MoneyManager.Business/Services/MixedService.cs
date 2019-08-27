@@ -18,12 +18,14 @@ namespace MoneyManager.Business.Services
             _transactionService = transactionService;
         }
 
-        //Query returns the total amount of all parent categories for the selected type of operation.
-        //The result should include only categories that have transactions during selected period. 
-        public List<CategoryInfo> GetCategoriesDuringPeriod(int userId, string categoryName, DateTime beginDateTime, DateTime endDateTime)
+        //Query returns the total amount of all parent categories for the selected type of operation(Income or Expenses).
+        //The result should include only categories that have transactions for selected period.
+        //Input parameters in this query will be UserId and OperationType(category type).
+        //Each record of the output model should include Category.Name and Amount.
+        public List<CategoryInfo> GetCategoriesForPeriod(int userId, string categoryName, DateTime beginDateTime, DateTime endDateTime)
         {
             var categories = _categoryService.GetAllParentCategories(categoryName);
-            var transactions = _transactionService.GetUserTransactionsDuringSelectedPeriod(userId, beginDateTime, endDateTime).GroupBy(transaction => transaction.Category);
+            var transactions = _transactionService.GetUserTransactionsForSelectedPeriod(userId, beginDateTime, endDateTime).GroupBy(transaction => transaction.Category);
             var resultCategories = new List<CategoryInfo>();
 
             foreach (IGrouping<Category, Transaction> transactionGroup in transactions)

@@ -18,7 +18,8 @@ namespace MoneyManager.Business.Services
             _transactionRepository = transactionRepository;
         }
 
-        public void DeleteUserTransactionsDuringSelectedPeriod(int userId, DateTime beginDateTime, DateTime endDateTime)
+        //Query deletes all users' (parameter userId) transactions in the current month (for selected period). 
+        public void DeleteUserTransactionsForSelectedPeriod(int userId, DateTime beginDateTime, DateTime endDateTime)
         {
             Expression<Func<Transaction, bool>> expression = transaction =>
                 transaction.Asset.User.UserId == userId && beginDateTime <= transaction.Date &&
@@ -27,6 +28,15 @@ namespace MoneyManager.Business.Services
             _transactionRepository.Delete( _transactionRepository.List(expression).ToList());
         }
 
+        //Query returns the transaction list for the selected user(userId) ordered descending by Transaction.Date,
+        //then ordered ascending by Asset.Name and
+        //then ordered ascending by Category.Name.
+        //Each record of the output model includes
+        //  Asset.Name,
+        //  Category.Name (transaction subcategory),
+        //  Category.ParentName (transaction parent category),
+        //  Transaction.Amount,
+        //  Transaction.Date and Transaction.Comment.
         public List<TransactionInfo> GetUserTransactionsInfo(int userId)
         {
             return _transactionRepository.GetTransactionsWithUserAssetCategoryInfo()
@@ -43,20 +53,23 @@ namespace MoneyManager.Business.Services
                 }).ToList();
         }
 
-        public List<Statistic> GetStatisticsDuringSelectedPeriod(int userId, DateTime beginDateTime, DateTime endDateTime)
+        //Query returns the total value of income and expenses for the selected period
+        //(parameters userId, startDate, endDate) ordered by Transaction.Date and grouped by month.
+        //Each record of the output model should include total Income and Expenses, Month and Year.
+        public List<Statistic> GetStatisticsForSelectedPeriod(int userId, DateTime beginDateTime, DateTime endDateTime)
         {
             var temp = _transactionRepository.GetTransactionsWithUserAssetCategoryInfo();
 
             var collection = _transactionRepository.GetTransactionsWithUserAssetCategoryInfo()
                 .Where(transaction => transaction.Asset.User.UserId == userId && transaction.Date > beginDateTime && transaction.Date < endDateTime)
-                .GroupBy(transaction => ( transaction.Date.Month, transaction.Date.Year));
+                .GroupBy(transaction => (transaction.Date.Month, transaction.Date.Year));
 
             List<Statistic> list = new List<Statistic>();
 
-            foreach (var item in collection)
+            foreach (var groupingTransaction in collection)
             {
                 var statisticPerMonth = new Statistic();
-                foreach (var transaction in item)
+                foreach (var transaction in groupingTransaction)
                 {
                     if (transaction.Category.IsExpenses)
                     {
@@ -68,14 +81,14 @@ namespace MoneyManager.Business.Services
                     }
                 }
 
-                statisticPerMonth.Month = item.Key.Item1;
-                statisticPerMonth.Year = item.Key.Item2;
+                statisticPerMonth.Month = groupingTransaction.Key.Item1;
+                statisticPerMonth.Year = groupingTransaction.Key.Item2;
                 list.Add(statisticPerMonth);
             }
             return list;
         }
 
-        public List<Transaction> GetUserTransactionsDuringSelectedPeriod(int userId, DateTime beginDateTime,
+        public List<Transaction> GetUserTransactionsForSelectedPeriod(int userId, DateTime beginDateTime,
             DateTime endDateTime)
         {
             return _transactionRepository.GetTransactionsWithUserAssetCategoryInfo().Where(transaction =>
