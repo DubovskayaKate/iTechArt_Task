@@ -81,8 +81,8 @@ namespace MoneyManager.Business.Services
                     }
                 }
 
-                statisticPerMonth.Month = groupingTransaction.Key.Item1;
-                statisticPerMonth.Year = groupingTransaction.Key.Item2;
+                statisticPerMonth.Month = groupingTransaction.Key.Month;
+                statisticPerMonth.Year = groupingTransaction.Key.Year;
                 list.Add(statisticPerMonth);
             }
             return list;
