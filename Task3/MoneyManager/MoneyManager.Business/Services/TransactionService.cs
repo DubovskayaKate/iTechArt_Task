@@ -18,7 +18,7 @@ namespace MoneyManager.Business.Services
             _transactionRepository = transactionRepository;
         }
 
-        public void DeleteUserTransactionsForSelectedPeriod(int userId, DateTime beginDateTime, DateTime endDateTime)
+        public void DeleteUserTransactionsDuringSelectedPeriod(int userId, DateTime beginDateTime, DateTime endDateTime)
         {
             Expression<Func<Transaction, bool>> expression = transaction =>
                 transaction.Asset.User.UserId == userId && beginDateTime <= transaction.Date &&
@@ -43,7 +43,7 @@ namespace MoneyManager.Business.Services
                 }).ToList();
         }
 
-        public List<Statistic> GetStatisticsForSelectedPeriod(int userId, DateTime beginDateTime, DateTime endDateTime)
+        public List<Statistic> GetStatisticsDuringSelectedPeriod(int userId, DateTime beginDateTime, DateTime endDateTime)
         {
             var temp = _transactionRepository.GetTransactionsWithUserAssetCategoryInfo();
 
@@ -81,6 +81,11 @@ namespace MoneyManager.Business.Services
             return _transactionRepository.GetTransactionsWithUserAssetCategoryInfo().Where(transaction =>
                 transaction.Asset.User.UserId == userId && transaction.Date > beginDateTime &&
                 transaction.Date < endDateTime).ToList();
+        }
+
+        public List<Transaction> GetTransactionsWithUserAssetCategoryInfo()
+        {
+            return _transactionRepository.GetTransactionsWithUserAssetCategoryInfo();
         }
     }
 }

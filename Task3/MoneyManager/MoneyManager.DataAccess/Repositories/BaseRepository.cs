@@ -33,20 +33,20 @@ namespace MoneyManager.DataAccess.Repositories
 
         public void Insert(TEntity entity)
         {
-            _dbContext.Set<TEntity>().Add(entity);
-            SaveChanges();
+            _dbContext.Set<TEntity>().AddAsync(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Insert(List<TEntity> entities)
         {
-            _dbContext.Set<TEntity>().AddRange(entities);
-            SaveChanges();
+            _dbContext.Set<TEntity>().AddRangeAsync(entities);
+            _dbContext.SaveChanges();
         }
 
         public void Update(TEntity entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
-            SaveChanges();
+            _dbContext.SaveChanges();
         }
 
         public void Update(List<TEntity> entities)
@@ -55,26 +55,20 @@ namespace MoneyManager.DataAccess.Repositories
             {
                 _dbContext.Entry(entity).State = EntityState.Modified;
             }
-            SaveChanges();
+            _dbContext.SaveChanges();
         }
 
         public void Delete(TEntity entity)
         {
             _dbContext.Set<TEntity>().Remove(entity);
-            SaveChanges();
+            _dbContext.SaveChanges();
         }
 
         public void Delete(List<TEntity> entities)
         {
             _dbContext.Set<TEntity>().RemoveRange(entities);
-            SaveChanges();
-        }
-
-        public void SaveChanges()
-        {
-
-            var k = _dbContext.ChangeTracker.Entries<TEntity>();
             _dbContext.SaveChanges();
         }
+
     }
 }

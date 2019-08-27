@@ -17,7 +17,7 @@ namespace MoneyManager.Business.Services
 
         public List<Category> GetAllParentCategories(string categoryName)
         {
-            var selectedCategory = _categoryRepository.GetCategoies().Where(category => category.Name == categoryName ).First();
+            var selectedCategory = _categoryRepository.GetCategories().Where(category => category.Name == categoryName ).First();
             if (selectedCategory == null)
                 return null;
             var listOfPossibleCategories = new List<Category>();

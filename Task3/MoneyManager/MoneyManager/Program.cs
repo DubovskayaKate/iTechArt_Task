@@ -33,6 +33,9 @@ namespace MoneyManager
             services.AddSingleton<UserService>();
             services.AddSingleton<TransactionRepository>();
             services.AddSingleton<TransactionService>();
+            services.AddSingleton<CategoryRepository>();
+            services.AddSingleton<CategoryService>();
+            services.AddSingleton<MixedService>();
 
             ConfigurationProvider = (IServiceProvider)services.BuildServiceProvider();
 
@@ -46,8 +49,16 @@ namespace MoneyManager
             }
 
             var userService = ConfigurationProvider.GetService<UserService>();
-
             var transactionService = ConfigurationProvider.GetService<TransactionService>();
+
+            /*var mixedService = ConfigurationProvider.GetService<MixedService>();
+            var y = mixedService.GetCategoriesDuringPeriod(83, "Taxi", DateTime.Parse("2000 - 03 - 22 20:00:31"),
+                DateTime.Parse("2017 - 03 - 22 20:00:31"));
+
+            foreach (var categoryInfo in y)
+            {
+                Console.WriteLine(categoryInfo);
+            }
 
             var list = userService.GetAll();
 
@@ -55,18 +66,14 @@ namespace MoneyManager
             {
                 Console.WriteLine(user1);
             }
-
-            var user = userService.GetUserById(83);
-            user.Name = "Yana";
-            userService.Update(user);
-
+            */
+            transactionService.GetTransactionsWithUserAssetCategoryInfo();
+            var transaction = transactionService.GetUserById(3475);
+            transaction.Amount = 35;
+            transactionService.Update(transaction);
             //var temp = transactionService.GetUserTransactionsInfo(80);
             /*var temp2 = transactionService.GetStatisticsForSelectedPeriod(80, DateTime.Parse("2000 - 03 - 22 20:00:31"),
                 DateTime.Parse("2017 - 03 - 22 20:00:31"));*/
-
-            
-
-
 
             Console.WriteLine("Ready");
             Console.ReadKey(true);

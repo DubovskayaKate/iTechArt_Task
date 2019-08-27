@@ -22,6 +22,5 @@ namespace MoneyManager.DataAccess.Models
         [ForeignKey("AssetForeignKey")]
         public Asset Asset { get; set; }
 
-        //Category
     }
 }

@@ -25,17 +25,21 @@ namespace MoneyManager.Business.Services
             var categories = _categoryService.GetAllParentCategories(categoryName);
             var transactions = _transactionService.GetUserTransactionsDuringSelectedPeriod(userId, beginDateTime, endDateTime).GroupBy(transaction => transaction.Category);
             var resultCategories = new List<CategoryInfo>();
-            throw new NotImplementedException();
-            foreach (var transaction in transactions)
+
+            foreach (IGrouping<Category, Transaction> transactionGroup in transactions)
             {
-                foreach (var category in categories)
+                foreach (Category category in categories)
                 {
-                    if (transaction.Key == category)
+                    if (transactionGroup.Key == category)
                     {
-                        
+                        var categoryInfo = new CategoryInfo{CategoryName = category.Name};
+                        foreach (var transaction in transactionGroup)
+                        {
+                            categoryInfo.Amount += transaction.Amount;
+                        }
+                        resultCategories.Add(categoryInfo);
                     }
                 }
-                
             }
 
             return resultCategories;
