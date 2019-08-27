@@ -47,7 +47,13 @@ namespace LoggerClassLibrary
             {
                 foreach (var level in child.GetSection("LogLevel").GetChildren())
                 {
-                    LogLevelToDestinationsDictionary[(LogLevel)Enum.Parse(typeof(LogLevel), level.Value)].Add(child.Key);
+                    LogLevel logLevel;
+                    if (Enum.TryParse(level.Value, out logLevel))
+                        LogLevelToDestinationsDictionary[logLevel].Add(child.Key);
+                    else
+                    {
+                        Console.WriteLine($"Undefined logLevel {level.Value}. Possible logLevel values: Info, Warning, Error");
+                    }
                 }
             }
         }
