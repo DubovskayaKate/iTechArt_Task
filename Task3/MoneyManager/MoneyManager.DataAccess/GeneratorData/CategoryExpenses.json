@@ -1,0 +1,15 @@
+{  
+   "Food":[  
+      "Cafe",
+      "Shop"
+   ],
+   "Transport":[  
+      "Taxi",
+      "Public Transport",
+      "Parking"
+   ],
+   "Entertainment":[  
+      "Cinema",
+      "Theatre"
+   ]
+}

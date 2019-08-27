@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewClassLibrary", "ViewCla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingsClassLibrary", "SettingsClassLibrary\SettingsClassLibrary.csproj", "{79E25C2B-52C6-4EC8-9EB9-448B6994B804}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManager.DataAccess", "MoneyManager.DataAccess\MoneyManager.DataAccess.csproj", "{8562C09E-0582-4C34-88AF-43C260C369DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyManager.DataAccess", "MoneyManager.DataAccess\MoneyManager.DataAccess.csproj", "{8562C09E-0582-4C34-88AF-43C260C369DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManager.Business", "MoneyManager.Business\MoneyManager.Business.csproj", "{B72D38E5-E7F4-4ECC-8F7C-6F157A4A0D0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyManager.Business", "MoneyManager.Business\MoneyManager.Business.csproj", "{B72D38E5-E7F4-4ECC-8F7C-6F157A4A0D0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
