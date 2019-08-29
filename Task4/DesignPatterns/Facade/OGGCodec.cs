@@ -1,12 +1,9 @@
 ﻿namespace Facade
 {
-    public class OGGCodec : ICodec
+    public class OggCodec : ICodec
     {
         private readonly string _description = "OGG";
 
-        public string Description
-        {
-            get => _description;
-        }
+        public string Description => _description;
     }
 }

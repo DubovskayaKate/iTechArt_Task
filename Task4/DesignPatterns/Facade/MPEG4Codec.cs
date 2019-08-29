@@ -1,12 +1,10 @@
 ﻿namespace Facade
 {
-    public class MPEG4Codec : ICodec
+    public class Mpeg4Codec : ICodec
     {
         private readonly string _description = "MPEG4";
 
-        public string Description
-        {
-            get => _description;
-        }
+        public string Description => _description;
+        
     }
 }
