@@ -20,33 +20,9 @@ namespace Adapter
 
         public Book GetOldestBook(string xml)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));
-
-            List<Book> list;
-
-            using (var stream = new StringReader(xml))
-            {
-                list = (List<Book>) serializer.Deserialize(stream);
-            }
-
-            string json;
-            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<Book>));
-
-            using (var stream = new MemoryStream())
-            {
-                jsonFormatter.WriteObject(stream, list);
-                stream.Position = 0;
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    json = reader.ReadToEnd();
-                }
-
-            }
-
-            Console.WriteLine(json);
-
-
-            return _bookAnalyzer.GetOldestBook(json);
+            var converter = new Convertеr();
+            List<Book> books = converter.DeserializeBooksXml(xml);
+            return _bookAnalyzer.GetOldestBook(converter.SerializeBooksJson(books));
         }
     }
 }

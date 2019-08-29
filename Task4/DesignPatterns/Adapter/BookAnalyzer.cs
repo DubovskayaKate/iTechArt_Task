@@ -10,14 +10,10 @@ namespace Adapter
     {
         public Book GetOldestBook(string json)
         {
-            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<Book>));
-            List<Book> list;
-            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-            {
-                list = (List<Book>) jsonFormatter.ReadObject(stream);
-            }
-
-            return list.OrderBy(book => book.PublicationYear).First();
+            var converter = new Convertеr();
+            return converter.DeserializeBooksJson(json).OrderBy(book => book.PublicationYear).First();
         }
+
+
     }
 }
