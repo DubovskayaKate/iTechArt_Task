@@ -1,0 +1,23 @@
+.header__headline{
+    text-align: center;
+}
+
+@media (min-width: 1200px){
+    .line1{
+        font-size: 36px;
+    }
+    .line2{
+        font-size: 100px;
+    }
+}
+
+@media (max-width: 1200px){
+    .line1{
+        font-size: 26px;
+    }
+    .line2{
+        font-size: 72px;
+    }
+}
+
+

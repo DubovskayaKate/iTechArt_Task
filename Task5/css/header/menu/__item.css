@@ -1,0 +1,36 @@
+.menu__item{
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+ul {
+    margin-left: 0; 
+    padding-left: 0; 
+}
+.menu__user-icon::before {
+    display: inline-block;
+    content: "";
+    background: url(D:/Tasks/CoreTasks/Task5/images/user.png) no-repeat;
+    width: 10px;  
+    height: 12px;
+    margin-right: 9px;
+}
+
+.menu__currency::before{
+    display: inline-block;
+    content: "";
+    background: url(D:/Tasks/CoreTasks/Task5/images/Р.png) no-repeat;
+    width: 10px;  
+    height: 12px;
+    margin-right: 9px;
+}
+
+.selected-item::after{
+    display: inline-block;
+    content: "";
+    background: url(D:/Tasks/CoreTasks/Task5/images/Многоугольник.png) no-repeat;
+    height: 5px;
+    width: 8px;
+    margin-left: 5px;
+}

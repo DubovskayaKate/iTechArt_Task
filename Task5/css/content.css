@@ -1,7 +1,23 @@
-.content{
+@media screen and (min-width: 1200px){
+    .content{
     box-sizing: border-box;
     width: 1170px;
     margin: auto;
     padding: 15px;
-
+    }
 }
+@media screen and (max-width: 1200px){
+    .content{
+    box-sizing: border-box;
+    width: 720px;
+    margin: auto;
+    padding: 15px;
+    }
+}
+
+/*.content{
+    box-sizing: border-box;
+    width: 1170px;
+    margin: auto;
+    padding: 15px;
+    }*/
