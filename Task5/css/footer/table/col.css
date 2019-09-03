@@ -1,0 +1,15 @@
+.col1{
+    width: 25%;
+}
+
+.col2{
+    width: 50%;
+}
+
+.col3{
+    width: auto;
+}
+
+.table-col{
+    display: inline-block;
+}
