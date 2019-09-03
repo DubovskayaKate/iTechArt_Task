@@ -21,11 +21,39 @@ header{
         margin-left: -585px;
     }
 }
-@media screen and (max-width: 1200px){
+
+@media screen and (max-width: 1200px) and (min-width: 720px){
     .col-menu-logo{
         width: 20%;
     }
     .header__content{
         margin-left: -345px;
+    }
+}
+
+@media screen and (max-width: 720px) and (min-width: 320px){
+    .col-menu-logo{
+        width: 20%;
+    }
+    .header__content{
+        margin-top: 12px;
+        left: 0;
+        right: 0;
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 320px){
+    .col-menu-logo{
+        width: 20%;
+    }
+    .header__content{
+        left: 0;
+        right: 0;
+        margin-left: 0px;
+        margin-top: 12px;
+    }
+    .header__menu{
+        display: none;
     }
 }
