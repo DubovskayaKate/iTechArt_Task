@@ -4,13 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MoneyManager.DataAccess;
 
-namespace MoneyManager.Migrations
+namespace MoneyManager.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20190821104527_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190827135433_Sql")]
+    partial class Sql
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +21,7 @@ namespace MoneyManager.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MoneyManagerClassLibrary.Asset", b =>
+            modelBuilder.Entity("MoneyManager.DataAccess.Models.Asset", b =>
                 {
                     b.Property<int>("AssetId")
                         .ValueGeneratedOnAdd()
@@ -39,7 +40,26 @@ namespace MoneyManager.Migrations
                     b.ToTable("Assets");
                 });
 
-            modelBuilder.Entity("MoneyManagerClassLibrary.Transaction", b =>
+            modelBuilder.Entity("MoneyManager.DataAccess.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsExpenses");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int?>("ParentCategoryCategoryId");
+
+                    b.HasKey("CategoryId");
+
+                    b.HasIndex("ParentCategoryCategoryId");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("MoneyManager.DataAccess.Models.Transaction", b =>
                 {
                     b.Property<int>("TransactionId")
                         .ValueGeneratedOnAdd()
@@ -49,6 +69,8 @@ namespace MoneyManager.Migrations
 
                     b.Property<int?>("AssetForeignKey");
 
+                    b.Property<int?>("CategoryForeignKey");
+
                     b.Property<string>("Comment");
 
                     b.Property<DateTime>("Date");
@@ -57,10 +79,12 @@ namespace MoneyManager.Migrations
 
                     b.HasIndex("AssetForeignKey");
 
+                    b.HasIndex("CategoryForeignKey");
+
                     b.ToTable("Transactions");
                 });
 
-            modelBuilder.Entity("MoneyManagerClassLibrary.User", b =>
+            modelBuilder.Entity("MoneyManager.DataAccess.Models.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -77,18 +101,29 @@ namespace MoneyManager.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("MoneyManagerClassLibrary.Asset", b =>
+            modelBuilder.Entity("MoneyManager.DataAccess.Models.Asset", b =>
                 {
-                    b.HasOne("MoneyManagerClassLibrary.User", "User")
+                    b.HasOne("MoneyManager.DataAccess.Models.User", "User")
                         .WithMany("Assets")
                         .HasForeignKey("UserForeignKey");
                 });
 
-            modelBuilder.Entity("MoneyManagerClassLibrary.Transaction", b =>
+            modelBuilder.Entity("MoneyManager.DataAccess.Models.Category", b =>
                 {
-                    b.HasOne("MoneyManagerClassLibrary.Asset", "Asset")
+                    b.HasOne("MoneyManager.DataAccess.Models.Category", "ParentCategory")
+                        .WithMany("ChildCategories")
+                        .HasForeignKey("ParentCategoryCategoryId");
+                });
+
+            modelBuilder.Entity("MoneyManager.DataAccess.Models.Transaction", b =>
+                {
+                    b.HasOne("MoneyManager.DataAccess.Models.Asset", "Asset")
                         .WithMany("Transactions")
                         .HasForeignKey("AssetForeignKey");
+
+                    b.HasOne("MoneyManager.DataAccess.Models.Category", "Category")
+                        .WithMany("TransactionList")
+                        .HasForeignKey("CategoryForeignKey");
                 });
 #pragma warning restore 612, 618
         }

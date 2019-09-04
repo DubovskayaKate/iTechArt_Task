@@ -11,4 +11,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MoneyManager.Business\MoneyManager.Business.csproj" />
+    <ProjectReference Include="..\MoneyManager.DataAccess\MoneyManager.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

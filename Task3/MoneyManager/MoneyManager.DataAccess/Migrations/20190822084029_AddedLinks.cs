@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MoneyManager.Migrations
+namespace MoneyManager.DataAccess.Migrations
 {
     public partial class AddedLinks : Migration
     {

@@ -9,11 +9,11 @@ using MoneyManager;
 using MoneyManager.DataAccess;
 
 
-namespace MoneyManager.Migrations
+namespace MoneyManager.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20190822084029_AddedLinks")]
-    partial class AddedLinks
+    [Migration("20190821114724_Added_Trnsaction")]
+    partial class Added_Trnsaction
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,7 +58,7 @@ namespace MoneyManager.Migrations
 
                     b.HasIndex("ParentCategoryCategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("MoneyManagerClassLibrary.Transaction", b =>
@@ -124,7 +124,7 @@ namespace MoneyManager.Migrations
                         .HasForeignKey("AssetForeignKey");
 
                     b.HasOne("MoneyManagerClassLibrary.Category", "Category")
-                        .WithMany("TransactionList")
+                        .WithMany()
                         .HasForeignKey("CategoryForeignKey");
                 });
 #pragma warning restore 612, 618

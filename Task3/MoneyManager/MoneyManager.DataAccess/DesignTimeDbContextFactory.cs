@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using MoneyManager.DataAccess;
 
 
-namespace MoneyManager
+namespace MoneyManager.DataAccess
 {
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationContext>
     {
@@ -11,7 +11,7 @@ namespace MoneyManager
         {
             var builder = new DbContextOptionsBuilder<ApplicationContext>();
             var connectionString = "Data Source=WSC-160-71\\SQLEXPRESS;Initial Catalog=MoneyManager;Trusted_Connection=True;";
-            builder.UseSqlServer(connectionString, b => b.MigrationsAssembly("MoneyManager"));
+            builder.UseSqlServer(connectionString, b => b.MigrationsAssembly("MoneyManager.DataAccess"));
             return new ApplicationContext(builder.Options);
         }
     }

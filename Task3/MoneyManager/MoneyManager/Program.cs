@@ -18,25 +18,10 @@ namespace MoneyManager
 
         static void Main(string[] args)
         {
-            var startup = new Startup();
+            
             var services = new ServiceCollection();
-
-            var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
-            var options = optionsBuilder
-                .UseSqlServer(startup.ConnectionString, x => x.MigrationsAssembly("MoneyManager"))
-                .Options;
-
-            services.AddSingleton<IApplicationContext>(new ApplicationContext(options));
-            services.AddSingleton<DataGenerator>();
-            services.AddSingleton<UserRepository>();
-            services.AddSingleton<UserService>();
-            services.AddSingleton<TransactionRepository>();
-            services.AddSingleton<TransactionService>();
-            services.AddSingleton<CategoryRepository>();
-            services.AddSingleton<CategoryService>();
-            services.AddSingleton<MixedService>();
-
-            ConfigurationProvider = (IServiceProvider)services.BuildServiceProvider();
+            services.AddSingletons();
+            ConfigurationProvider = services.BuildServiceProvider();
 
 
             var db = ConfigurationProvider.GetService<IApplicationContext>();
