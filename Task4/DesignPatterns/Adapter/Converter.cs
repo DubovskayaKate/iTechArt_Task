@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace Adapter
 {
-    public class Convertеr
+    public class Converter
     {
         public string SerializeBooksXml(List<Book> books)
         {

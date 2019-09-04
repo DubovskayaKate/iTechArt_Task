@@ -1,11 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using AbstractFactory;
 using AbstractFactory.Factory;
 using Adapter;
 using Facade;
 using Proxy;
-using Proxy = Proxy.ProxyYesterdayRate;
 
 namespace DesignPatterns
 {
@@ -18,13 +16,13 @@ namespace DesignPatterns
             
             var library = new Library();
             var xml = library.GetBooksXML();
-            var adapter = new JsonAdapter(new BookAnalyzer());
+            var adapter = new BookAnalyzerAdapter(new BookAnalyzer());
             var book = adapter.GetOldestBook(xml);
 
             var convert = new SimpleConverter();
             convert.Convert("cats.mp4", "MPEG4");
 
-            IYesterdayRate yesterdayRate = new ProxyYesterdayRate(new YesterdayRate());
+            IYesterdayRate yesterdayRate = new YesterdayRateProxy(new YesterdayRate());
             var list = yesterdayRate.GetRate();
             foreach (var rate in list)
             {

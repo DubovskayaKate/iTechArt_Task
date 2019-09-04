@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Xml.Serialization;
+﻿using System.Collections.Generic;
 
 namespace Adapter
 {
@@ -10,7 +7,7 @@ namespace Adapter
         public string GetBooksXML()
         {
             var books = GetBooks();
-            var converter = new Convertеr();
+            var converter = new Converter();
             return converter.SerializeBooksXml(books);
         }
 

@@ -3,12 +3,12 @@ using System.IO;
 
 namespace Proxy
 {
-    public class ProxyYesterdayRate : IYesterdayRate
+    public class YesterdayRateProxy : IYesterdayRate
     {
         private readonly YesterdayRate _yesterdayRate;
         private readonly string _filePath = "rate.log";
 
-        public ProxyYesterdayRate(YesterdayRate yesterdayRate)
+        public YesterdayRateProxy(YesterdayRate yesterdayRate)
         {
             _yesterdayRate = yesterdayRate;
         }

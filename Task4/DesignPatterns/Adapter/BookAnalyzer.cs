@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Json;
-using System.Text;
+﻿using System.Linq;
 
 namespace Adapter
 {
@@ -10,7 +6,7 @@ namespace Adapter
     {
         public Book GetOldestBook(string json)
         {
-            var converter = new Convertеr();
+            var converter = new Converter();
             return converter.DeserializeBooksJson(json).OrderBy(book => book.PublicationYear).First();
         }
 
