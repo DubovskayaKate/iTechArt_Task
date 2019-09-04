@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LoggerClassLibrary
+namespace LoggingSection
 {
     public interface ILogger
     {

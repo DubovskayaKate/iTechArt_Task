@@ -4,12 +4,12 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Reflection;
 
-namespace LoggerClassLibrary
+namespace LoggingSection
 {
 
     public class Logger: ILogger
     {
-        public Dictionary<LogLevel, List<ILogger>> LogLevelToDestinationListDictionary { get; }
+        private Dictionary<LogLevel, List<ILogger>> LogLevelToDestinationListDictionary { get; }
         
         private static Logger _instanceLogger;
         
@@ -70,20 +70,27 @@ namespace LoggerClassLibrary
 
         private void LogInformation(string message, LogLevel logLevel)
         {
-            foreach (var objLogger in LogLevelToDestinationListDictionary[logLevel])
+            if (LogLevelToDestinationListDictionary.ContainsKey(logLevel))
             {
-                switch (logLevel)
+                foreach (var objLogger in LogLevelToDestinationListDictionary[logLevel])
                 {
-                    case LogLevel.Error:
-                        objLogger.Error(message);
-                        break;
-                    case LogLevel.Info:
-                        objLogger.Info(message);
-                        break;
-                    case LogLevel.Warning:
-                        objLogger.Warning(message);
-                        break;
+                    switch (logLevel)
+                    {
+                        case LogLevel.Error:
+                            objLogger.Error(message);
+                            break;
+                        case LogLevel.Info:
+                            objLogger.Info(message);
+                            break;
+                        case LogLevel.Warning:
+                            objLogger.Warning(message);
+                            break;
+                    }
                 }
+            }
+            else
+            {
+                Console.WriteLine($"LogLevelToDestinationListDictionary does not contain {logLevel} key");
             }
         }
     }

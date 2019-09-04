@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreTasks", "CoreTasks\CoreTasks.csproj", "{5E6CEC3B-B041-43C4-92D4-1FDF425BC09C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerClassLibrary", "ClassLibrary\LoggerClassLibrary.csproj", "{B7174E09-C91E-431A-A769-0194188082EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingSection", "ClassLibrary\LoggingSection.csproj", "{B7174E09-C91E-431A-A769-0194188082EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

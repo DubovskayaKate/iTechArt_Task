@@ -1,4 +1,4 @@
-﻿namespace LoggerClassLibrary
+﻿namespace LoggingSection
 {
     public enum LogLevel
     {

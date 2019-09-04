@@ -4,7 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LoggerClassLibrary
+namespace LoggingSection
 {
     class StartUp
     {
@@ -37,12 +37,6 @@ namespace LoggerClassLibrary
                 LogLevelToDestinationsDictionary[LogLevel.Error].Add(DefaultLogger);
             }
 
-
-            /*configuration.GetSection(LoggingString).GetChildren().Select(child =>
-                child.GetSection("LogLevel").GetChildren().Select(level =>
-                    LogLevelToDestinationsDictionary[(LogLevel) Enum.Parse(typeof(LogLevel), level.Value)]
-                        .Add(child.Key)));
-                        */
             foreach (var child in configuration.GetSection(LoggingString).GetChildren())
             {
                 foreach (var level in child.GetSection("LogLevel").GetChildren())
