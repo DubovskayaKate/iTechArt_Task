@@ -1,14 +1,9 @@
 ﻿using System;
-using Microsoft.Extensions.Configuration;
-using System.IO;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MoneyManager.Business.Services;
+using MoneyManager.CompositionRoot;
 using MoneyManager.DataAccess;
-using MoneyManager.DataAccess.Models;
 using MoneyManager.DataAccess.Repositories;
-using SettingsClassLibrary;
 
 namespace MoneyManager
 {
@@ -32,8 +27,6 @@ namespace MoneyManager
                 db.SaveChanges();
             }
 
-            var userService = ConfigurationProvider.GetService<UserService>();
-            var transactionService = ConfigurationProvider.GetService<TransactionService>();
 
 
             Console.WriteLine("Ready");

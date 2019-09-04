@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SettingsClassLibrary
+namespace MoneyManager.CompositionRoot
 {
     public class Startup
     {

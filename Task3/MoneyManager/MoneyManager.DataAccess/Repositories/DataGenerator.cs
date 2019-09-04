@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Text;
-using MoneyManager;
 using System.IO;
 using System.Linq;
 using MoneyManager.DataAccess.Models;
 using Newtonsoft.Json;
-using Remotion.Linq.Clauses.ResultOperators;
 
 namespace MoneyManager.DataAccess.Repositories
 {
@@ -26,27 +22,36 @@ namespace MoneyManager.DataAccess.Repositories
 
         public void GenerateData()
         {
-            var users = GenerateUsers();
-            var assets = GenerateAssets(ref users);
-            var categories = GenerateCategories();
-            var transactions = GenerateTransactions(ref categories, ref assets);
+            List<User> users = GenerateUsers();
+            List<Asset> assets = GenerateAssets(ref users);
+            List<Category> categories = GenerateCategories();
+            List<Transaction> transactions = GenerateTransactions(ref categories, ref assets);
             ApplicationContext.Users.AddRangeAsync(users);
             ApplicationContext.Assets.AddRangeAsync(assets);
             ApplicationContext.Categories.AddRangeAsync(categories);
-            ApplicationContext.Transactions.AddRange(transactions);
+            ApplicationContext.Transactions.AddRangeAsync(transactions);
             ApplicationContext.SaveChanges();
         }
 
-        public List<User> GenerateUsers()
+        private List<User> GenerateUsers()
         {
-            return File.ReadAllLines(UserPath).Select(strUser => strUser.Split(' '))
-                .Select(user => new User {Name = user[0], Email = user[1], Balance = 0, Assets = new List<Asset>()})
+            // Structure of file: UserName(space)UserEmail\n
+            return File.ReadAllLines(UserPath)
+                .Select(strUser => strUser.Split(' '))
+                .Select(user => new User
+                {
+                    Name = user[0],
+                    Email = user[1],
+                    Balance = 0,
+                    Assets = new List<Asset>()
+                })
                 .ToList();
         }
 
-        public List<Asset> GenerateAssets(ref List<User> users)
+        private List<Asset> GenerateAssets(ref List<User> users)
         {
             var random = new Random();
+            //Structure of file: AssetsName
             var strNames = File.ReadAllLines(AssetPath);
 
             var assets = new List<Asset>();
@@ -56,20 +61,28 @@ namespace MoneyManager.DataAccess.Repositories
                 {
                     var asset = new Asset
                     {
-                        Name = name, User = user, Balance = random.Next(0, 2000), Transactions = new List<Transaction>()
+                        Name = name,
+                        User = user,
+                        Balance = random.Next(0, 2000),
+                        Transactions = new List<Transaction>()
                     };
                     assets.Add(asset);
                     user.Assets.Add(asset);
                     user.Balance += asset.Balance;
                 }
             }
-
             return assets;
-
         }
 
-        public List<Category> GenerateCategories()
+        private List<Category> GenerateCategories()
         {
+            //Structure of file:
+            //{
+            //      "Category":[  
+            //          "Subcategory1",...
+            //      ],...
+            // }
+            //
             var expenses = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(File.ReadAllText(CategoryExpensesPath));
             var income = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(File.ReadAllText(CategoryIncomePath));
 
@@ -84,8 +97,11 @@ namespace MoneyManager.DataAccess.Repositories
             {
                 var parent = new Category
                 {
-                    Name = categoryTree.Key, ParentCategory = null, ChildCategories = new List<Category>(),
-                    IsExpenses = isExpenses, TransactionList = new List<Transaction>()
+                    Name = categoryTree.Key,
+                    ParentCategory = null,
+                    ChildCategories = new List<Category>(),
+                    IsExpenses = isExpenses,
+                    TransactionList = new List<Transaction>()
                 };
                 listCategory.Add(parent);
 
@@ -106,7 +122,7 @@ namespace MoneyManager.DataAccess.Repositories
             return listCategory;
         }
 
-        public List<Transaction> GenerateTransactions(ref List<Category> categories, ref List<Asset> assets)
+        private List<Transaction> GenerateTransactions(ref List<Category> categories, ref List<Asset> assets)
         {
             var transactionList = new List<Transaction>();
             var random = new Random();
@@ -117,7 +133,10 @@ namespace MoneyManager.DataAccess.Repositories
                 {
                     var transaction = new Transaction
                     {
-                        Asset = asset, Category = category, Amount = random.Next(0, 4000), Comment = "Info",
+                        Asset = asset,
+                        Category = category,
+                        Amount = random.Next(0, 4000),
+                        Comment = "Info",
                         Date = new DateTime(random.Next(1990, 2018), random.Next(1, 12), random.Next(1, 28),
                             random.Next(0, 23), random.Next(0, 60), random.Next(0, 60))
                     };
@@ -126,7 +145,6 @@ namespace MoneyManager.DataAccess.Repositories
                     transactionList.Add(transaction);
                 }
             }
-
             return transactionList;
         }
     }

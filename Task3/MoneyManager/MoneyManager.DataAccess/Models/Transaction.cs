@@ -16,10 +16,10 @@ namespace MoneyManager.DataAccess.Models
         public int Amount { get; set; }
         public string Comment { get; set; }
 
-        [ForeignKey("CategoryForeignKey")]
+        [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
-        [ForeignKey("AssetForeignKey")]
+        [ForeignKey("AssetId")]
         public Asset Asset { get; set; }
 
     }

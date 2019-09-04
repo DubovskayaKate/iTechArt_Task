@@ -12,9 +12,9 @@ namespace MoneyManager.DataAccess.Repositories
 
         }
 
-        public List<Category> GetCategories()
+        public IEnumerable<Category> GetCategories()
         {
-            return DbContext.Categories.Include(category => category.ParentCategory).ToList();
+            return DbContext.Categories.Include(category => category.ParentCategory);
         }
     }
 }

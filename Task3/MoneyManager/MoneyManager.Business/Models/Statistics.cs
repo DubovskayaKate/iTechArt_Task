@@ -1,6 +1,6 @@
 ﻿namespace MoneyManager.Business.Models
 {
-    public class Statistic
+    public class Statistics
     {
         public int Income { get; set; }
         public int Expenses { get; set; }

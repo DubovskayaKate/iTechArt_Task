@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MoneyManager.DataAccess.Models
 {
-    [Table("Users")]
     public class User
     {
         [Key]

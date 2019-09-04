@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MoneyManager.Business.Services;
 using MoneyManager.DataAccess;
 using MoneyManager.DataAccess.Repositories;
 
-namespace SettingsClassLibrary
+namespace MoneyManager.CompositionRoot
 {
     public static class ExtensionMethod
     {

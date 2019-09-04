@@ -19,12 +19,12 @@ namespace MoneyManager.DataAccess.Repositories
             return DbContext.Set<TEntity>().Find(id);
         }
 
-        public virtual IEnumerable<TEntity> List()
+        public virtual IEnumerable<TEntity> GetAllItems()
         {
             return DbContext.Set<TEntity>().AsEnumerable();
         }
 
-        public virtual IEnumerable<TEntity> List(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate)
+        public virtual IEnumerable<TEntity> GetAllItems(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate)
         {
             return DbContext.Set<TEntity>()
                 .Where(predicate)
@@ -37,7 +37,7 @@ namespace MoneyManager.DataAccess.Repositories
             DbContext.SaveChanges();
         }
 
-        public void Insert(List<TEntity> entities)
+        public void Insert(IEnumerable<TEntity> entities)
         {
             DbContext.Set<TEntity>().AddRangeAsync(entities);
             DbContext.SaveChanges();
@@ -49,7 +49,7 @@ namespace MoneyManager.DataAccess.Repositories
             DbContext.SaveChanges();
         }
 
-        public void Update(List<TEntity> entities)
+        public void Update(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
@@ -64,7 +64,7 @@ namespace MoneyManager.DataAccess.Repositories
             DbContext.SaveChanges();
         }
 
-        public void Delete(List<TEntity> entities)
+        public void Delete(IEnumerable<TEntity> entities)
         {
             DbContext.Set<TEntity>().RemoveRange(entities);
             DbContext.SaveChanges();

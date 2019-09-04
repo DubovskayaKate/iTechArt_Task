@@ -12,7 +12,7 @@ namespace MoneyManager.DataAccess.Models
         public string Name { get; set; }
         public int Balance { get; set; }
 
-        [ForeignKey("UserForeignKey")]
+        [ForeignKey("UserId")]
         public  User User { get; set; }
 
         public List<Transaction> Transactions { get; set; }

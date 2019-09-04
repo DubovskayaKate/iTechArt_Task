@@ -14,10 +14,10 @@ namespace MoneyManager.DataAccess
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().ToTable("Users");
-            modelBuilder.Entity<Asset>().ToTable("Assets");
-            modelBuilder.Entity<Transaction>().ToTable("Transactions");
-            modelBuilder.Entity<Category>().ToTable("Categories");
+            modelBuilder.Entity<User>();
+            modelBuilder.Entity<Asset>();
+            modelBuilder.Entity<Transaction>();
+            modelBuilder.Entity<Category>();
         }
 
         public override int SaveChanges()

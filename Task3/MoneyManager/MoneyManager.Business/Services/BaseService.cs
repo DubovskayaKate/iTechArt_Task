@@ -15,7 +15,7 @@ namespace MoneyManager.Business.Services
 
         public List<TEntity> GetAll()
         {
-            return _repository.List().ToList();
+            return _repository.GetAllItems().ToList();
         }
         public TEntity GetUserById(int id)
         {

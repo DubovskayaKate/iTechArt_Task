@@ -22,7 +22,7 @@ namespace MoneyManager.Business.Services
         public List<AssetWithBalance> GetUserAssetsOrderedByAssetName(int userId)
         {
             Expression<Func<Asset, bool >> expression = asset => asset.User.UserId == userId;
-            return _assetRepository.List(expression).Select(asset => new AssetWithBalance
+            return _assetRepository.GetAllItems(expression).Select(asset => new AssetWithBalance
                 {Balance = asset.Balance, Name = asset.Name, Id = asset.AssetId}).OrderBy(asset => asset.Name).ToList();
         }
 

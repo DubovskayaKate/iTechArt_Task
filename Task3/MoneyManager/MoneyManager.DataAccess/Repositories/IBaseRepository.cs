@@ -7,13 +7,13 @@ namespace MoneyManager.DataAccess.Repositories
     public interface IBaseRepository<T> where T : class
     {
         T GetById(int id);
-        IEnumerable<T> List();
-        IEnumerable<T> List(Expression<Func<T, bool>> predicate);
+        IEnumerable<T> GetAllItems();
+        IEnumerable<T> GetAllItems(Expression<Func<T, bool>> predicate);
         void Insert(T entity);
         void Delete(T entity);
         void Update(T entity);
-        void Insert(List<T> entity);
-        void Delete(List<T> entity);
-        void Update(List<T> entity);
+        void Insert(IEnumerable<T> entity);
+        void Delete(IEnumerable<T> entity);
+        void Update(IEnumerable<T> entity);
     }
 }

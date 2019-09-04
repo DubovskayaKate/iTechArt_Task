@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyManager", "MoneyManager\MoneyManager.csproj", "{E45CCAC3-800A-4FCA-A055-D859FBE5301E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingsClassLibrary", "SettingsClassLibrary\SettingsClassLibrary.csproj", "{79E25C2B-52C6-4EC8-9EB9-448B6994B804}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyManager.CompositionRoot", "SettingsClassLibrary\MoneyManager.CompositionRoot.csproj", "{79E25C2B-52C6-4EC8-9EB9-448B6994B804}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyManager.DataAccess", "MoneyManager.DataAccess\MoneyManager.DataAccess.csproj", "{8562C09E-0582-4C34-88AF-43C260C369DE}"
 EndProject

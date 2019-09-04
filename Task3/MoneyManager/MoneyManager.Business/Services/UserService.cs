@@ -23,7 +23,7 @@ namespace MoneyManager.Business.Services
         public List<User> GetUserByEmail(string email)
         {
             Expression < Func<User, bool> >  expression = user => user.Email == email;
-            return _userRepository.List(expression).ToList();
+            return _userRepository.GetAllItems(expression).ToList();
             throw new NotImplementedException();
         }
 
@@ -31,7 +31,7 @@ namespace MoneyManager.Business.Services
         //Each record of the output model includes User.Id, User.Name and User.Email
         public List<UserWithoutBalance> GetUsersSortedList()
         {
-            return _userRepository.List().Select(user =>
+            return _userRepository.GetAllItems().Select(user =>
             new UserWithoutBalance() { UserId = user.UserId, Name = user.Name, Email = user.Email }).OrderBy(user => user.Name).ToList();
         }
 
@@ -39,7 +39,7 @@ namespace MoneyManager.Business.Services
         //Each record of the output model includes User.Id, User.Email, User.Name, and Balance.
         public List<UserWithBalance> GetUsersBalances()
         {
-            return _userRepository.List().Select(user => new UserWithBalance
+            return _userRepository.GetAllItems().Select(user => new UserWithBalance
                 {UserId = user.UserId, Balance = user.Balance, Name = user.Name, Email = user.Email}).ToList();
         }
 
