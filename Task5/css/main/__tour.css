@@ -1,0 +1,65 @@
+.grid{
+    display: grid;
+}
+
+@media screen and (min-width: 1200px){
+    .grid{
+        display: grid;
+        grid-template-rows: 150px 150px 150px;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: 
+        'tour1 tour2'
+        'tour1 tour3'
+        'tour4 tour5'
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 1200px){
+    .grid{
+        display: grid;
+        grid-template-rows: 150px 150px ;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: 
+        'tour1 tour2'
+        'tour3 tour4'
+    }
+}
+
+@media screen and (max-width: 320px){
+    .grid{
+        display: grid;
+        grid-template-rows: repeat(4, 50px);
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        'tour1'
+        'tour2'
+        'tour3'
+        'tour4'
+    }
+}
+
+
+.main__tour {
+}
+
+.tour1{
+    background-color: aqua;
+    grid-area: tour1;
+}
+
+.tour2{
+    background-color: antiquewhite;
+    grid-area: tour2;
+}
+.tour3{
+    background-color: blueviolet;
+    grid-area: tour3;
+}
+.tour4{
+    background-color: gray;
+    grid-area: tour4;
+}
+.tour5{
+    background-color: green;
+    grid-area: tour5;
+}

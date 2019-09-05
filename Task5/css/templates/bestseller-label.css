@@ -1,0 +1,13 @@
+.bestseller-label::after{
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: 45px;
+    background: url(D:/Tasks/CoreTasks/Task5/images/tag.png) no-repeat;
+    height: 100px;
+    width: 90px;
+}
+
+.bestseller-label{
+    position: relative;
+}
