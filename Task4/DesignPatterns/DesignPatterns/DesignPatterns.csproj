@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AbstractFactory\AbstractFactory.csproj" />
+    <ProjectReference Include="..\Adapter\Adapter.csproj" />
+    <ProjectReference Include="..\Facade\Facade.csproj" />
+    <ProjectReference Include="..\Proxy\Proxy.csproj" />
+  </ItemGroup>
+
+</Project>
