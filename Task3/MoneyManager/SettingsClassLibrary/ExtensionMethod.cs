@@ -24,7 +24,6 @@ namespace MoneyManager.CompositionRoot
             services.AddSingleton<TransactionService>();
             services.AddSingleton<CategoryRepository>();
             services.AddSingleton<CategoryService>();
-            services.AddSingleton<MixedService>();
             
         }
     }

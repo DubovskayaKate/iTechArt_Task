@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using MoneyManager.DataAccess;
-
 
 namespace MoneyManager.DataAccess
 {

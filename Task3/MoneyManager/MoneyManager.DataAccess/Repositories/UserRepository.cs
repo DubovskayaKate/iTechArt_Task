@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MoneyManager.DataAccess.Models;
+﻿using MoneyManager.DataAccess.Models;
 
 namespace MoneyManager.DataAccess.Repositories
 {

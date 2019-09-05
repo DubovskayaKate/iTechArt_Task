@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore;
 using MoneyManager.Business.Models;
 using MoneyManager.DataAccess.Models;
 using MoneyManager.DataAccess.Repositories;
@@ -58,8 +57,6 @@ namespace MoneyManager.Business.Services
         //Each record of the output model should include total Income and Expenses, Month and Year.
         public List<Statistics> GetStatisticsForSelectedPeriod(int userId, DateTime beginDateTime, DateTime endDateTime)
         {
-            var temp = _transactionRepository.GetTransactionsWithUserAssetCategoryInfo();
-
             var collection = _transactionRepository.GetTransactionsWithUserAssetCategoryInfo()
                 .Where(transaction => transaction.Asset.User.UserId == userId && transaction.Date > beginDateTime && transaction.Date < endDateTime)
                 .GroupBy(transaction => (transaction.Date.Month, transaction.Date.Year));

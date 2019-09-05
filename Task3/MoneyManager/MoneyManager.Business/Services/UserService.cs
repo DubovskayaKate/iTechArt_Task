@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
 using MoneyManager.Business.Models;
-using MoneyManager.DataAccess;
 using MoneyManager.DataAccess.Models;
 using MoneyManager.DataAccess.Repositories;
 
@@ -13,7 +11,6 @@ namespace MoneyManager.Business.Services
     public class UserService : BaseService<User>
     {
         private readonly UserRepository _userRepository; 
-
         public UserService(UserRepository userRepository) : base(userRepository)
         {
             _userRepository = userRepository;
@@ -24,7 +21,6 @@ namespace MoneyManager.Business.Services
         {
             Expression < Func<User, bool> >  expression = user => user.Email == email;
             return _userRepository.GetAllItems(expression).ToList();
-            throw new NotImplementedException();
         }
 
         //Query returns the user list sorted by the user’s name.
