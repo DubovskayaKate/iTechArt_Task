@@ -20,7 +20,7 @@ namespace MoneyManager.Business.Services
 
         public List<Category> GetAllParentCategories(string categoryName)
         {
-            var selectedCategory = _categoryRepository.GetCategories().First(category => category.Name == categoryName);
+            var selectedCategory = _categoryRepository.GetCategoryByName(categoryName);
             if (selectedCategory == null)
                 return null;
             var listOfPossibleCategories = new List<Category>();
@@ -30,6 +30,11 @@ namespace MoneyManager.Business.Services
                 selectedCategory = selectedCategory.ParentCategory;
             }
             return listOfPossibleCategories;
+        }
+
+        public IEnumerable<Category> GetCategories()
+        {
+            return _categoryRepository.GetCategories();
         }
 
         //Query returns the total amount of all parent categories for the selected type of operation(Income or Expenses).

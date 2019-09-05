@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
+using MoneyManager.Business.Services;
 using MoneyManager.CompositionRoot;
 using MoneyManager.DataAccess;
+using MoneyManager.DataAccess.Models;
 using MoneyManager.DataAccess.Repositories;
 
 namespace MoneyManager
@@ -27,6 +30,22 @@ namespace MoneyManager
                 db.SaveChanges();
             }
 
+
+            var categoryService = ConfigurationProvider.GetService<CategoryService>();
+            categoryService.GetCategories();
+            var category = categoryService.GetEntityById(30);
+
+            var newCategory = new Category
+            {
+                ChildCategories = null,
+                IsExpenses = false,
+                Name = "Lotto",
+                TransactionList = new List<Transaction>(),
+                ParentCategory = category
+            };
+            category.ChildCategories = new List<Category> { newCategory };
+            categoryService.Insert(newCategory);
+            
 
 
             Console.WriteLine("Ready");

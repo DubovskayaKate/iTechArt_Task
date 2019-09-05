@@ -18,19 +18,17 @@ namespace MoneyManager.Business.Services
         }
         //Query returns the asset list for the selected user(userId) ordered by the asset’s name.
         //Each record of the output model includes Asset.Id, Asset.Name and Balance
-        public List<AssetWithBalance> GetUserAssetsOrderedByAssetName(int userId)
+        public IEnumerable<AssetWithBalance> GetUserAssetsOrderedByAssetName(int userId)
         {
-            Expression<Func<Asset, bool >> expression = asset => asset.User.UserId == userId;
-            return _assetRepository.GetAllItems(expression)
+            
+            return _assetRepository.GetAllAssetsByUserIdOrderedByAssetName(userId)
                 .Select(asset => 
                     new AssetWithBalance
                     {
                         Balance = asset.Balance,
                         Name = asset.Name,
                         Id = asset.AssetId
-                    })
-                .OrderBy(asset => asset.Name)
-                .ToList();
+                    });
         }
 
     }

@@ -17,7 +17,7 @@ namespace MoneyManager.Business.Services
         {
             return _repository.GetAllItems().ToList();
         }
-        public TEntity GetUserById(int id)
+        public TEntity GetEntityById(int id)
         {
             return _repository.GetById(id);
         }
@@ -33,7 +33,7 @@ namespace MoneyManager.Business.Services
 
         public void Insert(TEntity entity)
         {
-            _repository.Update(entity);
+            _repository.Insert(entity);
         }
 
 

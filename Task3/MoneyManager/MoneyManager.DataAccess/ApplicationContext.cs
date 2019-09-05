@@ -18,12 +18,6 @@ namespace MoneyManager.DataAccess
             modelBuilder.Entity<Category>().ToTable("Category");
         }
 
-        public override int SaveChanges()
-        {
-            
-            return base.SaveChanges();
-        }
-
         public DbSet<User> Users { get; set; }
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
