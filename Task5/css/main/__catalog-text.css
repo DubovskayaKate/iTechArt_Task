@@ -1,0 +1,16 @@
+.main__catalog-text{    
+    text-align: center;
+    padding-top: 60px;
+}
+
+@media screen and (min-width: 1200px){
+    .main__catalog-text{
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .main__catalog-text{
+        font-size: 26px;
+    }
+}

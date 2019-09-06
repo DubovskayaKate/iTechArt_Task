@@ -5,3 +5,11 @@
     padding: 17px;
     width: 200px;
 }
+
+.simple-button:hover{
+    background-color:#13b0e9;
+}
+
+.simple-button:active{
+    background-color: "#64d6ff";
+}
