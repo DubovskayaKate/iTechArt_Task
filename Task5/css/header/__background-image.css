@@ -12,13 +12,13 @@
     }
 }
 
-@media screen and (max-width: 1200px) and (min-width: 320px){
+@media screen and (max-width: 1200px) and (min-width: 350px){
     .header__background-image{
         content: url(D:/Tasks/CoreTasks/Task5/images/sochi-md.png);
     }
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 350px){
     .header__background-image{
         content: url(D:/Tasks/CoreTasks/Task5/images/sochi-sm.png);
     }

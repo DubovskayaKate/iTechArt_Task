@@ -1,19 +1,19 @@
-.bestseller-label::after{
+.sale-label::after{
     content: "";
     position: absolute;
     top: -2px;
     right: 45px;
-    background: url(D:/Tasks/CoreTasks/Task5/images/tag.png) no-repeat;
+    background: url(D:/Tasks/CoreTasks/Task5/images/tag-red.png) no-repeat;
     height: 100px;
     width: 90px;
 }
 
-.bestseller-label{
+.sale-label{
     position: relative;
 }
 
-.bestseller-label::before{
-    content: "Хит продаж";
+.sale-label::before{
+    content: "Акция";
     position: absolute;
     font-size: 18px;
     color: white;
