@@ -1,8 +1,11 @@
 .selected-item::after {
     display: inline-block;
-    content: "";
-    background: url(D:/Tasks/CoreTasks/Task5/images/Многоугольник.png) no-repeat;
-    height: 5px;
+
     width: 8px;
+    height: 5px;
     margin-left: 5px;
+
+    content: '';
+
+    background: url(/images/Многоугольник.png) no-repeat;
 }

@@ -7,7 +7,7 @@
         "ignores"
       ]
     }],
-    "indentation": "tab",
+    "indentation": 4,
     "number-leading-zero": null
   }
 }

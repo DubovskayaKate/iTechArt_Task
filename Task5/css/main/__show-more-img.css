@@ -1,8 +1,11 @@
 .tour__show-more-img::after {
     display: inline-block;
-    content: "";
-    background: url(D:/Tasks/CoreTasks/Task5/images/Многоугольник1.png) no-repeat;
-    height: 10px;
+
     width: 8px;
+    height: 10px;
     margin-left: 10px;
+
+    content: '';
+
+    background: url(/images/Многоугольник1.png) no-repeat;
 }

@@ -7,9 +7,9 @@
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-areas:
-        'tour1 tour2'
-        'tour1 tour3'
-        'tour4 tour5';
+            'tour1 tour2'
+            'tour1 tour3'
+            'tour4 tour5';
     }
 }
 
@@ -18,8 +18,8 @@
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-areas:
-        'tour1 tour2'
-        'tour3 tour4';
+            'tour1 tour2'
+            'tour3 tour4';
     }
 
     .tour5 {
@@ -32,13 +32,13 @@
         display: grid;
         grid-template-columns: 100%;
         grid-template-areas:
-        'tour1'
-        'tour2'
-        'tour3'
-        'tour4'
-        'tour5';
+            'tour1'
+            'tour2'
+            'tour3'
+            'tour4'
+            'tour5';
     }
-    
+
     .tour5 {
         display: none;
     }

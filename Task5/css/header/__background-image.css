@@ -1,25 +1,27 @@
 .header__background-image {
-    width: 100%;
-    display: block;
     position: relative;
-    top: 0;
     z-index: -1;
+    top: 0;
+
+    display: block;
+
+    width: 100%;
 }
 
 @media screen and (min-width: 1200px) {
     .header__background-image {
-        content: url(D:/Tasks/CoreTasks/Task5/images/sochi.png);
+        content: url(/images/sochi.png);
     }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 350px) {
     .header__background-image {
-        content: url(D:/Tasks/CoreTasks/Task5/images/sochi-md.png);
+        content: url(/images/sochi-md.png);
     }
 }
 
 @media screen and (max-width: 350px) {
     .header__background-image {
-        content: url(D:/Tasks/CoreTasks/Task5/images/sochi-sm.png);
+        content: url(/images/sochi-sm.png);
     }
 }

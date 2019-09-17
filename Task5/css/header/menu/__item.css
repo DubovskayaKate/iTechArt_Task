@@ -1,7 +1,9 @@
 .menu__item {
-    list-style-type: none;
     display: inline-block;
+
     margin-right: 30px;
+
+    list-style-type: none;
 }
 
 ul {
@@ -11,18 +13,24 @@ ul {
 
 .menu__user-icon::before {
     display: inline-block;
-    content: "";
-    background: url(D:/Tasks/CoreTasks/Task5/images/user.png) no-repeat;
+
     width: 10px;
     height: 12px;
     margin-right: 9px;
+
+    content: '';
+
+    background: url(/images/user.png) no-repeat;
 }
 
 .menu__currency-icon::before {
     display: inline-block;
-    content: "";
-    background: url(D:/Tasks/CoreTasks/Task5/images/Р.png) no-repeat;
+
     width: 10px;
     height: 12px;
     margin-right: 9px;
+
+    content: '';
+
+    background: url(/images/Р.png) no-repeat;
 }

@@ -1,9 +1,11 @@
 .simple-button {
-    background-color: #33c7fd;
     font-size: 14px;
-    color: white;
-    padding: 17px;
+
     width: 200px;
+    padding: 17px;
+
+    color: white;
+    background-color: #33c7fd;
 }
 
 .simple-button:hover {

@@ -3,9 +3,13 @@
 }
 
 .sale-label .tour__old-priсe {
-    visibility: unset;
     font-size: 18px;
-    text-decoration: line-through;
-    color: gray;
+
+    visibility: unset;
+
     margin-left: 20px;
+
+    text-decoration: line-through;
+
+    color: gray;
 }

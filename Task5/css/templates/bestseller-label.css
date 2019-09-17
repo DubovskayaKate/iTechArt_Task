@@ -1,11 +1,14 @@
 .bestseller-label::after {
-    content: "";
     position: absolute;
     top: -2px;
     right: 45px;
-    background: url(D:/Tasks/CoreTasks/Task5/images/tag.png) no-repeat;
-    height: 100px;
+
     width: 90px;
+    height: 100px;
+
+    content: '';
+
+    background: url(/images/tag.png) no-repeat;
 }
 
 .bestseller-label {
@@ -13,13 +16,17 @@
 }
 
 .bestseller-label::before {
-    content: "Хит продаж";
-    position: absolute;
     font-size: 18px;
-    color: white;
-    width: 90px;
+
+    position: absolute;
+    z-index: 3;
     top: 25px;
     right: 45px;
+
+    width: 90px;
+
+    content: "Хит продаж";
     text-align: center;
-    z-index: 3;
+
+    color: white;
 }
