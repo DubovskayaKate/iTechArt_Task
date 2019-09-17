@@ -1,4 +1,4 @@
-.header__background-image{
+.header__background-image {
     width: 100%;
     display: block;
     position: relative;
@@ -6,20 +6,20 @@
     z-index: -1;
 }
 
-@media screen and (min-width: 1200px){
-    .header__background-image{
+@media screen and (min-width: 1200px) {
+    .header__background-image {
         content: url(D:/Tasks/CoreTasks/Task5/images/sochi.png);
     }
 }
 
-@media screen and (max-width: 1200px) and (min-width: 350px){
-    .header__background-image{
+@media screen and (max-width: 1200px) and (min-width: 350px) {
+    .header__background-image {
         content: url(D:/Tasks/CoreTasks/Task5/images/sochi-md.png);
     }
 }
 
-@media screen and (max-width: 350px){
-    .header__background-image{
+@media screen and (max-width: 350px) {
+    .header__background-image {
         content: url(D:/Tasks/CoreTasks/Task5/images/sochi-sm.png);
     }
 }

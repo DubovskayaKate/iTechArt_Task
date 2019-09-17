@@ -1,4 +1,4 @@
-.sale-label::after{
+.sale-label::after {
     content: "";
     position: absolute;
     top: -2px;
@@ -8,11 +8,11 @@
     width: 90px;
 }
 
-.sale-label{
+.sale-label {
     position: relative;
 }
 
-.sale-label::before{
+.sale-label::before {
     content: "Акция";
     position: absolute;
     font-size: 18px;

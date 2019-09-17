@@ -1,48 +1,57 @@
-.tour__image{
+.tour__image {
     width: 100%;
 }
 
-@media screen and (min-width: 1200px){
-    .tour1 img{
+@media screen and (min-width: 1200px) {
+    .tour1 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour1-image-lg.png);
     }
-    .tour2 img{
+
+    .tour2 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour2-image-lg.png);
     }
-    .tour3 img{
+
+    .tour3 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour3-image-lg.png);
     }
-    .tour4 img{
+
+    .tour4 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour4-image-lg.png);
     }
 }
 
-@media screen and (max-width: 1200px) and (min-width: 320px){
-    .tour1 img{
+@media screen and (max-width: 1200px) and (min-width: 320px) {
+    .tour1 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour1-image-md.png);
     }
-    .tour2 img{
+
+    .tour2 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour2-image-md.png);
     }
-    .tour3 img{
+
+    .tour3 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour3-image-md.png);
     }
-    .tour4 img{
+    
+    .tour4 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour4-image-md.png);
     }
 }
 
-@media screen and (max-width: 320px){
-    .tour1 img{
+@media screen and (max-width: 320px) {
+    .tour1 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour1-image-sm.png);
     }
-    .tour2 img{
+
+    .tour2 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour2-image-sm.png);
     }
-    .tour3 img{
+
+    .tour3 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour3-image-sm.png);
     }
-    .tour4 img{
+
+    .tour4 img {
         content: url(D:/Tasks/CoreTasks/Task5/images/tour4-image-sm.png);
     }
 }

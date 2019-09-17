@@ -1,8 +1,8 @@
-.tour__old-priсe{
+.tour__old-priсe {
     visibility: hidden;
 }
 
-.sale-label .tour__old-priсe{
+.sale-label .tour__old-priсe {
     visibility: unset;
     font-size: 18px;
     text-decoration: line-through;

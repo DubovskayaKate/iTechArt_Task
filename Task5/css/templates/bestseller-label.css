@@ -1,4 +1,4 @@
-.bestseller-label::after{
+.bestseller-label::after {
     content: "";
     position: absolute;
     top: -2px;
@@ -8,11 +8,11 @@
     width: 90px;
 }
 
-.bestseller-label{
+.bestseller-label {
     position: relative;
 }
 
-.bestseller-label::before{
+.bestseller-label::before {
     content: "Хит продаж";
     position: absolute;
     font-size: 18px;

@@ -1,0 +1,36 @@
+.table__col1 {
+    width: 25%;
+}
+
+.table__col2 {
+    width: 40%;
+}
+
+.table__col3 {
+    width: auto;
+}
+
+.footer__table {
+    display: flex;
+}
+
+@media screen and (max-width: 320px) {
+    .table__col1 {
+        display: none;
+    } 
+
+    .table__col2,
+    .table__col3 {
+        display: block;
+        width: 100%;
+    }
+
+    .table__col2 p,
+    .table__col3 p {
+        text-align: center;
+    }
+    
+    .col2__contact-menu {
+        margin-left: 55px;
+    }
+}

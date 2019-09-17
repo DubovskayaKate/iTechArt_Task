@@ -1,15 +1,15 @@
-.simple-button{
-    background-color:#33c7fd;
+.simple-button {
+    background-color: #33c7fd;
     font-size: 14px;
     color: white;
     padding: 17px;
     width: 200px;
 }
 
-.simple-button:hover{
-    background-color:#13b0e9;
+.simple-button:hover {
+    background-color: #13b0e9;
 }
 
-.simple-button:active{
+.simple-button:active {
     background-color: "#64d6ff";
 }
