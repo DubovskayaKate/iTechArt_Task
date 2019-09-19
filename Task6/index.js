@@ -1,49 +1,54 @@
-function polymorph() {
-	var lenfunc = [];
-	for(var i = 0; i < arguments.length; i++){
-	  	if( typeof(arguments[i]) == "function")
-			lenfunc[arguments[i].length] = arguments[i];
-		return function() {
-			  return lenfunc[arguments.length].apply(this, arguments);
-		}
+const choosingFunc = function()  {
+	if( Array.isArray(arguments[0][0]))  {
+		const resultArray = arguments[1].call(this, ...arguments[0]);
+		return resultArray;
 	}
+	const resultArray = arguments[1].call(this, this._array, ...arguments[0]);
+	this._array = resultArray;
+	return this;
 }
 
 var arrayFunctionCollection = {
 
 	_array : [], 
-	take : polymorph(
-		function (array, number){
-			let newArr = [];
-			for(let i = 0; (i < number && i < array.length); i++){
-				newArr[i] = array[i];
-			}
-			return newArr;
-		},
-		function (number){
-			let newArr = [];
-			for(let i = 0; (i < number && i < this._array.length); i++){
-				newArr[i] = this._array[i];
-			}
-			this._array = newArr
-			return this;
-		},
-	),
-
-	skip : function (array, number){
-		let newArr = [];
-		for(let i = number; i < array.length; i++){
-			newArr[i - number] = array[i];
-		}
-		return newArr;
+	take : function() {
+		return choosingFunc.call(this,
+			arguments,
+			function (array, number){
+				let newArr = [];
+				for(let i = 0; (i < number && i < array.length); i++){
+					newArr[i] = array[i];
+				}
+				return newArr;
+			}, 			
+		);
 	},
 
-	map : function (array, callback){
-		for(let i = 0; i < array.length; i++){
-			array[i] = callback(array[i], i, array);
-		}
-		return array;
+	skip : function (){
+		return choosingFunc.call(this,
+			arguments,
+			function (array, number){
+				let newArr = [];
+				for(let i = number; i < array.length; i++){
+					newArr[i - number] = array[i];
+				}
+				return newArr;
+			},
+		);
+	},	
+
+	map :  function (){
+		return choosingFunc.call(this, 
+			arguments, 
+			function (array, callback){
+				for(let i = 0; i < array.length; i++){
+					array[i] = callback(array[i], i, array);
+				}
+				return array;
+			},
+		);
 	},
+	
 
 	reduce : function (array, callback, initialValue){
 		let result = initialValue;
@@ -53,23 +58,35 @@ var arrayFunctionCollection = {
 		return result;
 	},
 
-	filter : function (array, callback){
-		let newArr = [];
-		let j = 0;
-		for(let item of array){
-			if (callback(item)){
-				newArr[j] = item;
-				j++;
+	filter : function(){ 
+		return choosingFunc.call(
+			this, 
+			arguments, 
+			function (array, callback){
+				let newArr = [];
+				let j = 0;
+				for(let item of array){
+					if (callback(item)){
+						newArr[j] = item;
+						j++;
+					}
+				}
+				return newArr;
 			}
-		}
-		return newArr;
+		);
 	},
 
-	foreach : function (array, callback){
-		for(let i = 0; i < array.length; i++){
-			array[i] = callback(array[i]);
-		}
-		return array;
+	foreach : function(){ 
+		return choosingFunc.call(
+			this, 
+			arguments, 
+			function (array, callback){
+				for(let i = 0; i < array.length; i++){
+					array[i] = callback(array[i]);
+				}
+				return array;
+			}
+		);
 	},
 
 	chain: function (array){
@@ -94,4 +111,11 @@ console.log(`${arrayFunctionCollection.reduce([1,2,3,4,5,6,7], (accumulator, cur
 console.log(`${arrayFunctionCollection.filter([1,2,3,4,5], (item)=> (item>3))} = [4, 5]`);
 console.log(`${arrayFunctionCollection.foreach([1,2,3,4,5,7], (item) => item * item)} = [1,4,9,16,25,36]`);
 
-console.log(arrayFunctionCollection.chain([1,2,3,4,5,6,7]).take(4).value());
+console.log(arrayFunctionCollection.chain([1,2,3,4,5,6,7])
+	.take(4)
+	.skip(2)
+	.map((item, index, array) => item * index)
+	.filter((item) => item > 3)
+	.value()
+);
+
