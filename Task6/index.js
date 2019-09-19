@@ -1,11 +1,34 @@
-var arrayFunctionCollection = {
-	take : function (array, number){
-		let newArr = [];
-		for(let i = 0; (i < number && i < array.length); i++){
-			newArr[i] = array[i];
+function polymorph() {
+	var lenfunc = [];
+	for(var i = 0; i < arguments.length; i++){
+	  	if( typeof(arguments[i]) == "function")
+			lenfunc[arguments[i].length] = arguments[i];
+		return function() {
+			  return lenfunc[arguments.length].apply(this, arguments);
 		}
-		return newArr;
-	},
+	}
+}
+
+var arrayFunctionCollection = {
+
+	_array : [], 
+	take : polymorph(
+		function (array, number){
+			let newArr = [];
+			for(let i = 0; (i < number && i < array.length); i++){
+				newArr[i] = array[i];
+			}
+			return newArr;
+		},
+		function (number){
+			let newArr = [];
+			for(let i = 0; (i < number && i < this._array.length); i++){
+				newArr[i] = this._array[i];
+			}
+			this._array = newArr
+			return this;
+		},
+	),
 
 	skip : function (array, number){
 		let newArr = [];
@@ -48,6 +71,17 @@ var arrayFunctionCollection = {
 		}
 		return array;
 	},
+
+	chain: function (array){
+		this._array = array;
+		return this;
+	},
+
+	value : function (array){
+		let arr = this._array;
+		this._array = [];
+		return arr;
+	}
 }
 
 
@@ -59,3 +93,5 @@ console.log(`${arrayFunctionCollection.reduce([1,2,3,4,5,6,7], (accumulator, cur
 
 console.log(`${arrayFunctionCollection.filter([1,2,3,4,5], (item)=> (item>3))} = [4, 5]`);
 console.log(`${arrayFunctionCollection.foreach([1,2,3,4,5,7], (item) => item * item)} = [1,4,9,16,25,36]`);
+
+console.log(arrayFunctionCollection.chain([1,2,3,4,5,6,7]).take(4).value());
