@@ -10,12 +10,6 @@
     width: auto;
 }
 
-@media screen and (min-width: 320px) {
-    .footer__table {
-        display: flex;
-    }
-}
-
 @media screen and (max-width: 320px) {
     .footer__table {
         display: block;
@@ -38,5 +32,11 @@
 
     .col2__contact-menu {
         margin-left: 55px;
+    }
+}
+
+@media screen and (min-width: 320px) {
+    .footer__table {
+        display: flex;
     }
 }
