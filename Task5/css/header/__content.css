@@ -1,3 +1,7 @@
+header {
+    position: relative;
+}
+
 .header__content {
     position: absolute;
     top: 0;
@@ -7,12 +11,8 @@
     margin-top: 35px;
 }
 
-header {
-    position: relative;
-}
-
 .header__menu-logo,
-.col-menu {
+.header__col-menu {
     display: inline-block;
 }
 

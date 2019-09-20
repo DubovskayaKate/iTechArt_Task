@@ -6,7 +6,7 @@
     list-style-type: none;
 }
 
-ul {
+.header__col-menu {
     margin-left: 0;
     padding-left: 0;
 }

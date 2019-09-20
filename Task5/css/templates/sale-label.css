@@ -1,4 +1,8 @@
-.sale-label::after {
+.template__sale-label {
+    position: relative;
+}
+
+.template__sale-label::after {
     position: absolute;
     top: -2px;
     right: 45px;
@@ -11,11 +15,7 @@
     background: url(/images/tag-red.png) no-repeat;
 }
 
-.sale-label {
-    position: relative;
-}
-
-.sale-label::before {
+.template__sale-label::before {
     font-size: 18px;
 
     position: absolute;

@@ -2,10 +2,10 @@
     visibility: hidden;
 }
 
-.sale-label .tour__old-priсe {
+.template__sale-label .tour__old-priсe {
     font-size: 18px;
 
-    visibility: unset;
+    visibility: visible;
 
     margin-left: 20px;
 
