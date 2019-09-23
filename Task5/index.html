@@ -3,39 +3,44 @@
     <head>
         <title>Voyage</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/header/__background-image.css">
-        <link rel="stylesheet" type="text/css" href="css/header/menu/__item.css">
+
         
         <link rel="stylesheet" type="text/css" href="css/content.css">
-        <link ref="stylesheet" type="text/css" href="css/header/header.css">
+        <link rel="stylesheet" type="text/css" href="css/__.css">   
+
         <link rel="stylesheet" type="text/css" href="css/footer/footer.css">
-        <link rel="stylesheet" type="text/css" href="css/footer/table/__col.css">
-        <link rel="stylesheet" type="text/css" href="css/footer/table/__info.css">
-        <link rel="stylesheet" type="text/css" href="css/__.css">        
-        <link rel="stylesheet" type="text/css" href="css/footer/table/col2/__contact.css">
-        <link rel="stylesheet" type="text/css" href="css/footer/table/col2/__icon.css">
+        <link rel="stylesheet" type="text/css" href="css/footer/layout/col.css">
+        <link rel="stylesheet" type="text/css" href="css/footer/layout/info.css">     
+        <link rel="stylesheet" type="text/css" href="css/footer/layout/col2/contact.css">
+        <link rel="stylesheet" type="text/css" href="css/footer/layout/col2/icon.css">
+
+        <link ref="stylesheet" type="text/css" href="css/header/header.css">
+        <link rel="stylesheet" type="text/css" href="css/header/content.css">
+        <link rel="stylesheet" type="text/css" href="css/header/background-image.css">
+        <link rel="stylesheet" type="text/css" href="css/header/menu/item.css">        
+        <link rel="stylesheet" type="text/css" href="css/header/label/logo.css">
+        <link rel="stylesheet" type="text/css" href="css/header/label.css">
+        <link rel="stylesheet" type="text/css" href="css/header/label/headline.css">
+        <link rel="stylesheet" type="text/css" href="css/header/label/button.css">
+
+        <link rel="stylesheet" type="text/css" href="css/templates/bestseller-label.css">
+        <link rel="stylesheet" type="text/css" href="css/templates/sale-label.css">
         <link rel="stylesheet" type="text/css" href="css/templates/text.css">
         <link rel="stylesheet" type="text/css" href="css/templates/simple-button.css">
         <link rel="stylesheet" type="text/css" href="css/templates/strong-text.css">
         <link rel="stylesheet" type="text/css" href="css/templates/selected-item.css">
-        <link rel="stylesheet" type="text/css" href="css/header/__content.css">
-        <link rel="stylesheet" type="text/css" href="css/header/label/__logo.css">
-        <link rel="stylesheet" type="text/css" href="css/header/__label.css">
-        <link rel="stylesheet" type="text/css" href="css/header/label/__headline.css">
-        <link rel="stylesheet" type="text/css" href="css/header/label/__button.css">
-        <link rel="stylesheet" type="text/css" href="css/main/__grid.css">
-        <link rel="stylesheet" type="text/css" href="css/templates/bestseller-label.css">
-        <link rel="stylesheet" type="text/css" href="css/templates/sale-label.css">
-        <link rel="stylesheet" type="text/css" href="css/main/__button.css">
-        <link rel="stylesheet" type="text/css" href="css/main/__catalog-text.css">
-        <link rel="stylesheet" type="text/css" href="css/main/__sort-text.css">
-        <link rel="stylesheet" type="text/css" href="css/main/__show-more-img.css">
-        <link rel="stylesheet" type="text/css" href="css/main/tour/__image.css">
+
+        <link rel="stylesheet" type="text/css" href="css/main/grid.css">
+        <link rel="stylesheet" type="text/css" href="css/main/button.css">
+        <link rel="stylesheet" type="text/css" href="css/main/catalog-text.css">        
         <link rel="stylesheet" type="text/css" href="css/main/main.css">
-        <link rel="stylesheet" type="text/css" href="css/main/tour/__name.css">
-        <link rel="stylesheet" type="text/css" href="css/main/tour/__info.css">
-        <link rel="stylesheet" type="text/css" href="css/main/tour/__old-price.css">
-        <link rel="stylesheet" type="text/css" href="css/main/tour/__price.css">
+        <link rel="stylesheet" type="text/css" href="css/main/sort-text.css">
+        <link rel="stylesheet" type="text/css" href="css/main/show-more-img.css">
+        <link rel="stylesheet" type="text/css" href="css/main/tour/image.css">
+        <link rel="stylesheet" type="text/css" href="css/main/tour/name.css">
+        <link rel="stylesheet" type="text/css" href="css/main/tour/info.css">
+        <link rel="stylesheet" type="text/css" href="css/main/tour/old-price.css">
+        <link rel="stylesheet" type="text/css" href="css/main/tour/price.css">
     </head>
     <body>
         <header >
@@ -67,7 +72,10 @@
                 </div>
                 <div class="grid tours">
                     <div class="main__tour tour1 template__bestseller-label">
-                        <img class="tour__image" src="images/tour1-image-lg.png">
+                        <img class="tour__image" srcset="images/tour1-image-sm.png 320w,
+                                                        images/tour1-image-md.png 720w,
+                                                        images/tour1-image-lg.png 1200w"
+                                                    src="images/tour1-image-md.png">
                         <div class="tour__info">                       
                             <p class="tour__name tour__show-more-img"><span class="template__strong-text">Морской круиз в Анапу</span></p>   
                             <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Лазаревское-Геленджик-Анапа</p>
@@ -77,7 +85,10 @@
                     </div>
 
                     <div class="main__tour tour2 template__sale-label">
-                        <img class="tour__image" src="images/tour2-image-lg.png"> 
+                        <img class="tour__image" srcset="images/tour2-image-sm.png 320w,
+                                                        images/tour2-image-md.png 720w,
+                                                        images/tour2-image-lg.png 1200w"
+                                                    src="images/tour2-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Обзорная морская прогулка с экскурсией</p>   
                             <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Адлер-Сочи(без высадки)</p>
@@ -87,7 +98,10 @@
                     </div>
 
                     <div class="main__tour tour3 template__sale-label">
-                        <img class="tour__image" src="images/tour3-image-lg.png"> 
+                        <img class="tour__image" srcset="images/tour3-image-sm.png 320w,
+                                                        images/tour3-image-md.png 720w,
+                                                        images/tour3-image-lg.png 1200w"
+                                                    src="images/tour3-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Морская прогулка в Геленджик</p>   
                             <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Туапсе-Геленджик</p>
@@ -97,8 +111,10 @@
                     </div>
 
                     <div class="main__tour tour4">
-                        <img class="tour__image" alt="Tour4" srcset="images/tour4-image-md.png 900w,
-                                                        images/tour4-image-lg.png 1200w" src="images/tour4-image-md.png"> 
+                        <img class="tour__image" srcset="images/tour4-image-sm.png 320w,
+                                                        images/tour4-image-md.png 720w,
+                                                        images/tour4-image-lg.png 1200w"
+                                                    src="images/tour4-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Морской круиз в Новороссийск</p>   
                             <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Геленджик-Новороссийск-Геленджик-Сочи</p>
@@ -108,7 +124,10 @@
                     </div>
 
                     <div class="main__tour tour5">
-                        <img class="tour__image" src="images/tour5-image-lg.png"> 
+                        <img class="tour__image" srcset="images/tour5-image-sm.png 320w,
+                                                        images/tour5-image-md.png 720w,
+                                                        images/tour5-image-lg.png 1200w"
+                                                    src="images/tour5-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Морской круиз в Абрау-Дюрсо</p>   
                             <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Абрау-Дюрсо</p>
@@ -124,13 +143,13 @@
 
         </main>
         <footer class="footer">
-            <div class="content footer__table">
-                <div class="table__col table__col1">
-                    <p class="col__info template__text">Вход для партнеров</p>
-                    <p class="col__info template__text">О компании</p>
-                    <p class="col__info template__text">Контакты</p>
+            <div class="content footer__layout">
+                <div class="layout__col layout__col1">
+                    <p class="layout__info template__text">Вход для партнеров</p>
+                    <p class="layout__info template__text">О компании</p>
+                    <p class="layout__info template__text">Контакты</p>
                 </div>
-                <div class="table__col table__col2">
+                <div class="layout__col layout__col2">
                     <p class="text">Будь на связи</p>
                     <div class="col2__contact-menu">
                         <div class="col2__contact">
@@ -147,10 +166,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="table__col table__col3">
-                    <p class="col__info template__text"><span class="template__strong-text">8 800 500-61-05</span> </p>
-                    <p class="col__info template__text">Круглосуточная поддержка</p>
-                    <p class="col__info template__text">&copy; OOO 2016 "Городские круизы"</p>
+                <div class="layout__col layout__col3">
+                    <p class="layout__info template__text"><span class="template__strong-text">8 800 500-61-05</span> </p>
+                    <p class="layout__info template__text">Круглосуточная поддержка</p>
+                    <p class="layout__info template__text">&copy; OOO 2016 "Городские круизы"</p>
                 </div>
             </div>
 

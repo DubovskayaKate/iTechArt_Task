@@ -1,32 +1,32 @@
-.table__col1 {
-    width: 25%;
+.layout__col1 {
+    flex-basis: 25%;
 }
 
-.table__col2 {
-    width: 40%;
+.layout__col2 {
+    flex-basis: 40%;
 }
 
-.table__col3 {
-    width: auto;
+.layout__col3 {
+    flex-basis: auto;
 }
 
 @media screen and (max-width: 320px) {
-    .footer__table {
+    .footer__layout {
         display: block;
     }
 
-    .table__col1 {
+    .layout__col1 {
         display: none;
     }
 
-    .table__col2,
-    .table__col3 {
+    .layout__col2,
+    .layout__col3 {
         display: block;
         width: 100%;
     }
 
-    .table__col2 p,
-    .table__col3 p {
+    .layout__col2 p,
+    .layout__col3 p {
         text-align: center;
     }
 
@@ -36,7 +36,7 @@
 }
 
 @media screen and (min-width: 320px) {
-    .footer__table {
+    .footer__layout {
         display: flex;
     }
 }
