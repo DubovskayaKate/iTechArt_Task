@@ -1,14 +1,10 @@
 header {
-    position: relative;
+    width: 100%;
+    background-size: cover;
 }
 
 .header__content {
-    position: absolute;
-    top: 0;
-    right: 50%;
-    left: 50%;
-
-    margin-top: 35px;
+    padding-top: 35px;
 }
 
 .header__menu-logo,
@@ -22,15 +18,17 @@ header {
     }
 
     .header__content {
-        left: 0;
-        right: 0;
-
-        margin-top: 12px;
+        padding-top: 12px;
         margin-left: 0;
     }
 
     .header__menu {
         display: none;
+    }
+
+    header {
+        background-image: url(/images/sochi-sm.png);
+        height: 580px;
     }
 }
 
@@ -39,12 +37,14 @@ header {
         width: 20%;
     }
 
-    .header__content {
-        right: 0;
-        left: 0;
-    
-        margin-top: 12px;
+    .header__content {  
+        padding-top: 12px;
         margin-left: 0;
+    }
+
+    header {
+        background-image: url(/images/sochi-md.png);
+        height: 600px;
     }
 }
 
@@ -53,8 +53,9 @@ header {
         width: 20%;
     }
 
-    .header__content {
-        margin-left: -345px;
+    header {
+        background-image: url(/images/sochi-md.png);
+        height: 600px;
     }
 }
 
@@ -63,7 +64,8 @@ header {
         width: 49%;
     }
 
-    .header__content {
-        margin-left: -585px;
+    header {
+        background-image: url(/images/sochi.png);
+        height: 670px;
     }
 }
