@@ -1,4 +1,4 @@
-.simple-button {
+.template__simple-button  {
     font-size: 14px;
 
     width: 200px;
@@ -8,10 +8,10 @@
     background-color: #33c7fd;
 }
 
-.simple-button:hover {
+.template__simple-button :hover {
     background-color: #13b0e9;
 }
 
-.simple-button:active {
+.template__simple-button :active {
     background-color: "#64d6ff";
 }

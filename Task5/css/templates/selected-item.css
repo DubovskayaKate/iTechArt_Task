@@ -1,4 +1,4 @@
-.selected-item::after {
+.template_selected-item::after {
     display: inline-block;
 
     width: 8px;

@@ -1,4 +1,8 @@
-.bestseller-label::after {
+.template__bestseller-label {
+    position: relative;
+}
+
+.template__bestseller-label::after {
     position: absolute;
     top: -2px;
     right: 45px;
@@ -11,11 +15,7 @@
     background: url(/images/tag.png) no-repeat;
 }
 
-.bestseller-label {
-    position: relative;
-}
-
-.bestseller-label::before {
+.template__bestseller-label::before {
     font-size: 18px;
 
     position: absolute;
