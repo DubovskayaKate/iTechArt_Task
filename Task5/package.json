@@ -2,15 +2,29 @@
   "name": "task5",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "lint": "stylelint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss/ -o css/",
+    "css": "node-sass -r --output-style compressed scss/ -o css_autogen/",
+    "start:dev": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "scss": "^0.2.4",
     "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0"
+    "stylelint-config-standard": "^18.3.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.12.0",
+    "sass": "^1.22.12",
+    "sass-loader": "^8.0.0",
+    "webpack-dev-server": "^3.8.1"
   }
 }
