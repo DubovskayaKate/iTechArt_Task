@@ -1,10 +1,8 @@
 header {
     width: 100%;
-    background-size: cover;
-}
-
-.header__content {
-    padding-top: 35px;
+    background-size: cover;    
+    background-image: url(/images/sochi-sm.png);
+    height: 580px;
 }
 
 .header__menu-logo,
@@ -12,56 +10,46 @@ header {
     display: inline-block;
 }
 
-@media (max-width: 320px) {
-    .header__menu-logo {
-        width: 20%;
+.header__menu-logo {
+    width: 20%;
+}
+
+.header__content {
+    padding-top: 12px;
+}
+
+.header__menu {
+    display: none;
+}
+
+@media screen and  (min-width: 320px) {
+    .header__content {  
+        padding-top: 12px;
     }
 
+    header {
+        background-image: url(/images/sochi-md.png);
+        height: 600px;
+    }
+}
+
+@media screen and (min-width: 720px) {
     .header__content {
-        padding-top: 12px;
-        margin-left: 0;
+        padding-top: 35px;
     }
 
     .header__menu {
-        display: none;
-    }
-
-    header {
-        background-image: url(/images/sochi-sm.png);
-        height: 580px;
-    }
-}
-
-@media screen and  (min-width: 320px) and (max-width: 720px) {
-    .header__menu-logo {
-        width: 20%;
-    }
-
-    .header__content {  
-        padding-top: 12px;
-        margin-left: 0;
-    }
-
-    header {
-        background-image: url(/images/sochi-md.png);
-        height: 600px;
-    }
-}
-
-@media screen and (min-width: 720px) and (max-width: 1200px) {
-    .header__menu-logo {
-        width: 20%;
-    }
-
-    header {
-        background-image: url(/images/sochi-md.png);
-        height: 600px;
+        display: initial;
     }
 }
 
 @media screen and (min-width: 1200px) {
     .header__menu-logo {
         width: 49%;
+    }
+
+    .header__content {
+        padding-top: 35px;
     }
 
     header {

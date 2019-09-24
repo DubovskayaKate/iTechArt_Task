@@ -1,21 +1,20 @@
 .grid {
     display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+        'tour1'
+        'tour2'
+        'tour3'
+        'tour4'
+        'tour5';
 }
 
-@media screen and (min-width: 1200px) {
-    .grid {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-areas:
-            'tour1 tour2'
-            'tour1 tour3'
-            'tour4 tour5';
-    }
+.tour5 {
+    display: none;
 }
 
-@media screen and (min-width: 300px) and (max-width: 1200px) {
+@media screen and (min-width: 320px) {
     .grid {
-        display: grid;
         grid-template-columns: 50% 50%;
         grid-template-areas:
             'tour1 tour2'
@@ -27,20 +26,17 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 1200px) {
     .grid {
-        display: grid;
-        grid-template-columns: 100%;
+        grid-template-columns: 50% 50%;
         grid-template-areas:
-            'tour1'
-            'tour2'
-            'tour3'
-            'tour4'
-            'tour5';
+            'tour1 tour2'
+            'tour1 tour3'
+            'tour4 tour5';
     }
 
     .tour5 {
-        display: none;
+        display: initial;
     }
 }
 
