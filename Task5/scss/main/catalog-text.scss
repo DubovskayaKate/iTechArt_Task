@@ -1,10 +1,12 @@
+@import "scss/variables";
+
 .main__catalog-text {
     text-align: center;
     padding-top: 60px;
     font-size: 26px;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $desctop_size) {
     .main__catalog-text {
         font-size: 36px;
     }

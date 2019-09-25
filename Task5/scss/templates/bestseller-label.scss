@@ -1,32 +1,15 @@
+@import "scss/_mixinFlags";
+
 .template__bestseller-label {
     position: relative;
 }
 
-.template__bestseller-label::after {
-    position: absolute;
-    top: -2px;
-    right: 45px;
+.template__bestseller-label{    
+    & ::before {
+        @include flagText("Хит продаж");
+    }
 
-    width: 90px;
-    height: 100px;
-
-    content: '';
-
-    background: url(/images/tag.png) no-repeat;
-}
-
-.template__bestseller-label::before {
-    font-size: 18px;
-
-    position: absolute;
-    z-index: 3;
-    top: 25px;
-    right: 45px;
-
-    width: 90px;
-
-    content: "Хит продаж";
-    text-align: center;
-
-    color: white;
+    &::after {
+        @include flagPicture("/images/tag.png");
+    }
 }

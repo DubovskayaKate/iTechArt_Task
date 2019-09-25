@@ -1,43 +1,53 @@
+@import "scss/variables";
+
 .header__headline {
     text-align: center;
 }
 
-@media (min-width: 1200px) {
-    .header__label > .line1 {
-        font-size: 36px;
-    }
+@media (max-width: $phone_size) {
+    .header__label {
+        & > .line1 {
+            font-size: 20px;
+        }
 
-    .header__label > .line2 {
-        font-size: 100px;
-    }
-}
-
-@media (max-width: 1200px) and (min-width: 900px) {
-    .header__label > .line1 {
-        font-size: 26px;
-    }
-
-    .header__label > .line2 {
-        font-size: 72px;
+        & > .line2 {
+            font-size: 50px;
+        }
     }
 }
 
-@media (max-width: 900px) and (min-width: 320px) {
-    .header__label > .line1 {
-        font-size: 22px;
-    }
-
-    .header__label > .line2 {
-        font-size: 56px;
+@media (min-width: $phone_size) and (max-width: 900px) {
+    .header__label {
+        & > .line1 {
+            font-size: 22px;
+        }
+        
+        & > .line2 {
+            font-size: 56px;
+        }
     }
 }
 
-@media (max-width: 320px) {
-    .header__label > .line1 {
-        font-size: 20px;
+@media (min-width: 900px)  and (max-width: $desctop_size) {
+    .header__label {
+        & > .line1 {
+            font-size: 26px;
+        }
+        
+        & > .line2 {
+            font-size: 72px;
+        }
     }
+}
 
-    .header__label > .line2 {
-        font-size: 50px;
+@media (min-width: $desctop_size) {
+    .header__label {
+        & > .line1 {
+            font-size: 36px;
+        }
+        
+        & > .line2 {
+            font-size: 100px;
+        }
     }
 }

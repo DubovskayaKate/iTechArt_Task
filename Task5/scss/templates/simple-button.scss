@@ -6,12 +6,12 @@
 
     color: white;
     background-color: #33c7fd;
-}
 
-.template__simple-button :hover {
-    background-color: #13b0e9;
-}
+    & :hover {
+        background-color: #13b0e9;
+    }
 
-.template__simple-button :active {
-    background-color: "#64d6ff";
+    & :active {
+        background-color: "#64d6ff";
+    }
 }

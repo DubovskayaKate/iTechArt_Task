@@ -1,32 +1,15 @@
+@import "scss/_mixinFlags";
+
 .template__sale-label {
     position: relative;
 }
 
-.template__sale-label::after {
-    position: absolute;
-    top: -2px;
-    right: 45px;
+.template__sale-label{
+    &::before {
+        @include flagText("Акция");
+    }
 
-    width: 90px;
-    height: 100px;
-
-    content: '';
-
-    background: url(/images/tag-red.png) no-repeat;
-}
-
-.template__sale-label::before {
-    font-size: 18px;
-
-    position: absolute;
-    z-index: 3;
-    top: 25px;
-    right: 45px;
-
-    width: 90px;
-
-    content: 'Акция';
-    text-align: center;
-
-    color: white;
+    &::after {
+        @include flagPicture("/images/tag-red.png");
+    }
 }

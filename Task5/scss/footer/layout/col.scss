@@ -1,3 +1,5 @@
+@import "scss/variables";
+
 .footer__layout {
     display: flex;
 }
@@ -14,7 +16,7 @@
     flex-basis: auto;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: $phone_size) {
     .footer__layout {
         display: block;
     }
@@ -27,11 +29,10 @@
     .layout__col3 {
         display: block;
         width: 100%;
-    }
 
-    .layout__col2 p,
-    .layout__col3 p {
-        text-align: center;
+        p {
+            text-align: center;
+        }
     }
 
     .col2__contact-menu {

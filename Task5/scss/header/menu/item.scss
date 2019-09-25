@@ -1,3 +1,14 @@
+@mixin icon($icon_path) {
+    display: inline-block;
+
+    width: 10px;
+    height: 12px;
+    margin-right: 9px;
+
+    content: '';
+    background: url($icon_path) no-repeat;
+}
+
 .menu__item {
     display: inline-block;
 
@@ -12,25 +23,9 @@
 }
 
 .menu__user-icon::before {
-    display: inline-block;
-
-    width: 10px;
-    height: 12px;
-    margin-right: 9px;
-
-    content: '';
-
-    background: url(/images/user.png) no-repeat;
+    @include icon("/images/user.png");
 }
 
 .menu__currency-icon::before {
-    display: inline-block;
-
-    width: 10px;
-    height: 12px;
-    margin-right: 9px;
-
-    content: '';
-
-    background: url(/images/Р.png) no-repeat;
+    @include icon("/images/Р.png");
 }

@@ -1,0 +1,28 @@
+@mixin flagPicture($picture_path) {
+    position: absolute;
+    top: -2px;
+    right: 45px;
+
+    width: 90px;
+    height: 100px;
+
+    content: '';
+
+    background: url($picture_path) no-repeat;
+}
+
+@mixin flagText($text){
+    font-size: 18px;
+
+    position: absolute;
+    z-index: 3;
+    top: 25px;
+    right: 45px;
+
+    width: 90px;
+
+    content: $text;
+    text-align: center;
+
+    color: white;
+} 

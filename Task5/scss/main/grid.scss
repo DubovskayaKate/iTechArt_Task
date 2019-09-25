@@ -1,3 +1,5 @@
+@import "scss/variables";
+
 .grid {
     display: grid;
     grid-template-columns: 100%;
@@ -11,9 +13,11 @@
 
 .tour5 {
     display: none;
+
+    grid-area: tour5;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: $phone_size) {
     .grid {
         grid-template-columns: 50% 50%;
         grid-template-areas:
@@ -26,7 +30,7 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $desctop_size) {
     .grid {
         grid-template-columns: 50% 50%;
         grid-template-areas:
@@ -42,7 +46,7 @@
 
 .main__tour {
     margin: 8px;
-    background-color: white;
+    background-color: $white;
 }
 
 .tour1 {
@@ -59,8 +63,4 @@
 
 .tour4 {
     grid-area: tour4;
-}
-
-.tour5 {
-    grid-area: tour5;
 }
