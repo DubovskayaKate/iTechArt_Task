@@ -4,11 +4,4 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Engine\" />
-    <Folder Include="Factory\" />
-    <Folder Include="Suspension\" />
-    <Folder Include="Wheel\" />
-  </ItemGroup>
-
 </Project>

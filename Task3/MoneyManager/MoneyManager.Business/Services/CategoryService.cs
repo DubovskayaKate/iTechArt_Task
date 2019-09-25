@@ -36,11 +36,16 @@ namespace MoneyManager.Business.Services
         {
             return _categoryRepository.GetCategories();
         }
-
-        //Query returns the total amount of all parent categories for the selected type of operation(Income or Expenses).
-        //The result should include only categories that have transactions for selected period.
-        //Input parameters in this query will be UserId and OperationType(category type).
-        //Each record of the output model should include Category.Name and Amount.
+        /// <summary>
+        /// Query returns the total amount of all parent categories for the selected type of operation(Income or Expenses).
+        /// The result should include only categories that have transactions for selected period.
+        /// Input parameters in this query will be UserId and OperationType(category type).
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="categoryName"></param>
+        /// <param name="beginDateTime"></param>
+        /// <param name="endDateTime"></param>
+        /// <returns>Record of the output model includes Category.Name and Amount</returns>
         public List<CategoryInfo> GetCategoriesForPeriod(int userId, string categoryName, DateTime beginDateTime, DateTime endDateTime)
         {
             var categories = GetAllParentCategories(categoryName);

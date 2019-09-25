@@ -16,8 +16,11 @@ namespace MoneyManager.Business.Services
         {
             _assetRepository = assetRepository;
         }
-        //Query returns the asset list for the selected user(userId) ordered by the asset’s name.
-        //Each record of the output model includes Asset.Id, Asset.Name and Balance
+        /// <summary>
+        /// Query returns the asset list for the selected user(userId) ordered by the asset’s name.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>Output model includes Asset.Id, Asset.Name and Balance</returns>
         public IEnumerable<AssetWithBalance> GetUserAssetsOrderedByAssetName(int userId)
         {
             
