@@ -23,9 +23,9 @@
 }
 
 .menu__user-icon::before {
-    @include icon("/images/user.png");
+    @include icon("/src/images/user.png");
 }
 
 .menu__currency-icon::before {
-    @include icon("/images/Р.png");
+    @include icon("/src/images/Р.png");
 }

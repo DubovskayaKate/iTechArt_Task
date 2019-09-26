@@ -1,4 +1,4 @@
-@import "scss/_mixinFlags";
+@import "src/scss/_mixinFlags";
 
 .template__bestseller-label {
     position: relative;
@@ -10,6 +10,6 @@
     }
 
     &::after {
-        @include flagPicture("/images/tag.png");
+        @include flagPicture("/src/images/tag.png");
     }
 }
