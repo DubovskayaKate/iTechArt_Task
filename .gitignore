@@ -1,5 +1,5 @@
-node_modules/
-Task5/css_autogen/
+/Task5/node_modules
+/Task5/css_autogen
 #Ignore thumbnails created by Windows
 Thumbs.db
 #Ignore files built by Visual Studio
