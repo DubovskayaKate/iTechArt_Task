@@ -1,44 +1,42 @@
-class Shape{
-    constructor(name){
-        this.name = name;
-    }
+function Shape(name){
+
+    this.name = name;
 }
 
-class Rectangle extends Shape{
-    constructor(name, width, height){
-        super(name);
-        this.width = width;
-        this.height = height;
-    }
-    perimetr() {
-        return 2* this.width + this.height;
+function Rectangle(name, width, height){
+    Shape.call(this, name)
+
+    this.width = width;
+    this.height = height;
+
+    this.perimetr = () => {
+        return 2* (this.width + this.height);
     }
 
-    area(){ 
+    this.area = () => { 
         return width * height;
     }
 }
 
-class Squre extends Shape{
-    constructor(name, sideWidth){
-        super(name);
-        this.sideWidth = sideWidth;
-    }
-    perimetr() {
+function Squre (name, sideWidth){
+    Shape.call(this, name);
+    
+    this.sideWidth = sideWidth;
+
+    this.perimetr = () => {
         return 4* this.sideWidth;
     }
     
-    area() { 
+    this.area = () => { 
         return this.sideWidth * this.sideWidth;
     }
 }
 
-class ShapeStore{
-    constructor(shapeArray){
-        this.shapeArray = shapeArray;
-    }
+function ShapeStore(shapeArray){
 
-    getAllRectanglePerimetrs(){
+    this.shapeArray = shapeArray;
+
+    this.getAllRectanglePerimetrs = () => {
         let perimetrs = [];
         let index = 0;
         for (let shape of this.shapeArray){
@@ -49,7 +47,7 @@ class ShapeStore{
         return perimetrs;
     }
 
-    getAllSquareAreas(){
+    this.getAllSquareAreas = () => {
         let area = [];
         let index = 0;
         for (let shape of this.shapeArray){
@@ -74,3 +72,7 @@ var store = new ShapeStore(
 console.log(store.getAllRectanglePerimetrs());
 console.log(store.getAllSquareAreas());
 
+var rect1 = new Rectangle("Katya", 2, 4);
+console.log(rect1.area());
+console.log(rect1.perimetr());
+console.log(rect1.name);

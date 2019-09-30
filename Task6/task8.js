@@ -6,18 +6,23 @@ function makeCaching(f) {
     var cache = {};
 
     return function(item) {
-        if (!(item in cache)) {
-            cache[item] = f.call(this, item);
+        if (!(item in cache) && (item != null)) {
+            cache[item] = f.call(null, item);
         }
         return cache[item];
     };
 }
   
-f = makeCaching(f);
+let cachingF = makeCaching(f);
 
-var a = f(1);
-var b = f(1);
+var a = cachingF(1);
+var b = cachingF(1);
 console.log( a == b ); 
 
-b = f(2);
+let c= cachingF(null);
+let d= cachingF(undefined);
+console.log(c);
+console.log(d);
+
+b = cachingF(2);
 console.log( a == b ); 

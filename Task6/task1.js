@@ -1,15 +1,11 @@
-let GFunction = function(xparam, ...arguments){
-    let sum = xparam;
-    for (let arg of arguments){
-        sum += arg;
-    }
-    return sum;
+const GFunction = function(...arguments){
+    return arguments.reduce((accumulator, currentValue) => accumulator + currentValue);
 }
 
-let Ffunction = function(gFunction){
+const Ffunction = function(gFunction){
     var args = Array.prototype.slice.call(arguments, 1);
     return function(){
-        var remainingArgs = Array.prototype.slice.call(arguments);
+        var remainingArgs = Array.from(arguments);
         return gFunction.apply(null, args.concat(remainingArgs));
     }
 }

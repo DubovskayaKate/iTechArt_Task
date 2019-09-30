@@ -1,12 +1,10 @@
-const choosingFunc = function()  {
-    //arguments[0] - parametrs (Array*param+)
-    //arguments[1] - function     
-	if( Array.isArray(arguments[0][0]))  {
-        var parameters = Array.prototype.slice.call(arguments[0], 1);
-		const resultArray = arguments[1].call(this, parameters, arguments[0][0]);
+const choosingFunc = function(callback, ...arguments)  {
+	if( Array.isArray(arguments[0]))  {
+        var parameters = Array.prototype.slice.call(arguments, 1);
+		const resultArray = callback.call(this, parameters, arguments[0]);
 		return resultArray;
 	}
-	const resultFunc = arguments[1].bind(this, ...arguments[0]);
+	const resultFunc = callback.bind(this, ...arguments);
     this._func[this._func.length] = resultFunc;
 	return this;
 }
@@ -17,40 +15,46 @@ var arrayFunctionCollection = {
     _func : [],
 
 	take : function() {
-		return choosingFunc.call(this,
-			arguments,
-			function ( number, array){
-				let newArr = [];
-				for(let i = 0; (i < number && i < array.length); i++){
-					newArr[i] = array[i];
-				}
-				return newArr;
-			}, 			
+		return choosingFunc.apply(this,					
+			Array.prototype.concat.call(
+				function ( number, array){
+					let newArr = [];
+					for(let i = 0; (i < number && i < array.length); i++){
+						newArr[i] = array[i];
+					}
+					return newArr;
+				}, 
+				Array.prototype.slice.call(arguments)
+			)		
 		);
     },
     
     skip : function (){
-		return choosingFunc.call(this,
-			arguments,
-			function ( number, array){
-				let newArr = [];
-				for(let i = number; i < array.length; i++){
-					newArr[i - number] = array[i];
-				}
-				return newArr;
-			},
+		return choosingFunc.apply(this,
+			Array.prototype.concat.call(			
+				function ( number, array){
+					let newArr = [];
+					for(let i = number; i < array.length; i++){
+						newArr[i - number] = array[i];
+					}
+					return newArr;
+				},
+				Array.prototype.slice.call(arguments)
+			)
 		);
     },	
 
     map :  function (){
-		return choosingFunc.call(this, 
-			arguments, 
-			function (callback, array){
-				for(let i = 0; i < array.length; i++){
-					array[i] = callback(array[i], i, array);
-				}
-				return array;
-			},
+		return choosingFunc.apply(this, 
+			Array.prototype.concat.call(				
+				function (callback, array){
+					for(let i = 0; i < array.length; i++){
+						array[i] = callback(array[i], i, array);
+					}
+					return array;
+				},
+				Array.prototype.slice.call(arguments)
+			)
 		);
 	},	
 
@@ -63,33 +67,37 @@ var arrayFunctionCollection = {
 	},
 
 	filter : function(){ 
-		return choosingFunc.call(
+		return choosingFunc.apply(
 			this, 
-			arguments, 
-			function (callback, array){
-				let newArr = [];
-				let j = 0;
-				for(let item of array){
-					if (callback(item)){
-						newArr[j] = item;
-						j++;
+			Array.prototype.concat.call(			
+				function (callback, array){
+					let newArr = [];
+					let j = 0;
+					for(let item of array){
+						if (callback(item)){
+							newArr[j] = item;
+							j++;
+						}
 					}
-				}
-				return newArr;
-			}
+					return newArr;
+				},
+				Array.prototype.slice.call(arguments)
+			)
 		);
 	},
 
 	foreach : function(){ 
-		return choosingFunc.call(
+		return choosingFunc.apply(
 			this, 
-			arguments, 
-			function ( callback, array){
-				for(let i = 0; i < array.length; i++){
-					array[i] = callback(array[i]);
-				}
-				return array;
-			}
+			Array.prototype.concat.call(			 
+				function ( callback, array){
+					for(let i = 0; i < array.length; i++){
+						array[i] = callback(array[i]);
+					}
+					return array;
+				},
+				Array.prototype.slice.call(arguments),
+			)
 		);
 	},
 
@@ -98,7 +106,7 @@ var arrayFunctionCollection = {
 		return this;
 	},
 
-	value : function (array){
+	value : function (){
         this._func.forEach((func) => {
             this._array = func(this._array);
         });
@@ -111,6 +119,12 @@ var arrayFunctionCollection = {
 
 
 console.log(arrayFunctionCollection.chain([1,2,3,4,5,6,7])
-	.take(4).skip(2).map((item, index) => item * item).filter((item)=> (item>9)).foreach( (item) => item * item).value()
+	.take(4)
+	.skip(2)
+	.map((item, index) => item * item)
+	.filter((item)=> (item > 9))
+	.foreach( (item) => item * item)
+	.value()
 );
 
+//.skip(2).map((item, index) => item * item).filter((item)=> (item>9)).foreach( (item) => item * item)
