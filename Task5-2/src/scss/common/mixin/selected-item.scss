@@ -1,8 +1,8 @@
-.template_selected-item::after {
+@mixin selected-item() {
     display: inline-block;
     width: 8px;
     height: 5px;
     margin-left: 5px;
-    background: url(/src/images/DarkBlue.png) no-repeat;
+    background: url("/src/images/DarkBlue.png") no-repeat;
     content: '';
 }

@@ -1,6 +1,6 @@
-@import "src/scss/_mixinFlags";
+@import "src/scss/common/mixin/index.scss";
 
-.template__bestseller-label {
+.bestseller-label {
     position: relative;
 
     & ::before {

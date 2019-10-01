@@ -1,0 +1,8 @@
+@mixin icon($icon_path) {
+    display: inline-block;
+    width: 10px;
+    height: 12px;
+    margin-right: 9px;
+    background: url($icon_path) no-repeat;
+    content: '';
+}
