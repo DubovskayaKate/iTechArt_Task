@@ -1,6 +1,5 @@
 import './scss/footer/layout/col2/contact.scss';
 
-import './scss/content.scss';
 import './scss/common/global.scss';   
 
 import './scss/footer/footer.scss';
@@ -9,16 +8,12 @@ import './scss/footer/layout/info.scss';
 import './scss/footer/layout/col2/contact.scss';
 import './scss/footer/layout/col2/icon.scss';
 
-import './scss/header/content.scss';
+import './scss/header/header.scss';
 import './scss/header/menu/item.scss';        
 import './scss/header/label/logo.scss';
 import './scss/header/label.scss';
 import './scss/header/label/headline.scss';
 import './scss/header/label/button.scss';
-
-import './scss/templates/text.scss';
-import './scss/templates/simple-button.scss';
-import './scss/templates/strong-text.scss';
 
 import './scss/main/grid.scss';
 import './scss/main/button.scss';

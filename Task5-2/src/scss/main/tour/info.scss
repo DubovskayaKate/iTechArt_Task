@@ -1,4 +1,8 @@
+@import "src/scss/common/mixin/index";
+
 .tour__info {
+    @include font();
+
     padding-top: 29px;
     padding-left: 38px;
 }

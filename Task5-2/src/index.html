@@ -5,109 +5,113 @@
         <meta charset="utf-16"> 
     </head>
     <body>
-        <header >
+        <header>
             <div class="content header__content">
-                <div class="header__menu-logo">
-                    <img src="images/menu.png">
-                </div>
-                <ul class="header__menu header__inline-menu">
-                    <li class="menu__item menu__user-icon template__text">Личный кабинет</li>
-                    <li class="menu__item menu__currency-icon template__text">Рубль</li>
-                    <li class="menu__item menu__language  template__text">Ru</li>
-                    <li class="menu__item template__text"> <span class="template__strong-text">8 500-61-05</span> </br>
-                        Круглосуточная поддержка</p>
-                </ul>
+                <nav>
+                    <div class="header__menu-logo">
+                        <img src="images/menu.png">
+                    </div>
+                    <ul class="header__menu header__inline-menu">
+                        <li class="menu__item menu__user">Личный кабинет</li>
+                        <li class="menu__item menu__currency">Рубль</li>
+                        <li class="menu__item menu__language">Ru</li>
+                        <li class="menu__item menu__phone-number"> 
+                            <span class="menu__number">8 500-61-05</span> </br>
+                            Круглосуточная поддержка</li>
+                    </ul>
+                </nav>
+                
                 <div class="header__label">
                     <img class="header__logo" src="images/logo.png">
-                    <p class="header__headline line1 template__text">Морские прогулки</p>
-                    <p class="header__headline line2 template__text">ПО ЧЁРНОМУ МОРЮ</p>
-                    <button class="template__simple-button header__button">Выбрать круиз</button>
+                    <p class="header__headline line1">Морские прогулки</p>
+                    <p class="header__headline line2">ПО ЧЁРНОМУ МОРЮ</p>
+                    <button class="header__button">Выбрать круиз</button>
                 </div>
             </div>           
         </header>
-        <main>
-            <div class="content">
+        <main class="main">
+            <div class="content main__content">
                 <div>
                     <p class="text main__catalog-text">Каталог круизов</p>
                     <p class="text main__sort-text">Сортировать круизы по <em>цене</em></p>
                 </div>
-                <div class="grid tours">
-                    <div class="main__tour tour1 bestseller-label">
+                <section class="grid tours">
+                    <article class="main__tour tour1 bestseller-label">
                         <img class="tour__image" srcset="src/images/tour1-image-sm.png 320w,
                                                         src/images/tour1-image-md.png 720w,
                                                         src/images/tour1-image-lg.png 1200w"
                                                     src="images/tour1-image-md.png">
                         <div class="tour__info">                       
-                            <p class="tour__name tour__show-more-img"><span class="template__strong-text">Морской круиз в Анапу</span></p>   
-                            <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Лазаревское-Геленджик-Анапа</p>
-                            <p class="tour__lasting template__text"><span class="template__strong-text">Продолжительность</span>10 ч. 0 мин</p>
-                            <p class="tour__price template__text">49 000 руб.<span class="tour__old-priсe">49 000 руб.</span></p>
+                            <p class="tour__name tour__show-more-img">Морской круиз в Анапу</p>   
+                            <p class="tour__route"><span class="tour__key-name">Маршрут:</span> Сочи-Лазаревское-Геленджик-Анапа</p>
+                            <p class="tour__lasting" ><span class="tour__key-name">Продолжительность: </span>10 ч. 0 мин</p>
+                            <p class="tour__price">49 000 руб.<span class="tour__old-priсe">49 000 руб.</span></p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="main__tour tour2 sale-label">
+                    <article class="main__tour tour2 sale-label">
                         <img class="tour__image" srcset="src/images/tour2-image-sm.png 320w,
                                                         src/images/tour2-image-md.png 720w,
                                                         src/images/tour2-image-lg.png 1200w"
                                                     src="images/tour2-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Обзорная морская прогулка с экскурсией</p>   
-                            <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Адлер-Сочи(без высадки)</p>
-                            <p class="tour__lasting template__text"><span class="template__strong-text">Продолжительность</span>1 ч. 0 мин</p>
-                            <p class="tour__price template__text">5 000 руб.<span class="tour__old-priсe">15 000 руб.</span></p>
+                            <p class="tour__route "><span class="tour__key-name">Маршрут:</span> Сочи-Адлер-Сочи(без высадки)</p>
+                            <p class="tour__lasting "><span class="tour__key-name">Продолжительность: </span>1 ч. 0 мин</p>
+                            <p class="tour__price ">5 000 руб.<span class="tour__old-priсe">15 000 руб.</span></p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="main__tour tour3 sale-label">
+                    <article class="main__tour tour3 sale-label">
                         <img class="tour__image" srcset="src/images/tour3-image-sm.png 320w,
                                                         src/images/tour3-image-md.png 720w,
                                                         src/images/tour3-image-lg.png 1200w"
                                                     src="images/tour3-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Морская прогулка в Геленджик</p>   
-                            <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Туапсе-Геленджик</p>
-                            <p class="tour__lasting template__text"><span class="template__strong-text">Продолжительность</span>12 ч. 30 мин</p>
-                            <p class="tour__price template__text">7 000 руб.<span class="tour__old-priсe">15 000 руб.</span></p>
+                            <p class="tour__route "><span class="tour__key-name">Маршрут:</span> Сочи-Туапсе-Геленджик</p>
+                            <p class="tour__lasting "><span class="tour__key-name">Продолжительность: </span>12 ч. 30 мин</p>
+                            <p class="tour__price ">7 000 руб.<span class="tour__old-priсe">15 000 руб.</span></p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="main__tour tour4">
+                    <article class="main__tour tour4">
                         <img class="tour__image" srcset="src/images/tour4-image-sm.png 320w,
                                                         src/images/tour4-image-md.png 720w,
                                                         src/images/tour4-image-lg.png 1200w"
                                                     src="images/tour4-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Морской круиз в Новороссийск</p>   
-                            <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Геленджик-Новороссийск-Геленджик-Сочи</p>
-                            <p class="tour__lasting template__text"><span class="template__strong-text">Продолжительность</span>13 ч. 0 мин</p>
-                            <p class="tour__price template__text">14 800 руб.<span class="tour__old-priсe">14 800 руб.</span></p>
+                            <p class="tour__route "><span class="tour__key-name">Маршрут:</span> Сочи-Геленджик-Новороссийск-Геленджик-Сочи</p>
+                            <p class="tour__lasting "><span class="tour__key-name">Продолжительность: </span>13 ч. 0 мин</p>
+                            <p class="tour__price">14 800 руб.<span class="tour__old-priсe">14 800 руб.</span></p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="main__tour tour5">
+                    <article class="main__tour tour5">
                         <img class="tour__image" srcset="src/images/tour5-image-sm.png 320w,
                                                         src/images/tour5-image-lg.png 1200w"
                                                     src="images/tour5-image-lg.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Морской круиз в Абрау-Дюрсо</p>   
-                            <p class="tour__route template__text"><span class="template__strong-text">Маршрут:</span> Сочи-Абрау-Дюрсо</p>
-                            <p class="tour__lasting template__text"><span class="template__strong-text">Продолжительность</span>11 ч. 0 мин</p>
-                            <p class="tour__price template__text">14 800 руб.<span class="tour__old-priсe">14 800 руб.</span></p>
+                            <p class="tour__route "><span class="tour__key-name">Маршрут:</span> Сочи-Абрау-Дюрсо</p>
+                            <p class="tour__lasting"><span class="tour__key-name">Продолжительность: </span>11 ч. 0 мин</p>
+                            <p class="tour__price ">14 800 руб.<span class="tour__old-priсe">14 800 руб.</span></p>
                         </div>
-                    </div>
+                    </article>
 
-                </div>
+                </section>
 
-                <button class="template__simple-button main__button">Больше круизов</button>
+                <button class="main__button">Больше круизов</button>
             </div>
 
         </main>
         <footer class="footer">
-            <div class="content footer__layout">
+            <div class="content footer__layout footer__content">
                 <div class="layout__col layout__col1">
-                    <p class="layout__info template__text">Вход для партнеров</p>
-                    <p class="layout__info template__text">О компании</p>
-                    <p class="layout__info template__text">Контакты</p>
+                    <p class="layout__info">Вход для партнеров</p>
+                    <p class="layout__info">О компании</p>
+                    <p class="layout__info">Контакты</p>
                 </div>
                 <div class="layout__col layout__col2">
                     <p class="text">Будь на связи</p>
@@ -127,9 +131,9 @@
                     </div>
                 </div>
                 <div class="layout__col layout__col3">
-                    <p class="layout__info template__text"><span class="template__strong-text">8 800 500-61-05</span> </p>
-                    <p class="layout__info template__text">Круглосуточная поддержка</p>
-                    <p class="layout__info template__text">&copy; OOO 2016 "Городские круизы"</p>
+                    <p class="layout__info"><span class="layout__number">8 800 500-61-05</span> </p>
+                    <p class="layout__info">Круглосуточная поддержка</p>
+                    <p class="layout__info">&copy; OOO 2016 "Городские круизы"</p>
                 </div>
             </div>
 

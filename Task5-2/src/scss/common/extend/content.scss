@@ -1,6 +1,6 @@
 @import "src/scss/_variables";
 
-.content {
+%content {
     box-sizing: border-box;
     width: 100%;
     margin: auto;
@@ -8,14 +8,14 @@
 }
 
 @media screen and (min-width: $phone_size) {
-    .content {
+    %content {
         width: 720px;
         padding: 15px;
     }
 }
 
 @media screen and (min-width: $desctop_size) {
-    .content {
+    %content {
         width: 1170px;
         padding: 15px;
     }

@@ -1,53 +1,48 @@
 @import "src/scss/variables";
+@import "src/scss/common/mixin/index";
 
 .header__headline {
     text-align: center;
 }
 
-@media (max-width: $phone_size) {
-    .header__label {
-        & > .line1 {
-            font-size: 20px;
-        }
+.line1 {
+    @include font();
 
-        & > .line2 {
-            font-size: 50px;
-        }
+    font-size: 20px;
+}
+
+.line2 {
+    @include font();
+
+    font-size: 50px;
+}
+
+@media (min-width: $phone_size) {
+    .line1 {
+        font-size: 22px;
+    }
+
+    .line2 {
+        font-size: 56px;
     }
 }
 
-@media (min-width: $phone_size) and (max-width: 900px) {
-    .header__label {
-        & > .line1 {
-            font-size: 22px;
-        }
-
-        & > .line2 {
-            font-size: 56px;
-        }
+@media (min-width: 900px) {
+    .line1 {
+        font-size: 26px;
     }
-}
 
-@media (min-width: 900px)  and (max-width: $desctop_size) {
-    .header__label {
-        & > .line1 {
-            font-size: 26px;
-        }
-
-        & > .line2 {
-            font-size: 72px;
-        }
+    .line2 {
+        font-size: 72px;
     }
 }
 
 @media (min-width: $desctop_size) {
-    .header__label {
-        & > .line1 {
-            font-size: 36px;
-        }
+    .line1 {
+        font-size: 36px;
+    }
 
-        & > .line2 {
-            font-size: 100px;
-        }
+    .line2 {
+        font-size: 100px;
     }
 }

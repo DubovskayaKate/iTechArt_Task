@@ -1,6 +1,10 @@
 @import "src/scss/variables";
 
-.template__text {
+@mixin font() {
     color: $dark_blue;
     font-size: 14px;
+}
+
+@mixin strong-text() {
+    font-weight: bold;
 }

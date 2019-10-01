@@ -1,4 +1,8 @@
+@import "src/scss/common/mixin/index";
+
 .header__button {
+    @include simple-button();
+
     display: block;
     margin: auto;
 }

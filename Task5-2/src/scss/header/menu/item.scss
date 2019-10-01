@@ -11,7 +11,9 @@
     padding-left: 0;
 }
 
-.menu__user-icon {
+.menu__user {
+    @include font();
+
     &::before {
         @include icon("/src/images/user.png");
     }
@@ -21,7 +23,9 @@
     }
 }
 
-.menu__currency-icon {
+.menu__currency {
+    @include font();
+
     &::before {
         @include icon("/src/images/Р.png");
     }
@@ -32,7 +36,17 @@
 }
 
 .menu__language {
+    @include font();
+
     &::after {
         @include selected-item();
     }
+}
+
+.menu__phone-number {
+    @include font();
+}
+
+.menu__number {
+    @include strong-text();
 }

@@ -1,5 +1,10 @@
 @import "src/scss/_variables";
+@import "src/scss/common/extend/content";
 
 .footer {
     background-color: $white;
+}
+
+.footer__content {
+    @extend %content;
 }

@@ -1,4 +1,4 @@
-.template__simple-button {
+@mixin simple-button() {
     width: 200px;
     padding: 17px;
     color: white;
