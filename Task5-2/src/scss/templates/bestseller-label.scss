@@ -2,9 +2,7 @@
 
 .template__bestseller-label {
     position: relative;
-}
 
-.template__bestseller-label{    
     & ::before {
         @include flagText("Хит продаж");
     }

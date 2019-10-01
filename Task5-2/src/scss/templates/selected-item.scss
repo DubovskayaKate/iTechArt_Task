@@ -1,11 +1,8 @@
 .template_selected-item::after {
     display: inline-block;
-
     width: 8px;
     height: 5px;
     margin-left: 5px;
-
-    content: '';
-
     background: url(/src/images/DarkBlue.png) no-repeat;
+    content: '';
 }

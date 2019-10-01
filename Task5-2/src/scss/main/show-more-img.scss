@@ -1,11 +1,8 @@
 .tour__show-more-img::after {
     display: inline-block;
-
     width: 8px;
     height: 10px;
     margin-left: 10px;
-
-    content: '';
-
     background: url(/src/images/Blue.png) no-repeat;
+    content: '';
 }

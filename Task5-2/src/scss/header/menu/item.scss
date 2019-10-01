@@ -1,19 +1,15 @@
 @mixin icon($icon_path) {
     display: inline-block;
-
     width: 10px;
     height: 12px;
     margin-right: 9px;
-
-    content: '';
     background: url($icon_path) no-repeat;
+    content: '';
 }
 
 .menu__item {
     display: inline-block;
-
     margin-right: 30px;
-
     list-style-type: none;
 }
 

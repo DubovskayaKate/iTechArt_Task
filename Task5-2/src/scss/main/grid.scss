@@ -2,27 +2,26 @@
 
 .grid {
     display: grid;
-    grid-template-columns: 100%;
     grid-template-areas:
         'tour1'
         'tour2'
         'tour3'
         'tour4'
         'tour5';
+    grid-template-columns: 100%;
 }
 
 .tour5 {
     display: none;
-
     grid-area: tour5;
 }
 
 @media screen and (min-width: $phone_size) {
     .grid {
-        grid-template-columns: 50% 50%;
         grid-template-areas:
             'tour1 tour2'
             'tour3 tour4';
+        grid-template-columns: 50% 50%;
     }
 
     .tour5 {
@@ -32,11 +31,11 @@
 
 @media screen and (min-width: $desctop_size) {
     .grid {
-        grid-template-columns: 50% 50%;
         grid-template-areas:
             'tour1 tour2'
             'tour1 tour3'
             'tour4 tour5';
+        grid-template-columns: 50% 50%;
     }
 
     .tour5 {

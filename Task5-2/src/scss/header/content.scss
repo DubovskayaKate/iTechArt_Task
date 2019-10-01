@@ -2,9 +2,9 @@
 
 header {
     width: 100%;
-    background-size: cover;    
-    background-image: url(/src/images/sochi-sm.png);
     height: 580px;
+    background-image: url(/src/images/sochi-sm.png);
+    background-size: cover;
 }
 
 .header__menu-logo,
@@ -25,13 +25,13 @@ header {
 }
 
 @media screen and  (min-width: $phone_size) {
-    .header__content { 
+    .header__content {
         padding-top: 12px;
     }
 
     header {
-        background-image: url(/src/images/sochi-md.png);
         height: 600px;
+        background-image: url(/src/images/sochi-md.png);
     }
 }
 
@@ -55,7 +55,7 @@ header {
     }
 
     header {
-        background-image: url(/src/images/sochi.png);
         height: 670px;
+        background-image: url(/src/images/sochi.png);
     }
 }
