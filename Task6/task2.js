@@ -1,7 +1,7 @@
 let FFunction = function(uncurried) {
     let argsLength = uncurried.length;
     return (function resolver() {
-        var remainingArgs =  Array.prototype.slice.call(arguments); 
+        var remainingArgs =  Array.from(arguments); 
         return function(){
             let local = remainingArgs.slice();            
             Array.prototype.push.apply( local, arguments );
