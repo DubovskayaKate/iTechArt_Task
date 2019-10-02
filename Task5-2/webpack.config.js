@@ -6,15 +6,6 @@ module.exports = {
     module:{
         rules:[
             {
-                test: /\.html$/,
-                use:[
-                    {
-                        loader: "html-loader",
-                        options: {minimize : true}
-                    }
-                ]
-            },
-            {
                 test: /\.(png|jpg)$/,
                 use:[
                     'file-loader'
@@ -22,20 +13,20 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [
+                use: [                    
                     "style-loader",
+                    MiniCssExtractPlugin.loader,
                     "css-loader",
                     "sass-loader"
                 ]
-            }
-
+            },
         ]
     },
     plugins: [
         new CopyPlugin([
             { 
-                from: 'src/images/*', 
-                to: '' ,
+                from: 'src/images', 
+                to: './images' ,
                 force: true,
             },
         ]),

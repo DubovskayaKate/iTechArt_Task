@@ -1,10 +1,10 @@
 @import "src/scss/variables";
 @import "src/scss/common/extend/content";
 
-header {
+.header {
     width: 100%;
     height: 580px;
-    background-image: url("/src/images/sochi-sm.png");
+    background-image: url("/images/sochi-sm.png");
     background-size: cover;
 }
 
@@ -27,18 +27,18 @@ header {
     display: none;
 }
 
-@media screen and  (min-width: $phone_size) {
+@media  (min-width: $phone_size) {
     .header__content {
         padding-top: 12px;
     }
 
-    header {
+    .header {
         height: 600px;
-        background-image: url("/src/images/sochi-md.png");
+        background-image: url("/images/sochi-md.png");
     }
 }
 
-@media screen and (min-width: $tablet_size) {
+@media (min-width: $tablet_size) {
     .header__content {
         padding-top: 35px;
     }
@@ -48,7 +48,7 @@ header {
     }
 }
 
-@media screen and (min-width: $desctop_size) {
+@media (min-width: $desctop_size) {
     .header__menu-logo {
         width: 49%;
     }
@@ -57,8 +57,8 @@ header {
         padding-top: 35px;
     }
 
-    header {
+    .header {
         height: 670px;
-        background-image: url("/src/images/sochi.png");
+        background-image: url("/images/sochi.png");
     }
 }

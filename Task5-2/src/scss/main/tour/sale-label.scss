@@ -8,6 +8,6 @@
     }
 
     &::after {
-        @include flagPicture("/src/images/tag-red.png");
+        @include flagPicture("/images/tag-red.png");
     }
 }

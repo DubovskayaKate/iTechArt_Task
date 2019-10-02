@@ -3,10 +3,11 @@
     <head>
         <title>Voyage</title>
         <meta charset="utf-16"> 
+        <link type="stylesheeet" href="/main.css">
     </head>
     <body>
-        <header>
-            <div class="content header__content">
+        <header class="header">
+            <div class="header__content">
                 <nav>
                     <div class="header__menu-logo">
                         <img src="images/menu.png">
@@ -16,8 +17,9 @@
                         <li class="menu__item menu__currency">Рубль</li>
                         <li class="menu__item menu__language">Ru</li>
                         <li class="menu__item menu__phone-number"> 
-                            <span class="menu__number">8 500-61-05</span> </br>
-                            Круглосуточная поддержка</li>
+                            <span class="menu__number">8 500-61-05</span><br/>
+                            Круглосуточная поддержка
+                        </li>
                     </ul>
                 </nav>
                 
@@ -30,17 +32,20 @@
             </div>           
         </header>
         <main class="main">
-            <div class="content main__content">
+            <div class="main__content">
                 <div>
-                    <p class="text main__catalog-text">Каталог круизов</p>
-                    <p class="text main__sort-text">Сортировать круизы по <em>цене</em></p>
+                    <p class="main__catalog-text">Каталог круизов</p>
+                    <p class="main__sort-text">Сортировать круизы по <em>цене</em></p>
                 </div>
-                <section class="grid tours">
-                    <article class="main__tour tour1 bestseller-label">
-                        <img class="tour__image" srcset="src/images/tour1-image-sm.png 320w,
-                                                        src/images/tour1-image-md.png 720w,
-                                                        src/images/tour1-image-lg.png 1200w"
-                                                    src="images/tour1-image-md.png">
+                <section class="main__grid">
+                    <article class="main__tour main__tour-1 bestseller-label">
+                        <img class="tour__image" srcset="images/tour1-image-sm.png 228w,
+                                                        images/tour1-image-md.png 270w,
+                                                        images/tour1-image-lg.png 430w"
+                                                sizes="(max-width: 320px) 277px,
+                                                        (max-width: 1200px) 329px,
+                                                        554px"
+                                                src="images/tour1-image-md.png">
                         <div class="tour__info">                       
                             <p class="tour__name tour__show-more-img">Морской круиз в Анапу</p>   
                             <p class="tour__route"><span class="tour__key-name">Маршрут:</span> Сочи-Лазаревское-Геленджик-Анапа</p>
@@ -49,10 +54,13 @@
                         </div>
                     </article>
 
-                    <article class="main__tour tour2 sale-label">
-                        <img class="tour__image" srcset="src/images/tour2-image-sm.png 320w,
-                                                        src/images/tour2-image-md.png 720w,
-                                                        src/images/tour2-image-lg.png 1200w"
+                    <article class="main__tour main__tour-2 sale-label">
+                        <img class="tour__image" srcset="images/tour2-image-sm.png 228w,
+                                                        images/tour2-image-md.png 270w,
+                                                        images/tour2-image-lg.png 430w"
+                                                        sizes="(max-width: 320px) 277px,
+                                                                (max-width: 480px) 329px,
+                                                                554px"                                                        
                                                     src="images/tour2-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Обзорная морская прогулка с экскурсией</p>   
@@ -62,10 +70,13 @@
                         </div>
                     </article>
 
-                    <article class="main__tour tour3 sale-label">
-                        <img class="tour__image" srcset="src/images/tour3-image-sm.png 320w,
-                                                        src/images/tour3-image-md.png 720w,
-                                                        src/images/tour3-image-lg.png 1200w"
+                    <article class="main__tour main__tour-3 sale-label">
+                        <img class="tour__image" srcset="images/tour3-image-sm.png 228w,
+                                                        images/tour3-image-md.png 270w,
+                                                        images/tour3-image-lg.png 430w"
+                                                        sizes="(max-width: 320px) 277px,
+                                                        (max-width: 480px) 329px,
+                                                        554px" 
                                                     src="images/tour3-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Морская прогулка в Геленджик</p>   
@@ -75,10 +86,13 @@
                         </div>
                     </article>
 
-                    <article class="main__tour tour4">
-                        <img class="tour__image" srcset="src/images/tour4-image-sm.png 320w,
-                                                        src/images/tour4-image-md.png 720w,
-                                                        src/images/tour4-image-lg.png 1200w"
+                    <article class="main__tour main__tour-4">
+                        <img class="tour__image" srcset="images/tour4-image-sm.png 228w,
+                                                        images/tour4-image-md.png 270w,
+                                                        images/tour4-image-lg.png 430w"
+                                                        sizes="(max-width: 320px) 277px,
+                                                        (max-width: 480px) 329px,
+                                                        554px"                                                 
                                                     src="images/tour4-image-md.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Морской круиз в Новороссийск</p>   
@@ -88,9 +102,9 @@
                         </div>
                     </article>
 
-                    <article class="main__tour tour5">
-                        <img class="tour__image" srcset="src/images/tour5-image-sm.png 320w,
-                                                        src/images/tour5-image-lg.png 1200w"
+                    <article class="main__tour main__tour-5">
+                        <img class="tour__image" srcset="images/tour5-image-lg.png 430w"
+                                                        sizes="554px"                                                        
                                                     src="images/tour5-image-lg.png">
                         <div class="tour__info">                        
                             <p class="tour__name tour__show-more-img">Морской круиз в Абрау-Дюрсо</p>   
@@ -107,33 +121,33 @@
 
         </main>
         <footer class="footer">
-            <div class="content footer__layout footer__content">
-                <div class="layout__col layout__col1">
-                    <p class="layout__info">Вход для партнеров</p>
-                    <p class="layout__info">О компании</p>
-                    <p class="layout__info">Контакты</p>
+            <div class=" footer__layout footer__content">
+                <div class="footer__links">
+                    <p class="footer__link">Вход для партнеров</p>
+                    <p class="footer__link">О компании</p>
+                    <p class="footer__link">Контакты</p>
                 </div>
-                <div class="layout__col layout__col2">
-                    <p class="text">Будь на связи</p>
-                    <div class="col2__contact-menu">
-                        <div class="col2__contact">
-                            <img class="col2__icon icon__vk" src="images/vk.png" >
+                <div class="footer__social">
+                    <p>Будь на связи</p>
+                    <div class="footer__social-menu">
+                        <div class="footer__social-background ">
+                            <img class="footer__social-icon footer__icon-vk" src="images/vk.png" >
                         </div>
-                        <div class="col2__contact">
-                                <img class="col2__icon" src="images/ok.png" >
-                            </div>
-                        <div class="col2__contact">
-                            <img class="col2__icon" src="images/yt.png" >
+                        <div class="footer__social-background ">
+                            <img class="footer__social-icon" src="images/ok.png" >
                         </div>
-                        <div class="col2__contact">
-                            <img class="col2__icon icon__insta" src="images/insta.png" >
+                        <div class="footer__social-background ">
+                            <img class="footer__social-icon" src="images/yt.png" >
+                        </div>
+                        <div class="footer__social-background ">
+                            <img class="footer__social-icon footer__icon-insta" src="images/insta.png" >
                         </div>
                     </div>
                 </div>
-                <div class="layout__col layout__col3">
-                    <p class="layout__info"><span class="layout__number">8 800 500-61-05</span> </p>
-                    <p class="layout__info">Круглосуточная поддержка</p>
-                    <p class="layout__info">&copy; OOO 2016 "Городские круизы"</p>
+                <div class="footer__contacts">
+                    <p class="footer__contact"><span class="footer__contact-number">8 800 500-61-05</span> </p>
+                    <p class="footer__contact">Круглосуточная поддержка</p>
+                    <p class="footer__contact">&copy; OOO 2016 "Городские круизы"</p>
                 </div>
             </div>
 

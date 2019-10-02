@@ -15,7 +15,7 @@
     @include font();
 
     &::before {
-        @include icon("/src/images/user.png");
+        @include icon("/images/user.png");
     }
 
     &::after {
@@ -27,7 +27,7 @@
     @include font();
 
     &::before {
-        @include icon("/src/images/Р.png");
+        @include icon("/images/Р.png");
     }
 
     &::after {

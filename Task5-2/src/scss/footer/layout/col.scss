@@ -5,35 +5,35 @@
     display: flex;
 }
 
-.layout__col1 {
+.footer__links {
     @include font();
 
     flex-basis: 25%;
 }
 
-.layout__col2 {
+.footer__social {
     @include font();
 
     flex-basis: 40%;
 }
 
-.layout__col3 {
+.footer__contacts {
     @include font();
-    
+
     flex-basis: auto;
 }
 
-@media screen and (max-width: $phone_size) {
+@media (max-width: $phone_size) {
     .footer__layout {
         display: block;
     }
 
-    .layout__col1 {
+    .footer__links {
         display: none;
     }
 
-    .layout__col2,
-    .layout__col3 {
+    .footer__social,
+    .footer__contacts {
         display: block;
         width: 100%;
 
@@ -42,7 +42,7 @@
         }
     }
 
-    .col2__contact-menu {
+    .footer__social-menu {
         margin-left: 55px;
     }
 }
