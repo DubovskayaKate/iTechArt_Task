@@ -3,9 +3,9 @@ const GFunction = function(...arguments){
 }
 
 const Ffunction = function(gFunction){
-    var args = Array.from(arguments).slice(1);
+    let args = Array.from(arguments).slice(1);
     return function(){
-        var remainingArgs = Array.from(arguments);
+        let remainingArgs = Array.from(arguments);
         return gFunction.apply(null, args.concat(remainingArgs));
     }
 }

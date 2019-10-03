@@ -59,7 +59,7 @@ function ShapeStore(shapeArray){
     }
 }
 
-var store = new ShapeStore(
+let store = new ShapeStore(
     [
         new Rectangle("1", 2,3),
         new Rectangle("1", 4,3), 
@@ -72,7 +72,7 @@ var store = new ShapeStore(
 console.log(store.getAllRectanglePerimetrs());
 console.log(store.getAllSquareAreas());
 
-var rect1 = new Rectangle("Katya", 2, 4);
+let rect1 = new Rectangle("Katya", 2, 4);
 console.log(rect1.area());
 console.log(rect1.perimetr());
 console.log(rect1.name);

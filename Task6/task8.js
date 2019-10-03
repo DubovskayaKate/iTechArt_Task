@@ -3,10 +3,10 @@ function f(x) {
 }
   
 function makeCaching(f) {
-    var cache = {};
+    let cache = {};
 
     return function(item) {
-        if (!(item in cache) && (item != null)) {
+        if (item && !(item in cache)) {
             cache[item] = f.call(null, item);
         }
         return cache[item];
@@ -15,8 +15,8 @@ function makeCaching(f) {
   
 let cachingF = makeCaching(f);
 
-var a = cachingF(1);
-var b = cachingF(1);
+let a = cachingF(1);
+let b = cachingF(1);
 console.log( a == b ); 
 
 let c= cachingF(null);

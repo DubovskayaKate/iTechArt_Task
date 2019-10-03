@@ -8,7 +8,7 @@ const choosingFunc = function()  {
 	return this;
 }
 
-var arrayFunctionCollection = {
+let arrayFunctionCollection = {
 
 	_array : [], 
 	take : function() {
@@ -94,7 +94,7 @@ var arrayFunctionCollection = {
 		return this;
 	},
 
-	value : function (array){
+	value : function (){
 		let arr = this._array;
 		this._array = [];
 		return arr;
