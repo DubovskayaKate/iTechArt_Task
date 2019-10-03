@@ -1,8 +1,13 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
+    optimization: {
+        minimizer: [ new OptimizeCSSAssetsPlugin({})],
+    },
+    devtool:"source-map",
     module:{
         rules:[
             {
@@ -16,7 +21,13 @@ module.exports = {
                 use: [                    
                     "style-loader",
                     MiniCssExtractPlugin.loader,
-                    "css-loader",
+                    { 
+                        loader: "css-loader", 
+                        options: { 
+                            sourceMap: true, 
+                        }
+                    },                         
+                    "postcss-loader",               
                     "sass-loader"
                 ]
             },
