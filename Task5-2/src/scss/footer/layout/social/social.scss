@@ -1,0 +1,26 @@
+@import "src/scss/variables";
+
+.footer__social-background {
+    width: 30px;
+    height: 30px;
+    margin: 10px 0;
+    background-color: $dark_blue;
+    border-radius: 15px;
+}
+
+.footer__social-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+@media (min-width: $tablet_size) {
+    .footer__social-background {
+        margin: 10px 5px;
+    }
+
+    .footer__social-menu {
+        justify-content: flex-start;
+        margin: 10px 5px;
+    }
+}

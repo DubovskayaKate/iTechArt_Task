@@ -1,13 +1,5 @@
 @import "src/scss/common/mixin/index";
 
-.footer__contact {
-    padding-bottom: 16px;
-}
-
-.footer__link {
-    padding-bottom: 16px;
-}
-
 .footer__contact-number {
     @include strong-text();
 }

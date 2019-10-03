@@ -1,12 +1,10 @@
-import './scss/footer/layout/col2/contact.scss';
-
 import './scss/common/global.scss';   
 
 import './scss/footer/footer.scss';
-import './scss/footer/layout/col.scss';
-import './scss/footer/layout/info.scss';     
-import './scss/footer/layout/col2/contact.scss';
-import './scss/footer/layout/col2/icon.scss';
+import './scss/footer/layout/layout.scss';     
+import './scss/footer/layout/social/social.scss';
+import './scss/footer/layout/social/icon.scss';
+import './scss/footer/layout/contact/contact-number.scss';
 
 import './scss/header/header.scss';
 import './scss/header/menu/item.scss';        

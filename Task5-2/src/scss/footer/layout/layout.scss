@@ -5,9 +5,13 @@
     display: flex;
 }
 
-.footer__links {
+.footer__link {
     @include font();
 
+    padding-bottom: 16px;
+}
+
+.footer__links {
     flex-basis: 25%;
 }
 
@@ -17,13 +21,14 @@
     flex-basis: 40%;
 }
 
-.footer__contacts {
+.footer__contact {
     @include font();
 
     flex-basis: auto;
+    padding-bottom: 16px;
 }
 
-@media (max-width: $phone_size) {
+@media (max-width: $tablet_size) {
     .footer__layout {
         display: block;
     }
@@ -40,9 +45,5 @@
         p {
             text-align: center;
         }
-    }
-
-    .footer__social-menu {
-        margin-left: 55px;
     }
 }

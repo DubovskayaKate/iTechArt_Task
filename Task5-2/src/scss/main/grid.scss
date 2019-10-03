@@ -33,7 +33,7 @@
     grid-area: main__tour-5;
 }
 
-@media (min-width: $phone_size) {
+@media (min-width: $tablet_size) {
     .main__grid {
         grid-template-areas:
             'main__tour-1 main__tour-2'
