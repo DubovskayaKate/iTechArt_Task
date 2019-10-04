@@ -15,12 +15,17 @@ const jQuery = {
     },
 
     append: function(selector, strHtml){
-        
+        let elements = document.querySelectorAll(selector);
+        for(let element of elements ) {
+            element.insertAdjacentHTML('afterbegin', strHtml);
+        }        
     },
 
-    remove: function(node){
-        let element = document.querySelector(node);
-        element.remove();
+    remove: function(selector){
+        let elements = document.querySelectorAll(selector);
+        for(let element of elements ) {
+            element.remove();
+        }        
     },
 
     text: function(node){
@@ -67,7 +72,7 @@ const jQuery = {
 
     css: function(node, property){
         let element = document.querySelector(node);
-        element.setAttribute("style", property);
+        return window.getComputedStyle(element).getPropertyValue(property);
     },
 
     click: function(node, callback){
@@ -78,11 +83,16 @@ const jQuery = {
 
 jQuery.addClass('body', 'katya');
 jQuery.removeClass('body', 'katya');
+
 jQuery.remove('li');
+jQuery.append('ul', '<li>SMILE one</li>');
+
 //jQuery.empty('ul');
-//jQuery.css('body', 'background-color: green');
+console.log(jQuery.css('body', 'background-color'));
+
+
 console.log(jQuery.children(".demo-container", 'ul'));
 console.log(jQuery.attr(".demo-box", 'something'));
-console.log(jQuery.click('body', function() {
+jQuery.click('body', function() {
     alert("addEventListener"); 
-  }))
+  });
