@@ -1,0 +1,13 @@
+@import "src/scss/common/mixin/index.scss";
+
+.tour__bestseller-label {
+    position: relative;
+
+    & ::before {
+        @include flagText("Хит продаж");
+    }
+
+    &::after {
+        @include flagPicture("/images/tag.png");
+    }
+}

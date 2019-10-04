@@ -1,0 +1,5 @@
+@import "src/scss/common/mixin/index";
+
+.footer__contact-number {
+    @include strong-text();
+}

@@ -1,0 +1,9 @@
+@import "src/scss/common/extend/content";
+
+main {
+    background-color: #f3f3f3;
+}
+
+.main__content {
+    @extend %content;
+}

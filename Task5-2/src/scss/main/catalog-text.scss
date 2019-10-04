@@ -1,0 +1,16 @@
+@import "src/scss/variables";
+@import "src/scss/common/mixin/index";
+
+.main__catalog-text {
+    @include font();
+
+    padding-top: 60px;
+    font-size: 26px;
+    text-align: center;
+}
+
+@media (min-width: $desctop_size) {
+    .main__catalog-text {
+        font-size: 36px;
+    }
+}

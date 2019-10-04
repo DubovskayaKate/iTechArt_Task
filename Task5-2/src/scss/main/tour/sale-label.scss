@@ -1,0 +1,13 @@
+@import "src/scss/common/mixin/index.scss";
+
+.tour__sale-label {
+    position: relative;
+
+    &::before {
+        @include flagText("Акция");
+    }
+
+    &::after {
+        @include flagPicture("/images/tag-red.png");
+    }
+}

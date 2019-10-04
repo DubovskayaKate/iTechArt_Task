@@ -1,0 +1,58 @@
+@import "src/scss/variables";
+@import "src/scss/common/mixin/index";
+
+.header__headline {
+    text-align: center;
+}
+
+.line1 {
+    @include font();
+
+    font-size: 22px;
+}
+
+.line2 {
+    @include font();
+
+    font-size: 56px;
+}
+
+@media (min-width: 480px) {
+    .line1 {
+        font-size: 23px;
+    }
+
+    .line2 {
+        font-size: 60px;
+    }
+}
+
+@media (min-width: $tablet_size) {
+    .line1 {
+        font-size: 24px;
+    }
+
+    .line2 {
+        font-size: 64px;
+    }
+}
+
+@media (min-width: 900px) {
+    .line1 {
+        font-size: 26px;
+    }
+
+    .line2 {
+        font-size: 72px;
+    }
+}
+
+@media (min-width: $desctop_size) {
+    .line1 {
+        font-size: 36px;
+    }
+
+    .line2 {
+        font-size: 100px;
+    }
+}

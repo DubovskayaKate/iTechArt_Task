@@ -1,0 +1,12 @@
+@import "src/scss/common/mixin/index";
+
+.main__sort-text {
+    @include font();
+
+    padding-bottom: 30px;
+    text-align: center;
+
+    &::after {
+        @include selected-item();
+    }
+}

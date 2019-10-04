@@ -1,0 +1,8 @@
+@mixin selected-item() {
+    display: inline-block;
+    width: 8px;
+    height: 5px;
+    margin-left: 5px;
+    background: url("/images/DarkBlue.png") no-repeat;
+    content: '';
+}

@@ -1,0 +1,52 @@
+@import "src/scss/common/mixin/index";
+
+.menu__item {
+    display: inline-block;
+    margin-right: 30px;
+    list-style-type: none;
+}
+
+.header__inline-menu {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.menu__user {
+    @include font();
+
+    &::before {
+        @include icon("/images/user.png");
+    }
+
+    &::after {
+        @include selected-item();
+    }
+}
+
+.menu__currency {
+    @include font();
+
+    &::before {
+        @include icon("/images/Р.png");
+    }
+
+    &::after {
+        @include selected-item();
+    }
+}
+
+.menu__language {
+    @include font();
+
+    &::after {
+        @include selected-item();
+    }
+}
+
+.menu__phone-number {
+    @include font();
+}
+
+.menu__number {
+    @include strong-text();
+}

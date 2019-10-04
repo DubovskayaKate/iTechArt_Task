@@ -1,0 +1,11 @@
+.tour__old-priсe {
+    visibility: hidden;
+}
+
+.tour__sale-label .tour__old-priсe {
+    margin-left: 20px;
+    color: gray;
+    font-size: 18px;
+    text-decoration: line-through;
+    visibility: visible;
+}

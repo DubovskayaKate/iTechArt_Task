@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Voyage</title>
+        <meta charset="utf-16"> 
+        <link type="stylesheeet" href="/main.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__content">
+                <nav>
+                    <div class="header__menu-logo">
+                        <img src="images/menu.png">
+                    </div>
+                    <ul class="header__menu header__inline-menu">
+                        <li class="menu__item menu__user">Личный кабинет</li>
+                        <li class="menu__item menu__currency">Рубль</li>
+                        <li class="menu__item menu__language">Ru</li>
+                        <li class="menu__item menu__phone-number"> 
+                            <span class="menu__number">8 500-61-05</span><br/>
+                            Круглосуточная поддержка
+                        </li>
+                    </ul>
+                </nav>
+                
+                <div class="header__label">
+                    <img class="header__logo" src="images/logo.png">
+                    <p class="header__headline line1">Морские прогулки</p>
+                    <p class="header__headline line2">ПО ЧЁРНОМУ МОРЮ</p>
+                    <button class="header__button">Выбрать круиз</button>
+                </div>
+            </div>           
+        </header>
+        <main class="main">
+            <div class="main__content">
+                <div>
+                    <p class="main__catalog-text">Каталог круизов</p>
+                    <p class="main__sort-text">Сортировать круизы по <em>цене</em></p>
+                </div>
+                <section class="main__grid">
+                    <article class="main__tour main__tour-1 tour__bestseller-label">
+                        <img class="tour__image" srcset="images/tour1-image-sm.png 290w,
+                                                        images/tour1-image-md.png 345w,
+                                                        images/tour1-image-lg.png 555w"
+                                                sizes="(max-width: 350px) 290px,
+                                                        (max-width: 1200px) 345px,
+                                                        554px"
+                                                src="images/tour1-image-md.png">
+                        <div class="tour__info">                       
+                            <p class="tour__name tour__show-more-img">Морской круиз в Анапу</p>   
+                            <p class="tour__route"><span class="tour__key-name">Маршрут:</span> Сочи-Лазаревское-Геленджик-Анапа</p>
+                            <p class="tour__lasting" ><span class="tour__key-name">Продолжительность: </span>10 ч. 0 мин</p>
+                            <p class="tour__price">49 000 руб.<span class="tour__old-priсe">49 000 руб.</span></p>
+                        </div>
+                    </article>
+
+                    <article class="main__tour main__tour-2 tour__sale-label">
+                        <img class="tour__image" srcset="images/tour2-image-sm.png 290w,
+                                                        images/tour2-image-md.png 345w,
+                                                        images/tour2-image-lg.png 555w"
+                                                        sizes="(max-width: 350px) 290px,
+                                                            (max-width: 1200px) 345px,
+                                                            555px"                                                        
+                                                    src="images/tour2-image-md.png">
+                        <div class="tour__info">                        
+                            <p class="tour__name tour__show-more-img">Обзорная морская прогулка с экскурсией</p>   
+                            <p class="tour__route "><span class="tour__key-name">Маршрут:</span> Сочи-Адлер-Сочи(без высадки)</p>
+                            <p class="tour__lasting "><span class="tour__key-name">Продолжительность: </span>1 ч. 0 мин</p>
+                            <p class="tour__price ">5 000 руб.<span class="tour__old-priсe">15 000 руб.</span></p>
+                        </div>
+                    </article>
+
+                    <article class="main__tour main__tour-3 tour__sale-label">
+                        <img class="tour__image" srcset="images/tour3-image-sm.png 290w,
+                                                            images/tour3-image-md.png 345w,
+                                                            images/tour3-image-lg.png 555w"
+                                                            sizes="(max-width: 350px) 290px,
+                                                                (max-width: 1200px) 345px,
+                                                                555px" 
+                                                    src="images/tour3-image-md.png">
+                        <div class="tour__info">                        
+                            <p class="tour__name tour__show-more-img">Морская прогулка в Геленджик</p>   
+                            <p class="tour__route "><span class="tour__key-name">Маршрут:</span> Сочи-Туапсе-Геленджик</p>
+                            <p class="tour__lasting "><span class="tour__key-name">Продолжительность: </span>12 ч. 30 мин</p>
+                            <p class="tour__price ">7 000 руб.<span class="tour__old-priсe">15 000 руб.</span></p>
+                        </div>
+                    </article>
+
+                    <article class="main__tour main__tour-4">
+                        <img class="tour__image" srcset="images/tour4-image-sm.png 290w,
+                                                        images/tour4-image-md.png 345w,
+                                                        images/tour4-image-lg.png 555w"
+                                                        sizes="(max-width: 350px) 290px,
+                                                        (max-width: 1200px) 345px,
+                                                        555px"                                                 
+                                                    src="images/tour4-image-md.png">
+                        <div class="tour__info">                        
+                            <p class="tour__name tour__show-more-img">Морской круиз в Новороссийск</p>   
+                            <p class="tour__route "><span class="tour__key-name">Маршрут:</span> Сочи-Геленджик-Новороссийск-Геленджик-Сочи</p>
+                            <p class="tour__lasting "><span class="tour__key-name">Продолжительность: </span>13 ч. 0 мин</p>
+                            <p class="tour__price">14 800 руб.<span class="tour__old-priсe">14 800 руб.</span></p>
+                        </div>
+                    </article>
+
+                    <article class="main__tour main__tour-5">
+                        <img class="tour__image" srcset="images/tour5-image-lg.png 555w"
+                                                        sizes="555px"                                                        
+                                                    src="images/tour5-image-lg.png">
+                        <div class="tour__info">                        
+                            <p class="tour__name tour__show-more-img">Морской круиз в Абрау-Дюрсо</p>   
+                            <p class="tour__route "><span class="tour__key-name">Маршрут:</span> Сочи-Абрау-Дюрсо</p>
+                            <p class="tour__lasting"><span class="tour__key-name">Продолжительность: </span>11 ч. 0 мин</p>
+                            <p class="tour__price ">14 800 руб.<span class="tour__old-priсe">14 800 руб.</span></p>
+                        </div>
+                    </article>
+
+                </section>
+
+                <button class="main__button">Больше круизов</button>
+            </div>
+
+        </main>
+        <footer class="footer">
+            <div class=" footer__layout footer__content">
+                <div class="footer__links">
+                    <p class="footer__link">Вход для партнеров</p>
+                    <p class="footer__link">О компании</p>
+                    <p class="footer__link">Контакты</p>
+                </div>
+                <div class="footer__social">
+                    <p>Будь на связи</p>
+                    <div class="footer__social-menu">
+                        <div class="footer__social-background ">
+                            <img class="footer__social-icon footer__icon-vk" src="images/vk.png" >
+                        </div>
+                        <div class="footer__social-background ">
+                            <img class="footer__social-icon" src="images/ok.png" >
+                        </div>
+                        <div class="footer__social-background ">
+                            <img class="footer__social-icon" src="images/yt.png" >
+                        </div>
+                        <div class="footer__social-background ">
+                            <img class="footer__social-icon footer__icon-insta" src="images/insta.png" >
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__contacts">
+                    <p class="footer__contact"><span class="footer__contact-number">8 800 500-61-05</span> </p>
+                    <p class="footer__contact">Круглосуточная поддержка</p>
+                    <p class="footer__contact">&copy; OOO 2016 "Городские круизы"</p>
+                </div>
+            </div>
+
+        </footer>
+    </body>
+</html>

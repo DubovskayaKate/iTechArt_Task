@@ -1,0 +1,15 @@
+@mixin simple-button() {
+    width: 200px;
+    padding: 17px;
+    color: white;
+    font-size: 14px;
+    background-color: #33c7fd;
+
+    & :hover {
+        background-color: #13b0e9;
+    }
+
+    & :active {
+        background-color: "#64d6ff";
+    }
+}
