@@ -1,3 +1,5 @@
+import './style.css';
+
 class jQuery  {
     constructor(str){
         this._string =str;
