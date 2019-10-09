@@ -1,0 +1,9 @@
+.main__video-item{
+    width: 300px;
+    margin: 50px;
+    background-color: rgb(189, 165, 135);
+}
+
+.main__video-title{
+    color: rgb(82, 121, 121);
+}

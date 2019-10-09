@@ -1,0 +1,13 @@
+.header__search{
+    margin: 0 auto;
+    padding: 50px;
+    width: 25%;
+}
+
+.search__input {
+    width: 70%;
+}
+
+.search__button {
+    width: 25%;
+}
