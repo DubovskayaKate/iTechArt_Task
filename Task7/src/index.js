@@ -1,5 +1,3 @@
-import './style.css';
-
 class jQuery  {
     constructor(str){
         this._string =str;
@@ -12,8 +10,8 @@ class jQuery  {
 
     static addClass(selector, className){
         let elements = document.querySelectorAll(selector);
-        for(let element of elements ) {
-            element.classList.add(className);
+        for(let i = 0; i < elements.length; i++ ) {
+            elements[i].classList.add(className);
         }
     };
 
@@ -24,8 +22,8 @@ class jQuery  {
 
     static removeClass(selector, className){
         let elements = document.querySelectorAll(selector);
-        for(let element of elements ) {
-            element.classList.remove(className);
+        for(let i = 0; i < elements.length; i++ ) {
+            elements[i].classList.remove(className);
         }
     };
 
@@ -36,8 +34,8 @@ class jQuery  {
 
     static append(selector, strHtml){
         let elements = document.querySelectorAll(selector);
-        for(let element of elements ) {
-            element.insertAdjacentHTML('afterbegin', strHtml);
+        for(let i = 0; i < elements.length; i++ ) {
+            elements[i].insertAdjacentHTML('afterbegin', strHtml);
         }        
     };
 
@@ -48,8 +46,8 @@ class jQuery  {
 
     static remove(selector){
         let elements = document.querySelectorAll(selector);
-        for(let element of elements ) {
-            element.remove();
+        for(let i = 0; i < elements.length; i++ ){
+            elements[i].parentNode.removeChild(elements[i]);
         }        
     };
 
@@ -89,9 +87,13 @@ class jQuery  {
         if (!selector)
             return element.childNodes;
 
-        for (let child of element.childNodes){            
-            if (child.nodeType == 1 && child.matches(selector)){
-                result.push(child);
+        for(let i = 0; i < element.childNodes.length; i++ ){            
+            if (element.childNodes[i].nodeType == 1 && 
+                (element.childNodes[i].matches == "undefined"
+                ? element.childNodes[i].matches(selector)
+                :element.childNodes[i].msMatchesSelector(selector)
+                )){
+                result.push(element.childNodes[i]);
             }
         }
         return result;
@@ -108,7 +110,7 @@ class jQuery  {
         
         while (element.firstChild){
             let child = element.firstChild;
-            child.remove();    
+            child.parentNode.removeChild( child);   
         }        
     };
 
@@ -142,8 +144,8 @@ class jQuery  {
 
     static foreach(selector, callback){
         let elements = document.querySelectorAll(selector);
-        for(let element of elements){
-            callback.call(null, element);
+        for(let i = 0; i < elements.length; i++){
+            callback.call(null, elements[i]);
         }
     }
 
@@ -154,28 +156,28 @@ class jQuery  {
 
     static toggle(selector){
         let elements = document.querySelectorAll(selector);
-        for(let element of elements){
-            element.style.display = "none";
+        for(let i = 0; i < elements.length; i++){
+            elements[i].style.display = "none";
         }
     }
+    
 }
 
 jQuery.addClass('body', 'katya');
 jQuery.removeClass('body', 'katya');
-jQuery.remove('li');
 jQuery.append('ul', '<li>SMILE one</li>');
-
-let bodyQuery = new jQuery('body');
-
-console.log(bodyQuery.addClass('kay').append('<li>SMILE two</li>').text());
-jQuery.addClass('li', 'ha');
-
-console.log(jQuery.css('body', 'background-color'));
 jQuery.css('li', "background-color:blue");
-
+jQuery.empty('ul');
+console.log(jQuery.text('body'));
 
 console.log(jQuery.children(".demo-container", 'ul'));
 console.log(jQuery.attr(".demo-box", 'something'));
+
+console.log(jQuery.css('body', 'background-color'));
+
+
 jQuery.click('body', function() {
     alert("addEventListener"); 
   });
+
+//jQuery.toggle('li');
