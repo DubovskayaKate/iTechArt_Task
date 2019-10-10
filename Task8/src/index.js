@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import {composeWithDevTools} from 'redux-devtools-extension';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 
 import App from "./components/App";
 import './global.css';
-
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-
 
 const initialState = [
     {
@@ -23,11 +22,13 @@ function videoList(state = initialState, action){
             ...state,
             action.video
         ];
+    }else if (action.type ==='Fetch_success'){
+        return action.video;
     }
     return state;
 }
 
-const store = createStore(videoList, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(videoList, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
 <Provider store={store}>

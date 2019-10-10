@@ -1,19 +1,14 @@
 import React, { Component} from "react";
 import {hot} from "react-hot-loader";
 import {connect} from 'react-redux';
+import {getVideo} from '../api/video';
 
 import './Search.css';
 
 class Search extends Component{
     loadVideo() {
         console.log(this.searchString.value);
-        this.props.onLoadVideo(    
-            {
-                imageUrl: 'http:/',
-                title: this.searchString.value,
-                description: 'Description'
-            }
-        )
+        this.props.onLoadVideo( )
     }
     render(){
         console.log(this.props.videoStore);
@@ -32,7 +27,7 @@ export default connect(
     }),
     dispatch => ({
         onLoadVideo: (video) =>{
-            dispatch({type: 'Load', video})
+            dispatch(getVideo());
         }
     })
   )(Search);
