@@ -1,18 +1,20 @@
 import React, { Component} from "react";
 import {hot} from "react-hot-loader";
+
+import {connect} from 'react-redux';
 import "./App.css";
 import Header from "./Header";
 import Main from "./Main";
 
 class App extends Component{
-  render(){
+  render(){    
     return(
-        <div className="layout">
-          <Header/>
-          <Main/>
-        </div>
+      <div className="layout">
+        <Header/>
+        <Main/>
+    </div>
     );
   }
 }
 
-export default hot(module)(App);
+export default (App);
