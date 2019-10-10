@@ -1,9 +1,23 @@
 .main__video-item{
     width: 300px;
     margin: 50px;
-    background-color: rgb(189, 165, 135);
+    background-color:#000e00;
+    border-radius: 20px;
+}
+
+.main__video-image{
+    border-radius: 20px 20px 0 0;
+}
+
+.main__video-info{
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .main__video-title{
-    color: rgb(82, 121, 121);
+    color: #34b22b;
+}
+
+.main__video-desciption{
+    color: #2b7026;
 }

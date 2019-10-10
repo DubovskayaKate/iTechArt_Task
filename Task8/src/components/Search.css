@@ -1,13 +1,28 @@
 .header__search{
     margin: 0 auto;
     padding: 50px;
-    width: 25%;
+    width: 25%;    
 }
 
 .search__input {
-    width: 70%;
+    width: 60%;
+    background-color: #2b7026;
+    color: rgb(195, 195, 195);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    margin: 5px;
 }
 
 .search__button {
-    width: 25%;
+    width: auto;
+    font-family: 'Courier New', Courier, monospace;
+    background-color:#022f02;
+    color: #34b22b;
+    font-size: 18px;
+    padding: 3px 7px;
+    margin: 5px;
+}
+
+.search__button:hover{
+    background-color: #0e460e;
 }
