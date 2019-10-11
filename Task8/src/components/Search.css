@@ -1,28 +1,69 @@
 .header__search{
     margin: 0 auto;
-    padding: 50px;
-    width: 25%;    
+    padding: 30px;
+    width: 70%;      
 }
 
 .search__input {
-    width: 60%;
+    width: auto;
     background-color: #2b7026;
     color: rgb(195, 195, 195);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
-    margin: 5px;
+    font-size: 12px;
+    margin-right: 7px;
 }
 
 .search__button {
-    width: auto;
     font-family: 'Courier New', Courier, monospace;
     background-color:#022f02;
     color: #34b22b;
-    font-size: 18px;
-    padding: 3px 7px;
-    margin: 5px;
+    width: 30%;
+    font-size: 12px;
 }
 
 .search__button:hover{
     background-color: #0e460e;
+}
+
+@media (min-width: 670px){
+    .header__search{
+        padding: 30px;
+        width: 70%;    
+    }
+
+    .search__input {
+        font-size: 14px;
+    }
+    .search__button {
+        width: 30%;
+        font-size: 14px;
+    }
+}
+
+
+@media (min-width: 950px){
+    .header__search{
+        padding: 30px;
+        width: 50%;    
+    }
+
+    .search__input {
+        font-size: 20px;
+        margin-right: 7px;
+    }
+    .search__button {
+        width: 20%;
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1200px){
+    .search__input {
+        font-size: 25px;
+        margin-right: 9px;
+    }
+    .search__button {
+        width: 20%;
+        font-size: 22px;
+    }
 }
