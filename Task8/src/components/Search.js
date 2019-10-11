@@ -10,7 +10,7 @@ class Search extends Component{
         this.props.onLoadVideo(this.searchString.value)
     }
     render(){
-        console.log(this.videoStore);
+        console.log(this.GlobalStore);
         return(
             <div className="header__search">
                 <input className="search__input" type="text" size="30" ref={(input) => this.searchString = input}/>
@@ -22,7 +22,7 @@ class Search extends Component{
 
 export default connect(
     state => ({
-      videoStore: state
+      GlobalStore: state
     }),
     dispatch => ({
         onLoadVideo: (searchString) =>{

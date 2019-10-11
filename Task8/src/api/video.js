@@ -1,3 +1,5 @@
+import {State} from '../globalState';
+
 const API_KEY = "AIzaSyALMiCr_df0KxwdiWxpGeQBSCrczG5RcRs";
 
 const loadSources = (dispatch, searchStr) =>{
@@ -7,6 +9,7 @@ const loadSources = (dispatch, searchStr) =>{
         .then( (response) => response.json())
         .then(
             (data) => {
+                console.log(data);
                 return data.items.map((video) => {
                     return {
                         imageUrlMedium: video.snippet.thumbnails.medium.url, 
@@ -17,8 +20,8 @@ const loadSources = (dispatch, searchStr) =>{
                     }
                 });
             }            
-        ).then(
-            (video) => dispatch({type: 'Fetch_success', video})
+        ).then(            
+            (video) => dispatch({type: 'Fetch_success', GlobalStore: {video: video, state: State.static}})
         );
 }
 

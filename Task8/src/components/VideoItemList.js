@@ -5,10 +5,10 @@ import VideoInfo from "./VideoInfo";
 
 class VideoItemList extends Component{
     render(){
-        console.log(this.videoStore);
-        const list = this.props.videoStore.map((video, index) =>
+        console.log(this.GlobalStore);
+        const list = this.props.GlobalStore.video.map((video, index) =>
             <VideoInfo 
-                id ={index} 
+                key ={index} 
                 imageUrlMedium={video.imageUrlMedium} 
                 imageUrlHigh={video.imageUrlHigh}
                 imageUrlDefault={video.imageUrlDefault} 
@@ -24,10 +24,11 @@ class VideoItemList extends Component{
 
 export default connect(
     state => ({
-      videoStore: state
+      GlobalStore: state
     }),
     dispatch => ({
         onLoadVideo: (video) =>{
+            dispatch({type: 'Loading', GlobalStore: {}});
             dispatch(getVideo());
         }
     })

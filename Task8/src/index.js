@@ -4,29 +4,36 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import {State} from './globalState';
 
 import App from "./components/App";
 import './global.css';
 
-const initialState = [
-    {
+
+const initialState = {
+    state: State.static,
+    video: [{
         imageUrlMedium: './images/smile.jpg',
         imageUrlHigh: './images/smile.jpg',
         imageUrlDefault: './images/smile.jpg',
         title: 'Title',
         description: 'Description'
-    }
-]
+    }]
+}
 
 function videoList(state = initialState, action){
-    if (action.type === 'Load'){
-        return [
-            ...state,
-            action.video
-        ];
+    if (action.type === 'Loading'){
+        return {
+            state: State.loading,
+            video: []
+        }
     }else if (action.type ==='Fetch_success'){
-        console.log(action.video);
-        return action.video;
+        console.log(action);
+        console.log(State.static);
+        return {
+            state: State.static,
+            video: action.GlobalStore.video,
+        };
     }
     return state;
 }

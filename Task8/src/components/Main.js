@@ -1,6 +1,4 @@
 import React, { Component} from "react";
-import {hot} from "react-hot-loader";
-import {connect} from 'react-redux';
 
 import VideoItemList from "./VideoItemList";
 import "./Main.css";
@@ -15,13 +13,4 @@ class Main extends Component{
     }
 }
 
-export default connect(
-    state => ({
-      videoStore: state
-    }),
-    dispatch => ({
-        onLoadVideo: (video) =>{
-            dispatch(getVideo());
-        }
-    })
-  )(Main);
+export default (Main);

@@ -23,4 +23,4 @@ class VideoInfo extends Component{
     }
 }
 
-export default hot(module)(VideoInfo);
+export default (VideoInfo);
