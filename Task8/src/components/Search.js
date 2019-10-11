@@ -7,11 +7,10 @@ import './Search.css';
 
 class Search extends Component{
     loadVideo() {
-        console.log(this.searchString.value);
-        this.props.onLoadVideo( )
+        this.props.onLoadVideo(this.searchString.value)
     }
     render(){
-        console.log(this.props.videoStore);
+        console.log(this.videoStore);
         return(
             <div className="header__search">
                 <input className="search__input" type="text" size="30" ref={(input) => this.searchString = input}/>
@@ -26,8 +25,9 @@ export default connect(
       videoStore: state
     }),
     dispatch => ({
-        onLoadVideo: (video) =>{
-            dispatch(getVideo());
+        onLoadVideo: (searchString) =>{
+            console.log(searchString);
+            dispatch(getVideo(searchString));
         }
     })
   )(Search);

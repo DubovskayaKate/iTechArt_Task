@@ -10,7 +10,9 @@ import './global.css';
 
 const initialState = [
     {
-        imageUrl: 'http:/',
+        imageUrlMedium: './images/smile.jpg',
+        imageUrlHigh: './images/smile.jpg',
+        imageUrlDefault: './images/smile.jpg',
         title: 'Title',
         description: 'Description'
     }
@@ -23,6 +25,7 @@ function videoList(state = initialState, action){
             action.video
         ];
     }else if (action.type ==='Fetch_success'){
+        console.log(action.video);
         return action.video;
     }
     return state;
