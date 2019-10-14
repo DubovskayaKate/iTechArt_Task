@@ -57,7 +57,10 @@ class jQuery  {
 
     static text(node){
         let element = document.querySelector(node);
-        return element.innerText;
+        if (element == null){
+            return null;
+        }
+        return element.innerText;        
     };
 
     attr(attributeName, value){
@@ -68,6 +71,10 @@ class jQuery  {
     //value != null set one or more attributes for every matched element.
     static attr(selector, attributeName, value){
         let element = document.querySelector(selector);
+        if (element == null){
+            return null;
+        }
+
         if (value){
             element.setAtttibute(attributeName, value);
         }
@@ -83,6 +90,9 @@ class jQuery  {
     //Get the children of each element in the set of matched elements, optionally filtered by a selector.
     static children(node, selector){
         let element = document.querySelector(node);
+        if (element == null){
+            return null;
+        }
         let result = [];
         if (!selector)
             return element.childNodes;
@@ -107,7 +117,9 @@ class jQuery  {
     //Remove all child nodes of the set of matched elements from the DOM.
     static empty(node){
         let element = document.querySelector(node);
-        
+        if (element == null){
+            return null;
+        }        
         while (element.firstChild){
             let child = element.firstChild;
             child.parentNode.removeChild( child);   
@@ -121,6 +133,9 @@ class jQuery  {
 
     static css(node, property){
         let element = document.querySelector(node);
+        if (element == null){
+            return null;
+        }
         var regex = RegExp('^[a-z\-\ ]+:[a-z\ ]+$');
         if (!regex.test(property))
             return window.getComputedStyle(element).getPropertyValue(property);
@@ -134,11 +149,14 @@ class jQuery  {
 
     static click(node, callback){
         let element = document.querySelector(node);
+        if (element == null){
+            return null;
+        }
         element.addEventListener('click', callback);
     };
 
     foreach(callback){
-        this.foreach(this._string, callback);
+        jQuery.foreach(this._string, callback);
         return this;
     }
 
@@ -174,6 +192,7 @@ console.log(jQuery.children(".demo-container", 'ul'));
 console.log(jQuery.attr(".demo-box", 'something'));
 
 console.log(jQuery.css('body', 'background-color'));
+console.log(jQuery.css('body', 'background-color: gray'));
 
 
 jQuery.click('body', function() {
