@@ -13,6 +13,7 @@
 .main__video-info{
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
+    overflow: auto;
 }
 
 .main__video-title{
@@ -23,6 +24,7 @@
 .main__video-desciption{
     color: #2b7026;
     font-size: 10px;
+    text-overflow: ellipsis;
 }
 
 @media (min-width: 330px){

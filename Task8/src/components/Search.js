@@ -10,7 +10,6 @@ class Search extends Component{
         this.props.onLoadVideo(this.searchString.value)
     }
     render(){
-        console.log(this.GlobalStore);
         return(
             <div className="header__search">
                 <input className="search__input" type="text" size="30" ref={(input) => this.searchString = input}/>
@@ -26,7 +25,7 @@ export default connect(
     }),
     dispatch => ({
         onLoadVideo: (searchString) =>{
-            console.log(searchString);
+            dispatch({type: 'Loading', GlobalStore: {}});
             dispatch(getVideo(searchString));
         }
     })

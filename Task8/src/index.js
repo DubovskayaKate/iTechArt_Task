@@ -28,11 +28,15 @@ function videoList(state = initialState, action){
             video: []
         }
     }else if (action.type ==='Fetch_success'){
-        console.log(action);
-        console.log(State.static);
         return {
             state: State.static,
             video: action.GlobalStore.video,
+        };
+    }
+    if (action.type ==='Error'){
+        return {
+            state: State.error,
+            video:[],
         };
     }
     return state;

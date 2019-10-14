@@ -1,9 +1,9 @@
 import React, { Component} from "react";
 import {hot} from "react-hot-loader";
-import './VideoInfo.css';
+import './VideoItem.css';
 
 
-class VideoInfo extends Component{
+class VideoItem extends Component{
     render(){
         return(
             <div id={this.props.id} className="main__video-item">
@@ -23,4 +23,4 @@ class VideoInfo extends Component{
     }
 }
 
-export default (VideoInfo);
+export default (VideoItem);

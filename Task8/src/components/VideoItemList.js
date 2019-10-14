@@ -1,13 +1,12 @@
 import React, { Component} from "react";
 import {connect} from 'react-redux';
 
-import VideoInfo from "./VideoInfo";
+import VideoItem from "./VideoItem";
 
 class VideoItemList extends Component{
     render(){
-        console.log(this.GlobalStore);
         const list = this.props.GlobalStore.video.map((video, index) =>
-            <VideoInfo 
+            <VideoItem 
                 key ={index} 
                 imageUrlMedium={video.imageUrlMedium} 
                 imageUrlHigh={video.imageUrlHigh}
@@ -26,10 +25,5 @@ export default connect(
     state => ({
       GlobalStore: state
     }),
-    dispatch => ({
-        onLoadVideo: (video) =>{
-            dispatch({type: 'Loading', GlobalStore: {}});
-            dispatch(getVideo());
-        }
-    })
+    dispatch => ({ })
   )(VideoItemList);

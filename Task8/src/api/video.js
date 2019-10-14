@@ -6,22 +6,34 @@ const loadSources = (dispatch, searchStr) =>{
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchStr}&key=${API_KEY}`;
     const request = new Request(url);
     fetch(request)
-        .then( (response) => response.json())
+        .then( (response) => 
+        {
+            console.log(response); 
+            if (response.ok){
+                return response.json();
+            }
+            return null;
+
+        })
         .then(
             (data) => {
-                console.log(data);
-                return data.items.map((video) => {
-                    return {
-                        imageUrlMedium: video.snippet.thumbnails.medium.url, 
-                        imageUrlHigh: video.snippet.thumbnails.high.url,
-                        imageUrlDefault: video.snippet.thumbnails.default.url,
-                        title: video.snippet.title, 
-                        description: video.snippet.description,
-                    }
-                });
+                if (data != null){
+                    return data.items.map((video) => {
+                        return {
+                            imageUrlMedium: video.snippet.thumbnails.medium.url, 
+                            imageUrlHigh: video.snippet.thumbnails.high.url,
+                            imageUrlDefault: video.snippet.thumbnails.default.url,
+                            title: video.snippet.title, 
+                            description: video.snippet.description,
+                        }
+                    });
+                }
+                return null;
             }            
         ).then(            
-            (video) => dispatch({type: 'Fetch_success', GlobalStore: {video: video, state: State.static}})
+            (video) => (video != null)?
+            dispatch({type: 'Fetch_success', GlobalStore: {video: video, state: State.static}}):
+            dispatch({type: 'Error', GlobalStore: {video: video, state: State.error}})
         );
 }
 
