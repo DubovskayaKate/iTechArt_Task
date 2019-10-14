@@ -126,20 +126,20 @@ class jQuery  {
         }        
     };
 
-    css(property){
-        jQuery.css(this._string, property);
+    css(property, value){
+        jQuery.css(this._string, property, value);
         return this;
     }
 
-    static css(node, property){
+    static css(node, property, value){
         let element = document.querySelector(node);
         if (element == null){
             return null;
         }
-        var regex = RegExp('^[a-z\-\ ]+:[a-z\ ]+$');
-        if (!regex.test(property))
+        if (typeof value == "undefined"){
             return window.getComputedStyle(element).getPropertyValue(property);
-        element.setAttribute("style", property);
+        }
+        element.style.setProperty(property, value);
     };
 
     click(callback){
@@ -175,7 +175,7 @@ class jQuery  {
     static toggle(selector){
         let elements = document.querySelectorAll(selector);
         for(let i = 0; i < elements.length; i++){
-            elements[i].style.display = "none";
+            elements[i].style.display = (elements[i].style.display == 'none') ? 'block' : 'none';
         }
     }
     
@@ -184,19 +184,26 @@ class jQuery  {
 jQuery.addClass('body', 'katya');
 jQuery.removeClass('body', 'katya');
 jQuery.append('ul', '<li>SMILE one</li>');
-jQuery.css('li', "background-color:blue");
-jQuery.empty('ul');
+jQuery.css('li', "background-color", 'red');
+jQuery.toggle('li');
+jQuery.toggle('li');
 console.log(jQuery.text('body'));
 
 console.log(jQuery.children(".demo-container", 'ul'));
 console.log(jQuery.attr(".demo-box", 'something'));
 
 console.log(jQuery.css('body', 'background-color'));
-console.log(jQuery.css('body', 'background-color: gray'));
+//console.log(jQuery.css('body', 'background-color','gray'));
 
 
 jQuery.click('body', function() {
     alert("addEventListener"); 
   });
 
-//jQuery.toggle('li');
+new jQuery('ul')
+    .foreach(function (element) {
+        console.log(element);
+    })
+    .append('<div>Test</div>')
+    .addClass('my-super-class')
+    .css('background-color', 'rebeccapurple');
