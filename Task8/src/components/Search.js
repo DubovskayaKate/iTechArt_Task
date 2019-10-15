@@ -26,7 +26,7 @@ export default connect(
     dispatch => ({
         onLoadVideo: (searchString) =>{
             dispatch({type: 'Loading', GlobalStore: {}});
-            dispatch(getVideo(searchString));
+            dispatch(getVideo(searchString, false));
         }
     })
   )(Search);

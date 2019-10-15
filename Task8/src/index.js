@@ -25,18 +25,26 @@ function videoList(state = initialState, action){
     if (action.type === 'Loading'){
         return {
             state: State.loading,
-            video: []
+            video: state.video
         }
     }else if (action.type ==='Fetch_success'){
         return {
             state: State.static,
             video: action.GlobalStore.video,
         };
-    }
+    }else
     if (action.type ==='Error'){
         return {
             state: State.error,
             video:[],
+        };
+    }
+    else
+    if (action.type ==='Append_success'){
+        let videoArray =  state.video.concat(action.GlobalStore.video);
+        return {
+            state: State.static,
+            video:videoArray,
         };
     }
     return state;
