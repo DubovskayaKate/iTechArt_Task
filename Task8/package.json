@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "webpack-dev-server --mode development",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "stylelint **/*.css --fix",
+    "js:lint": "eslint **/*.js"
   },
   "author": "Dubovskaya Kate",
   "license": "ISC",
@@ -17,6 +19,9 @@
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-react": "^7.16.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-hot-loader": "^4.12.15",
@@ -25,8 +30,13 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "style-loader": "^1.0.0",
+    "stylelint": "^11.1.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^3.1.1",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
-  }
+  },
+  "dependencies": {}
 }

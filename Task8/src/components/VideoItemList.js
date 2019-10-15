@@ -24,6 +24,5 @@ class VideoItemList extends Component{
 export default connect(
     state => ({
       GlobalStore: state
-    }),
-    dispatch => ({ })
+    })
   )(VideoItemList);

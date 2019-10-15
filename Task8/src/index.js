@@ -16,7 +16,7 @@ const initialState = {
         imageUrlMedium: './images/smile.jpg',
         imageUrlHigh: './images/smile.jpg',
         imageUrlDefault: './images/smile.jpg',
-        title: 'Title',
+        title: 'Keep calm and smile:)',
         description: 'Description'
     }]
 }
@@ -27,7 +27,8 @@ function videoList(state = initialState, action){
             state: State.loading,
             video: state.video
         }
-    }else if (action.type ==='Fetch_success'){
+    }else 
+    if (action.type ==='Fetch_success'){
         return {
             state: State.static,
             video: action.GlobalStore.video,

@@ -6,7 +6,6 @@ let Search_str;
 
 const loadSources = (dispatch, searchStr, isAppend) =>{
     let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${API_KEY}`; 
-    console.log(isAppend);
     if (isAppend) {
         url += `&q=${Search_str}&pageToken=${Next_Page_token}`;
     }else{
@@ -22,7 +21,6 @@ const loadSources = (dispatch, searchStr, isAppend) =>{
                 return response.json();
             }
             return null;
-
         })
         .then(
             (data) => {             
@@ -42,17 +40,13 @@ const loadSources = (dispatch, searchStr, isAppend) =>{
             }            
         ).then(            
             (video) => {                
-                if(video != null)
-                {
+                if(video != null){
                     if(isAppend){
-                        console.log("Append");
                         dispatch({type: 'Append_success', GlobalStore: {video: video, state: State.static}})
-                    }else{
+                    } else{
                         dispatch({type: 'Fetch_success', GlobalStore: {video: video, state: State.static}})
                     }
-                }
-                else
-                {
+                } else{
                     dispatch({type: 'Error', GlobalStore: {video: video, state: State.error}})
                 }
             }

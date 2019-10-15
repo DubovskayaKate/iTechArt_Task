@@ -1,7 +1,5 @@
 import React, { Component} from "react";
-import {hot} from "react-hot-loader";
 
-import {connect} from 'react-redux';
 import Header from "./Header";
 import Main from "./Main";
 
