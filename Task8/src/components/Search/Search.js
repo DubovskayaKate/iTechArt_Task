@@ -1,17 +1,17 @@
 import React, { Component} from "react";
 import {connect} from 'react-redux';
-import {getVideo} from '../api/video';
-
+import {getVideo} from '../../api/video';
 import './Search.css';
+
 
 class Search extends Component{
     loadVideo() {
-        this.props.onLoadVideo(this.searchString.value)
+        this.props.onLoadVideo(this.input.value);
     }
     render(){
         return(
             <div className="header__search">
-                <input className="search__input" type="text" size="30" ref={(input) => this.searchString = input}/>
+                <input className="search__input" type="text" size="30" ref={(input) => this.input = input}/>
                 <button onClick={this.loadVideo.bind(this)} className="search__button">{this.props.bName}</button>
             </div>
         );
@@ -24,7 +24,7 @@ export default connect(
     }),
     dispatch => ({
         onLoadVideo: (searchString) =>{
-            dispatch({type: 'Loading', GlobalStore: {}});
+            dispatch({type: 'LOADING', GlobalStore: {}});
             dispatch(getVideo(searchString, false));
         }
     })

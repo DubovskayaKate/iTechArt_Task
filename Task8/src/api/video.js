@@ -1,4 +1,4 @@
-import {State} from '../globalState';
+
 
 const API_KEY = "AIzaSyALMiCr_df0KxwdiWxpGeQBSCrczG5RcRs";
 let Next_Page_token;
@@ -23,7 +23,7 @@ const loadSources = (dispatch, searchStr, isAppend) =>{
             return null;
         })
         .then(
-            (data) => {             
+            (data) => {            
                 if (data != null){
                     Next_Page_token = data.nextPageToken;
                     return data.items.map((video) => {
@@ -33,21 +33,22 @@ const loadSources = (dispatch, searchStr, isAppend) =>{
                             imageUrlDefault: video.snippet.thumbnails.default.url,
                             title: video.snippet.title, 
                             description: video.snippet.description,
+                            id: (video.id.videoId == null)? video.id.channelId :video.id.videoId ,
                         }
                     });
                 }
                 return null;
             }            
         ).then(            
-            (video) => {                
+            (video) => {              
                 if(video != null){
                     if(isAppend){
-                        dispatch({type: 'Append_success', GlobalStore: {video: video, state: State.static}})
+                        dispatch({type: 'APPEND_SUCCESS', GlobalStore: {video: video}})
                     } else{
-                        dispatch({type: 'Fetch_success', GlobalStore: {video: video, state: State.static}})
+                        dispatch({type: 'FETCH_SUCCESS', GlobalStore: {video: video}})
                     }
                 } else{
-                    dispatch({type: 'Error', GlobalStore: {video: video, state: State.error}})
+                    dispatch({type: 'ERROR', GlobalStore: {video: video}})
                 }
             }
         );

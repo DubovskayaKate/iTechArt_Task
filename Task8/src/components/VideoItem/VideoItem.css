@@ -1,66 +1,49 @@
-.main__video-item {
-    width: 120px;
-    margin: 10px;
-    background-color: #000e00;
-    border-radius: 20px;
-}
-
-.main__video-image {
+.video-item__video-image {
     width: 100%;
     border-radius: 20px 20px 0 0;
 }
 
-.main__video-info {
+.video-item__video-info {
     padding: 10px;
     overflow: hidden;
     font-family: 'Courier New', Courier, monospace;
 }
 
-.main__video-title {
+.video-item__video-title {
     color: #34b22b;
     font-size: 12px;
 }
 
-.main__video-desciption {
+.video-item__video-desciption {
     color: #2b7026;
     font-size: 10px;
     text-overflow: ellipsis;
 }
 
 @media (min-width: 330px) {
-    .main__video-item {
-        width: 320px;
-        margin: 30px;
-    }
-
-    .main__video-title {
+    .video-item__video-title {
         font-size: 18px;
     }
 
-    .main__video-desciption {
+    .video-item__video-desciption {
         font-size: 16px;
     }
 
-    .main__video-info {
+    .video-item__video-info {
         margin: 18px;
     }
 }
 
 @media (min-width: 1200px) {
-    .main__video-item {
-        width: 480px;
-        margin: 50px;
-    }
-
-    .main__video-title {
+    .video-item__video-title {
         font-size: 25px;
     }
 
-    .main__video-desciption {
+    .video-item__video-desciption {
         font-size: 21px;
     }
 
-    .main__video-info {
+    .video-item__video-info {
         margin: 30px;
     }
 }
