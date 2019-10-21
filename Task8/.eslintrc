@@ -9,6 +9,10 @@
         "airbnb/hooks" 
     ],
     "rules": {
-       "no-set-state": "off"
+       "no-set-state": "off",
+       "react/destructuring-assignment": 1,
+        "react/prop-types": 1,
+        "prefer-promise-reject-errors" : 1,
+        "no-undef" : 1
     }
 }
