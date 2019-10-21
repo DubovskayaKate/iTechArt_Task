@@ -1,9 +1,11 @@
 import React, { Component} from "react";
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux'
 import classNames from 'classnames/bind';
 
 import VideoItemList from "../VideoItemList/VideoItemList";
-import {getVideo} from '../../api/video';
+import * as TodoActionCreators from '../../api/video';
+
 import './Main.css';
 
 class Main extends Component{
@@ -43,8 +45,9 @@ export default connect(
     dispatch => ({ 
         onAppendVideo: () =>
         {
-            dispatch({type: 'LOADING', GlobalStore: {}});
-            dispatch(getVideo('', true));
+            let action = bindActionCreators(TodoActionCreators, dispatch);
+            action.loading();
+            action.loadSources('', true);
         }
     }
     )

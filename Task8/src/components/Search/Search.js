@@ -1,17 +1,23 @@
 import React, { Component} from "react";
 import {connect} from 'react-redux';
-import {getVideo} from '../../api/video';
+import { bindActionCreators } from 'redux';
 import './Search.css';
+import * as TodoActionCreators from '../../api/video';
 
 
 class Search extends Component{
+    constructor(props){
+        super(props);
+        this.textInput = React.createRef();
+    }
+
     loadVideo() {
-        this.props.onLoadVideo(this.input.value);
+        this.props.onLoadVideo(this.textInput.current.value);
     }
     render(){
         return(
             <div className="header__search">
-                <input className="search__input" type="text" size="30" ref={(input) => this.input = input}/>
+                <input className="search__input" type="text" size="30" ref={this.textInput} />
                 <button onClick={this.loadVideo.bind(this)} className="search__button">{this.props.bName}</button>
             </div>
         );
@@ -24,8 +30,9 @@ export default connect(
     }),
     dispatch => ({
         onLoadVideo: (searchString) =>{
-            dispatch({type: 'LOADING', GlobalStore: {}});
-            dispatch(getVideo(searchString, false));
+            let action = bindActionCreators(TodoActionCreators, dispatch);
+            action.loading();
+            action.loadSources(searchString, false);
         }
     })
   )(Search);
