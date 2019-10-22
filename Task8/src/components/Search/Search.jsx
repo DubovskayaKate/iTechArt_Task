@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import './Search.css';
+
 import * as TodoActionCreators from '../../api/video';
 
+import './Search.css';
 
 class Search extends Component {
   constructor(props) {
@@ -18,28 +19,28 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="header__search">
-        <input
-          className="search__input"
-          type="text"
-          size="30"
-          ref={this.textInput}
-        />
-        <button
-          onClick={this.loadVideo.bind(this)}
-          className="search__button"
-          type="submit"
-        >
-          {this.props.bName}
-        </button>
-      </div>
+        <div className="header__search">
+            <input
+              className="search__input"
+              type="text"
+              size="30"
+              ref={this.textInput}
+            />
+            <button
+              onClick={this.loadVideo.bind(this)}
+              className="search__button"
+              type="submit"
+            >
+                {this.props.buttonName}
+            </button>
+        </div>
     );
   }
 }
 
 export default connect(
   (state) => ({
-    GlobalStore: state,
+    payload: state,
   }),
   (dispatch) => ({
     onLoadVideo: (searchString) => {

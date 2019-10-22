@@ -21,46 +21,46 @@ class Main extends Component {
   render() {
     const classNamesErrorlabel = classNames({
       'main__error-label': true,
-      'main__error-label--error': this.props.GlobalStore.isError,
+      'main__error-label--error': this.props.payload.isError,
     });
     const classNamesButton = classNames({
       'main__load-button': true,
-      'main__load-button--success': !this.props.GlobalStore.isError && !this.props.GlobalStore.isLoading,
+      'main__load-button--success': !this.props.payload.isError && !this.props.payload.isLoading,
     });
     const classNamesImage = classNames({
       'main__load-image': true,
-      'main__load-image--loading': this.props.GlobalStore.isLoading,
+      'main__load-image--loading': this.props.payload.isLoading,
     });
     return (
-      <main className="main__content">
-        <p className={classNamesErrorlabel}>
+        <main className="main__content">
+            <p className={classNamesErrorlabel}>
           404 ERROR
-        </p>
-        <img
-          className={classNamesImage}
-          src="./images/cat.gif"
-          alt="Loading"
-        />
-        <section className="main__videolist">
-          <VideoItemList />
-        </section>
+            </p>
+            <img
+              className={classNamesImage}
+              src="./images/cat.gif"
+              alt="Loading"
+            />
+            <section className="main__videolist">
+                <VideoItemList />
+            </section>
 
-        <button
-          onClick={this.appendVideo.bind(this)}
-          className={classNamesButton}
-          type="submit"
-        >
+            <button
+              onClick={this.appendVideo.bind(this)}
+              className={classNamesButton}
+              type="submit"
+            >
             Load more
-        </button>
+            </button>
 
-      </main>
+        </main>
     );
   }
 }
 
 export default connect(
   (state) => ({
-    GlobalStore: state,
+    payload: state,
   }),
   (dispatch) => ({
     onAppendVideo: () => {

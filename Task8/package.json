@@ -2,13 +2,12 @@
   "name": "react_app",
   "version": "1.0.0",
   "description": "React-redux app",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "webpack-dev-server --mode development",
     "build": "webpack",
     "lint": "stylelint **/*.css --fix",
-    "js:lint": "eslint **/*.js",
     "jsx": "eslint ./src/components/**/*.jsx --fix",
     "js": "eslint **/*.js --fix"
   },

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Search from '../Search/Search';
 
 import './Header.css';
@@ -11,9 +12,9 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="header__context">
-        <Search bName="Search" />
-      </header>
+        <header className="header__context">
+            <Search buttonName="Search" />
+        </header>
     );
   }
 }

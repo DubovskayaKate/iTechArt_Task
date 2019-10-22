@@ -1,3 +1,5 @@
+import {ActionType} from './actionTypes';
+
 const initialState = {
   isLoading: false,
   isError: false,
@@ -11,31 +13,31 @@ const initialState = {
   }],
 };
 
-export default function videoList(state = initialState, action) {
+function videoList(state = initialState, action) {
   switch (action.type) {
-    case 'LOADING': {
+    case ActionType.loading: {
       return {
         isLoading: true,
         isError: false,
         video: state.video,
       };
     }
-    case 'FETCH_SUCCESS': {
+    case ActionType.fetch_success: {
       return {
         isLoading: false,
         isError: false,
-        video: action.GlobalStore.video,
+        video: action.payload.video,
       };
     }
-    case 'ERROR': {
+    case ActionType.error: {
       return {
         isLoading: false,
         isError: true,
         video: [],
       };
     }
-    case 'APPEND_SUCCESS': {
-      const videoArray = state.video.concat(action.GlobalStore.video);
+    case ActionType.append_success: {
+      const videoArray = state.video.concat(action.payload.video);
       return {
         isLoading: false,
         isError: false,
@@ -47,3 +49,5 @@ export default function videoList(state = initialState, action) {
     }
   }
 }
+
+export default videoList;

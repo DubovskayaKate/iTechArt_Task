@@ -1,3 +1,5 @@
+import {ActionType} from '../store/actionTypes';
+
 const API_KEY = 'AIzaSyALMiCr_df0KxwdiWxpGeQBSCrczG5RcRs';
 let nextPageToken;
 let searchString;
@@ -37,20 +39,18 @@ export function loadSources(searchStr, isAppend) {
       .then(
         (video) => {
           if (isAppend) {
-            console.log('append');
-            dispatch({ type: 'APPEND_SUCCESS', GlobalStore: { video } });
+            dispatch({ type: ActionType.append_success, payload: { video } });
           } else {
-            console.log('fetch');
-            dispatch({ type: 'FETCH_SUCCESS', GlobalStore: { video } });
+            dispatch({ type: ActionType.fetch_success, payload: { video } });
           }
         },
       )
-      .catch((errorStr) => {
-        dispatch({ type: errorStr, GlobalStore: {} });
+      .catch(() => {
+        dispatch({ type: ActionType.error, payload: {} });
       });
   };
 }
 
 export function loading() {
-  return { type: 'LOADING', GlobalStore: {} };
+  return { type: 'LOADING', payload: {} };
 }

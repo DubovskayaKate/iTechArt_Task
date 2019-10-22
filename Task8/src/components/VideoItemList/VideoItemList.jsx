@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import VideoItem from '../VideoItem/VideoItem';
+
 import './VideoItemList.css';
 
 class VideoItemList extends Component {
@@ -11,15 +12,15 @@ class VideoItemList extends Component {
   }
 
   renderList() {
-    return (this.props.GlobalStore.video.map((video) => (
-      <VideoItem
-        key={video.id}
-        imageUrlMedium={video.imageUrlMedium}
-        imageUrlHigh={video.imageUrlHigh}
-        imageUrlDefault={video.imageUrlDefault}
-        title={video.title}
-        description={video.description}
-      />
+    return (this.props.payload.video.map((video) => (
+        <VideoItem
+          key={video.id}
+          imageUrlMedium={video.imageUrlMedium}
+          imageUrlHigh={video.imageUrlHigh}
+          imageUrlDefault={video.imageUrlDefault}
+          title={video.title}
+          description={video.description}
+        />
     ))
     );
   }
@@ -32,6 +33,6 @@ class VideoItemList extends Component {
 
 export default connect(
   (state) => ({
-    GlobalStore: state,
+    payload: state,
   }),
 )(VideoItemList);
