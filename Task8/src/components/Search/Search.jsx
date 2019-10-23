@@ -12,12 +12,8 @@ class Search extends Component {
     super(props);
     this.props = props;
     this.textInput = React.createRef();
-  }
-
-  loadVideo() {
-    const { onLoadVideo } = this.props;
-    onLoadVideo(this.textInput.current.value);
-  }
+    console.log(this.props.theme);
+  }  
 
   render() {
     const { buttonName } = this.props;
@@ -30,7 +26,7 @@ class Search extends Component {
           ref={this.textInput}
         />
         <button
-          onClick={this.loadVideo.bind(this)}
+          onClick={() => this.props.loadVideo()(this.textInput.current.value, false)}
           className="search__button"
           type="submit"
         >
@@ -42,7 +38,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-  onLoadVideo: PropTypes.func.isRequired,
+  loadVideo: PropTypes.func.isRequired,
   buttonName: PropTypes.string.isRequired,
 };
 
@@ -51,9 +47,8 @@ export default connect(
     payload: state,
   }),
   (dispatch) => ({
-    onLoadVideo: (searchString) => {
-      const action = bindActionCreators(TodoActionCreators, dispatch);
-      action.loadSources(searchString, false);
-    },
+    loadVideo: () => 
+      bindActionCreators(TodoActionCreators.loadSources, dispatch)
+    
   }),
 )(Search);

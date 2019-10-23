@@ -3,16 +3,10 @@ import PropTypes from 'prop-types';
 
 import './VideoItem.css';
 
-class VideoItem extends Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
-
-  render() {
+function VideoItem(props) {
     const {
       imageUrlDefalt, imageUrlMedium, imageUrlHigh, title, description,
-    } = this.props;
+    } = props;
     return (
       <article className="video-list__video-item">
         <img
@@ -32,7 +26,6 @@ class VideoItem extends Component {
         </div>
       </article>
     );
-  }
 }
 
 VideoItem.propTypes = {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Search from '../Search/Search';
+import ThemeContext from '../Сontext/context';
 
 import './Header.css';
 
@@ -13,7 +14,9 @@ class Header extends Component {
   render() {
     return (
       <header className="header__context">
-        <Search buttonName="Search" />
+        <ThemeContext.Consumer>
+          {theme => <Search buttonName="Search" theme={theme}/>}
+        </ThemeContext.Consumer>
       </header>
     );
   }

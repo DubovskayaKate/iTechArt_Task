@@ -4,8 +4,10 @@ const API_KEY = 'AIzaSyALMiCr_df0KxwdiWxpGeQBSCrczG5RcRs';
 let nextPageToken;
 let searchString;
 
+
 export function loadSources(searchStr, isAppend) {
     return function load(dispatch) {
+
         dispatch({ type: ActionType.loading, payload: {} });
         let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${API_KEY}`;
         if (isAppend) {
@@ -14,7 +16,9 @@ export function loadSources(searchStr, isAppend) {
             searchString = searchStr;
             url += `&q=${searchStr}`;
         }
+
         const request = new Request(url);
+
         fetch(request)
             .then(
                 (response) => {

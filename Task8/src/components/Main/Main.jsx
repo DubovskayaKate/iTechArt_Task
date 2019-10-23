@@ -9,17 +9,12 @@ import * as TodoActionCreators from '../../api/video';
 
 import './Main.css';
 
+
 class Main extends Component {
   constructor(props) {
     super(props);
     this.props = props;
   }
-
-  appendVideo() {
-    const { onAppendVideo } = this.props;
-    onAppendVideo();
-  }
-
   render() {
     const { payload } = this.props;
     const { isError, isLoading } = payload;
@@ -51,7 +46,7 @@ class Main extends Component {
         </section>
 
         <button
-          onClick={this.appendVideo.bind(this)}
+          onClick={() => this.props.appendVideo()('', true)}
           className={classNamesButton}
           type="submit"
         >
@@ -68,18 +63,18 @@ Main.propTypes = {
     isError: PropTypes.bool,
     isLoading: PropTypes.bool,
   }).isRequired,
-  onAppendVideo: PropTypes.func.isRequired,
+  appendVideo: PropTypes.func.isRequired,
 };
+
 
 export default connect(
   (state) => ({
     payload: state,
   }),
   (dispatch) => ({
-    onAppendVideo: () => {
-      const action = bindActionCreators(TodoActionCreators, dispatch);
-      action.loadSources('', true);
-    },
+    appendVideo: () => 
+      bindActionCreators(TodoActionCreators.loadSources, dispatch)
+    
   }
   ),
 )(Main);
