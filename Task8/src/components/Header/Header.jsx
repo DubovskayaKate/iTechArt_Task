@@ -12,9 +12,9 @@ class Header extends Component {
 
   render() {
     return (
-        <header className="header__context">
-            <Search buttonName="Search" />
-        </header>
+      <header className="header__context">
+        <Search buttonName="Search" />
+      </header>
     );
   }
 }

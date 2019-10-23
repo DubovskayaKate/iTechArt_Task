@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import * as TodoActionCreators from '../../api/video';
 
@@ -14,29 +15,36 @@ class Search extends Component {
   }
 
   loadVideo() {
-    this.props.onLoadVideo(this.textInput.current.value);
+    const { onLoadVideo } = this.props;
+    onLoadVideo(this.textInput.current.value);
   }
 
   render() {
+    const { buttonName } = this.props;
     return (
-        <div className="header__search">
-            <input
-              className="search__input"
-              type="text"
-              size="30"
-              ref={this.textInput}
-            />
-            <button
-              onClick={this.loadVideo.bind(this)}
-              className="search__button"
-              type="submit"
-            >
-                {this.props.buttonName}
-            </button>
-        </div>
+      <div className="header__search">
+        <input
+          className="search__input"
+          type="text"
+          size="30"
+          ref={this.textInput}
+        />
+        <button
+          onClick={this.loadVideo.bind(this)}
+          className="search__button"
+          type="submit"
+        >
+          {buttonName}
+        </button>
+      </div>
     );
   }
 }
+
+Search.propTypes = {
+  onLoadVideo: PropTypes.func.isRequired,
+  buttonName: PropTypes.string.isRequired,
+};
 
 export default connect(
   (state) => ({
@@ -45,7 +53,6 @@ export default connect(
   (dispatch) => ({
     onLoadVideo: (searchString) => {
       const action = bindActionCreators(TodoActionCreators, dispatch);
-      action.loading();
       action.loadSources(searchString, false);
     },
   }),

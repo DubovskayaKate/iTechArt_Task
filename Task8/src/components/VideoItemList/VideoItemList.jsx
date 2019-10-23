@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import VideoItem from '../VideoItem/VideoItem';
 
@@ -12,15 +13,16 @@ class VideoItemList extends Component {
   }
 
   renderList() {
-    return (this.props.payload.video.map((video) => (
-        <VideoItem
-          key={video.id}
-          imageUrlMedium={video.imageUrlMedium}
-          imageUrlHigh={video.imageUrlHigh}
-          imageUrlDefault={video.imageUrlDefault}
-          title={video.title}
-          description={video.description}
-        />
+    const { payload } = this.props;
+    return (payload.video.map((video) => (
+      <VideoItem
+        key={video.id}
+        imageUrlMedium={video.imageUrlMedium}
+        imageUrlHigh={video.imageUrlHigh}
+        imageUrlDefault={video.imageUrlDefault}
+        title={video.title}
+        description={video.description}
+      />
     ))
     );
   }
@@ -30,6 +32,12 @@ class VideoItemList extends Component {
     return list;
   }
 }
+
+VideoItemList.propTypes = {
+  payload: PropTypes.shape({
+    video: PropTypes.array,
+  }).isRequired,
+};
 
 export default connect(
   (state) => ({
