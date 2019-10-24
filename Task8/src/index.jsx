@@ -4,6 +4,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import "regenerator-runtime/runtime";
 
 import videoList from "./store/reducer";
 import App from "./components/App/App";

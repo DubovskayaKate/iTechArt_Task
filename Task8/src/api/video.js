@@ -4,6 +4,29 @@ const API_KEY = 'AIzaSyALMiCr_df0KxwdiWxpGeQBSCrczG5RcRs';
 let nextPageToken;
 let searchString;
 
+async function loading(url,dispatch, isAppend){
+    try{
+        const request = new Request(url);
+        let res = await fetch(request);
+        let data = await res.json();
+        let video = data.items.map((video) => ({
+                imageUrlMedium: video.snippet.thumbnails.medium.url,
+                imageUrlHigh: video.snippet.thumbnails.high.url,
+                imageUrlDefault: video.snippet.thumbnails.default.url,
+                title: video.snippet.title,
+                description: video.snippet.description,
+                id: (video.id.videoId == null) ? video.id.channelId : video.id.videoId,
+            }));
+            if (isAppend) {
+                dispatch({ type: ActionType.append_success, payload: { video } });
+            } else {
+                dispatch({ type: ActionType.fetch_success, payload: { video } });
+            }
+    }
+    catch(e){
+        dispatch({ type: ActionType.error, payload: {} });
+    }
+}
 
 export function loadSources(searchStr, isAppend) {
     return function load(dispatch) {
@@ -16,9 +39,12 @@ export function loadSources(searchStr, isAppend) {
             searchString = searchStr;
             url += `&q=${searchStr}`;
         }
+        loading(url, dispatch, isAppend);
 
-        const request = new Request(url);
+       
 
+        
+/*
         fetch(request)
             .then(
                 (response) => {
@@ -52,6 +78,6 @@ export function loadSources(searchStr, isAppend) {
             )
             .catch(() => {
                 dispatch({ type: ActionType.error, payload: {} });
-            });
+            });*/
     };
 }
