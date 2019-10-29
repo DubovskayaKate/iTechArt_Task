@@ -6,21 +6,21 @@ import ThemeContext from '../Сontext/context';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
 
-  render() {
-    return (
-      <div className="layout">
-        <ThemeContext.Provider value="green">
-          <Header />
-          <Main />
-        </ThemeContext.Provider>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="layout">
+                <ThemeContext.Provider value="green">
+                    <Header />
+                    <Main />
+                </ThemeContext.Provider>
+            </div>
+        );
+    }
 }
 
 export default (App);
