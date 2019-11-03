@@ -1,0 +1,42 @@
+.main__videolist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.main__load-image {
+    display: none;
+    width: 20%;
+    margin: 0 auto;
+}
+
+.main__error-label {
+    display: none;
+    color: rgb(212, 26, 26);
+    font-size: 18px;
+    text-align: center;
+}
+
+.main__error-label--error {
+    display: block;
+}
+
+.main__load-button {
+    display: none;
+    width: 20%;
+    margin: 30px auto;
+    padding: 5px;
+    color: #34b22b;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #022f02;
+}
+
+.main__load-button--success {
+    display: block;
+}
+
+.main__load-image--loading {
+    display: block;
+}
