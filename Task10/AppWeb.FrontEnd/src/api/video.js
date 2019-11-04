@@ -9,24 +9,22 @@ async function loading(url, dispatch, isAppend) {
         const request = new Request(url);
         const res = await fetch(request, {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
-            mode: 'no-cors', // no-cors, *cors, same-origin
+            mode: 'cors', // no-cors, *cors, same-origin
             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
             headers: {
               'Content-Type': 'application/json'
-              // 'Content-Type': 'application/x-www-form-urlencoded',
             }
           });
-        console.log(res);
+
         const data = await res.json();
-        console.log(data);
-        nextPageToken = data.nextPageToken;
-        const videoItems = data.items.map((video) => ({
-            imageUrlMedium: video.snippet.thumbnails.medium.url,
-            imageUrlHigh: video.snippet.thumbnails.high.url,
-            imageUrlDefault: video.snippet.thumbnails.default.url,
-            title: video.snippet.title,
-            description: video.snippet.description,
-            id: (video.id.videoId == null) ? video.id.channelId : video.id.videoId,
+        //nextPageToken = data.nextPageToken;
+        const videoItems = data.map((video) => ({
+            imageUrlMedium : video.imageUrlMedium,
+            imageUrlHigh: video.imageUrlHigh,
+            imageUrlDefault : video.imageUrlDefault,
+            title : video.title,
+            description : video.description,
+            id : video.id,
         }));
         console.log(videoItems);
         if (isAppend) {
@@ -44,7 +42,7 @@ export function loadSources(searchStr, isAppend) {
     return function load(dispatch) {
         dispatch({ type: ActionType.loading, payload: {} });
         //let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${API_KEY}`;
-        let url = `http://localhost:59517/api/youtube/q=katya`;
+        let url = `http://localhost:59517/api/youtube/`;
         if (isAppend) {
             url += `&q=${searchString}&pageToken=${nextPageToken}`;
         } else {

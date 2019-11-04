@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace App.Controllers
 {
@@ -15,22 +16,16 @@ namespace App.Controllers
     [ApiController]
     public class YoutubeController : ControllerBase
     {
-        //// GET api/youtube
-        //[HttpGet]
-        //public ActionResult<IEnumerable<string>> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
         // GET api/values/{q= & token=}
         [HttpGet("{query}")]
-        [EnableCors]
-        public IActionResult GetAsync(string query)
+        [EnableCors("somepolicy")]
+        public async Task<IActionResult> GetAsync(string query)
         {
-            var video = new YoutubeItem("img", "img", "img", "title", "discrip", "id");
+            var video1 = new YoutubeItem("img", "img", "img", "title", "discrip", "id1");
+            var video2 = new YoutubeItem("img", "img", "img", "title", "discrip", "id2");
 
-            //await video.GetFromApi(query);
-            return Ok(video);
+            //video1.GetFromApi(query);
+            return Ok(await video1.GetFromApi(query));
         }
 
         public class YoutubeItem
@@ -56,43 +51,40 @@ namespace App.Controllers
                 this.title = title;
             }
 
-            public async Task GetFromApi(string query)
+            public async Task<List<YoutubeItem>> GetFromApi(string query)
             {
                 HttpClient client = new HttpClient();
+                var videoList = new List<YoutubeItem>();
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync($"https://www.googleapis.com/youtube/v3/search?part=snippet&key={this.API_KEY}&q=css");
+                    HttpResponseMessage response = await client.GetAsync($"https://www.googleapis.com/youtube/v3/search?part=snippet&key={this.API_KEY}&{query}");
                     response.EnsureSuccessStatusCode();
-                    object responseBody = await response.Content.ReadAsStringAsync();
-                    // Above three lines can be replaced with new helper method below
-                    // string responseBody = await client.GetStringAsync(uri);
+                    var responseBody = await response.Content.ReadAsAsync<JObject>();
 
-                    Console.WriteLine(responseBody);
+                    for (var i = 0; i < 5; i++) {
+
+                        var item = responseBody["items"][i];
+                        string id = (string)item["id"]["videoId"];
+                        videoList.Add(new YoutubeItem(
+                            (string)item["snippet"]["thumbnails"]["medium"]["url"],
+                            (string)item["snippet"]["thumbnails"]["high"]["url"],
+                            (string)item["snippet"]["thumbnails"]["default"]["url"],
+                            (string)item["snippet"]["title"],
+                            (string)item["snippet"]["description"],
+                            id ?? (string)item["id"]["channelId"]
+                            )
+                        );
+                    }
+                    return videoList;
                 }
                 catch (HttpRequestException e)
                 {
 
                 }
                 client.Dispose();
+                return null;
             }
         }
 
-        //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

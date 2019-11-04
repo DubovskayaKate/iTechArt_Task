@@ -49,7 +49,7 @@ namespace App
             {
                 app.UseHsts();
             }
-            app.UseCors();
+            app.UseCors("somepolicy");
             app.UseHttpsRedirection();
             app.UseMvc();
         }
