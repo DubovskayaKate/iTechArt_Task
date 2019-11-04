@@ -17,8 +17,8 @@ async function loading(url, dispatch, isAppend) {
           });
 
         const data = await res.json();
-        //nextPageToken = data.nextPageToken;
-        const videoItems = data.map((video) => ({
+        nextPageToken = data.nextPageToken;
+        const videoItems = data.video.map((video) => ({
             imageUrlMedium : video.imageUrlMedium,
             imageUrlHigh: video.imageUrlHigh,
             imageUrlDefault : video.imageUrlDefault,
@@ -41,7 +41,6 @@ async function loading(url, dispatch, isAppend) {
 export function loadSources(searchStr, isAppend) {
     return function load(dispatch) {
         dispatch({ type: ActionType.loading, payload: {} });
-        //let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${API_KEY}`;
         let url = `http://localhost:59517/api/youtube/`;
         if (isAppend) {
             url += `&q=${searchString}&pageToken=${nextPageToken}`;
@@ -50,40 +49,6 @@ export function loadSources(searchStr, isAppend) {
             url += `&q=${searchStr}`;
         }
         loading(url, dispatch, isAppend);
-        /*
-        fetch(request)
-            .then(
-                (response) => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    return Promise.reject('Connection error');
-                },
-            )
-            .then(
-                (data) => {
-                    nextPageToken = data.nextPageToken;
-                    return data.items.map((video) => ({
-                        imageUrlMedium: video.snippet.thumbnails.medium.url,
-                        imageUrlHigh: video.snippet.thumbnails.high.url,
-                        imageUrlDefault: video.snippet.thumbnails.default.url,
-                        title: video.snippet.title,
-                        description: video.snippet.description,
-                        id: (video.id.videoId == null) ? video.id.channelId : video.id.videoId,
-                    }));
-                },
-            )
-            .then(
-                (video) => {
-                    if (isAppend) {
-                        dispatch({ type: ActionType.append_success, payload: { video } });
-                    } else {
-                        dispatch({ type: ActionType.fetch_success, payload: { video } });
-                    }
-                },
-            )
-            .catch(() => {
-                dispatch({ type: ActionType.error, payload: {} });
-            }); */
+       
     };
 }
