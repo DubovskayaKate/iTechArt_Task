@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using App.Entities;
 using Newtonsoft.Json.Linq;
-using static App.Controllers.YoutubeController;
 
 namespace App.Services
 {
     public class YoutubeService
     {
         private readonly string API_KEY = "AIzaSyALMiCr_df0KxwdiWxpGeQBSCrczG5RcRs";
-
         public async Task<YoutubeResponse> GetFromApi(string query)
         {
             HttpClient client = new HttpClient();
@@ -29,14 +25,14 @@ namespace App.Services
                 {
                     var item = responseBody["items"][i];
                     string id = (string)item["id"]["videoId"];
-                    videoList.Add(new YoutubeItem(
-                            (string)item["snippet"]["thumbnails"]["medium"]["url"],
-                            (string)item["snippet"]["thumbnails"]["high"]["url"],
-                            (string)item["snippet"]["thumbnails"]["default"]["url"],
-                            (string)item["snippet"]["title"],
-                            (string)item["snippet"]["description"],
-                            id ?? (string)item["id"]["channelId"]
-                        )
+                    videoList.Add(new YoutubeItem { 
+                            ImageUrlMedium = (string)item["snippet"]["thumbnails"]["medium"]["url"],
+                            ImageUrlHigh = (string)item["snippet"]["thumbnails"]["high"]["url"],
+                            ImageUrlDefault = (string)item["snippet"]["thumbnails"]["default"]["url"],
+                            Title = (string)item["snippet"]["title"],
+                            Description = (string)item["snippet"]["description"],
+                            Id = id ?? (string)item["id"]["channelId"]
+                        }
                     );
                 }
 
