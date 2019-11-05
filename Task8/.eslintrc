@@ -1,0 +1,22 @@
+{
+    "plugins": [
+        "react"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb/hooks" 
+    ],
+    "rules": {
+        "no-set-state": "off",
+        "react/destructuring-assignment": 1,
+        "react/prop-types": 1,
+        "prefer-promise-reject-errors" : 1,
+        "no-undef" : 1,
+        "linebreak-style": ["error", "windows"],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],  
+        "indent": ["error", 4,  {"SwitchCase": 1}],
+    }
+}

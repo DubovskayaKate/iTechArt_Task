@@ -1,0 +1,49 @@
+.video-item__video-image {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.video-item__video-info {
+    padding: 10px;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.video-item__video-title {
+    color: #34b22b;
+    font-size: 12px;
+}
+
+.video-item__video-desciption {
+    color: #2b7026;
+    font-size: 10px;
+    text-overflow: ellipsis;
+}
+
+@media (min-width: 330px) {
+    .video-item__video-title {
+        font-size: 18px;
+    }
+
+    .video-item__video-desciption {
+        font-size: 16px;
+    }
+
+    .video-item__video-info {
+        margin: 18px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .video-item__video-title {
+        font-size: 25px;
+    }
+
+    .video-item__video-desciption {
+        font-size: 21px;
+    }
+
+    .video-item__video-info {
+        margin: 30px;
+    }
+}
