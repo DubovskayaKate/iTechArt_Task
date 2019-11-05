@@ -8,14 +8,13 @@ namespace App.Services
 {
     public class YoutubeService
     {
-        private readonly string API_KEY = "AIzaSyALMiCr_df0KxwdiWxpGeQBSCrczG5RcRs";
         public async Task<YoutubeResponse> GetFromApi(string query)
         {
             HttpClient client = new HttpClient();
             var videoList = new List<YoutubeItem>();
             try
             {
-                HttpResponseMessage response = await client.GetAsync($"https://www.googleapis.com/youtube/v3/search?part=snippet&key={this.API_KEY}&{query}");
+                HttpResponseMessage response = await client.GetAsync($"{Startup.Url}?part=snippet&key={Startup.ApiKey}&{query}");
                 response.EnsureSuccessStatusCode();
                 var responseBody = await response.Content.ReadAsAsync<JObject>();
 
