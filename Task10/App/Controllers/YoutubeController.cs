@@ -10,13 +10,18 @@ namespace App.Controllers
     [ApiController]
     public class YoutubeController : ControllerBase
     {
+        public YoutubeService YoutubeService { get; }
+        public YoutubeController(YoutubeService youtubeService)
+        {
+            YoutubeService = youtubeService;
+        }
+
         // GET api/values/{q= & token=}
         [HttpGet("{query}")]
         [EnableCors("AllowAll")]
         public async Task<IActionResult> GetAsync(string query)
         {
-            var service = new YoutubeService();
-            return Ok(await service.GetFromApi(query));
+            return Ok(await YoutubeService.GetFromApi(query));
         }
     }
 }
